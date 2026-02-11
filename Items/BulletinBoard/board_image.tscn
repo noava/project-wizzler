@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cq1hhps1y3mn6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_72tdc"]
+
+[node name="TextureRect" type="TextureRect" unique_id=464516316]
+custom_minimum_size = Vector2(256, 144)
+texture = SubResource("NoiseTexture2D_72tdc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1245593129]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "awdawd"

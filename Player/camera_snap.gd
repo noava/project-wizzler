@@ -1,0 +1,50 @@
+extends Node3D
+# TODO: Change to camera objects camera viewport
+@onready var cam_ui: CanvasLayer = $CamUI
+@export var distance_from_camera: float = 2.0
+
+func _ready() -> void:
+	pass
+
+
+func _process(_delta: float) -> void:
+	_snap_picture()
+
+
+func _snap_picture():
+	if Input.is_action_just_pressed("item_interact"):
+		cam_ui.hide()
+		print("taking a picture")
+		# Wait for 2 frames to hide the cam UI
+		await get_tree().process_frame
+		await get_tree().process_frame
+		# TODO: Change viewport to virtual camera
+		var viewport = get_viewport()
+		var texture = viewport.get_texture()
+		var imgtex = ImageTexture.create_from_image(texture.get_image())
+		
+		# TODO: remove ui elements
+		
+		print(get_insects_in_frame())
+		
+		Global.imagesTaken.append({
+			"texture": imgtex,
+			"insects": get_insects_in_frame()
+		})
+		cam_ui.get_node("TextureRect").texture = imgtex
+		cam_ui.show()
+
+func get_insects_in_frame() -> Array:
+	var camera = $"../Camera3D"
+	var insects_in_frame = []
+	
+	# Don't know how this scales up when there are many insects in scene.
+	for insect in get_tree().get_nodes_in_group("insect"):
+		var distance = camera.global_position.distance_to(insect.global_position)
+		if camera.is_position_in_frustum(insect.global_position) and distance <= distance_from_camera:
+			# TODO: Don't count insects behind objects?
+			# TODO: Zoom allows insects to be detected on longer distances. Make another zoom function for camera using scrollwheel
+			# TODO: Change to insect.data to get more info from the insect. Use a resource
+			insects_in_frame.append(str(insect.name))
+	
+	return insects_in_frame

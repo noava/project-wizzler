@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://brs1sd855j0oc"]
+
+[ext_resource type="PackedScene" uid="uid://w4dtpjlscdqi" path="res://Items/BulletinBoard/bulletin_board_info.tscn" id="2_m23of"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qnxn1"]
+viewport_path = NodePath("Plane/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtv34"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qnxn1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m23of"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_mtv34")
+size = Vector2(4, 2)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnxn1"]
+albedo_color = Color(0.24058232, 0.12656176, 0.021025136, 1)
+
+[node name="BulletinBoard" type="Node3D" unique_id=1237578697]
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=1787702835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("PlaneMesh_m23of")
+
+[node name="SubViewport" type="SubViewport" parent="Plane" unique_id=373031937]
+size = Vector2i(1152, 648)
+
+[node name="BulletinBoardInfo" parent="Plane/SubViewport" unique_id=420336493 instance=ExtResource("2_m23of")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=792452117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 1.5, 0)
+use_collision = true
+size = Vector3(0.035839844, 2.1, 4.1)
+material = SubResource("StandardMaterial3D_qnxn1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1856120006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053, 0.3, -1.2)
+use_collision = true
+radius = 0.048339844
+height = 0.6
+material = SubResource("StandardMaterial3D_qnxn1")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2029663664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053, 0.3, 1.2)
+use_collision = true
+radius = 0.048339844
+height = 0.6
+material = SubResource("StandardMaterial3D_qnxn1")

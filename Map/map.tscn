@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cvxwel5g7oofg"]
+
+[ext_resource type="PackedScene" uid="uid://bhe5ctq1pp74b" path="res://Player/player.tscn" id="2_njngi"]
+[ext_resource type="PackedScene" uid="uid://brs1sd855j0oc" path="res://Items/BulletinBoard/bulletin_board.tscn" id="3_6yc6o"]
+[ext_resource type="PackedScene" uid="uid://djibjh5o16grl" path="res://Items/Insect/insect.tscn" id="4_86j4t"]
+[ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="5_8svjd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_bottom_color = Color(0.20101696, 0.20264667, 0.1499325, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6yc6o"]
+sky_material = SubResource("ProceduralSkyMaterial_njngi")
+
+[sub_resource type="Environment" id="Environment_86j4t"]
+background_mode = 2
+sky = SubResource("Sky_6yc6o")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lymsy"]
+albedo_color = Color(0.007843138, 0.15686275, 0.050980393, 1)
+uv1_scale = Vector3(7.595, 7.595, 7.595)
+uv1_triplanar_sharpness = 6.7271757
+
+[node name="Map" type="Node3D" unique_id=1335930776]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1602354383]
+environment = SubResource("Environment_86j4t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1129760026]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1538208269 instance=ExtResource("2_njngi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020005, 7.8691673)
+
+[node name="Floor" type="Node3D" parent="." unique_id=737060628]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=222698270]
+material_override = SubResource("StandardMaterial3D_lymsy")
+use_collision = true
+size = Vector3(16, 0.1, 16)
+
+[node name="BulletinBoard" parent="." unique_id=1237578697 instance=ExtResource("3_6yc6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5952764, 0.05000019, 0.8673773)
+
+[node name="Insect" parent="." unique_id=176088785 instance=ExtResource("4_86j4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.240478, 0.1500002, 4.7583346)
+
+[node name="Insect2" parent="." unique_id=1647366041 instance=ExtResource("4_86j4t")]
+transform = Transform3D(-0.16628689, 0, -0.9860774, 0, 1, 0, 0.9860774, 0, -0.16628689, 5.0392904, 0.1500002, 2.242754)
+
+[node name="Insect3" parent="." unique_id=54224058 instance=ExtResource("4_86j4t")]
+transform = Transform3D(0.26740652, 0, 0.9635838, 0, 1, 0, -0.9635838, 0, 0.26740652, 2.4710822, 0.1500002, 2.535977)
+
+[node name="Ball" parent="." unique_id=1293081392 instance=ExtResource("5_8svjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578871)

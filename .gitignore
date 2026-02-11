@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.vscode/
+
+/Exports/
+
+*.blend1
+
+*.tmp

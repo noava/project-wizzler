@@ -1,0 +1,166 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch10bvxhku6xo"]
+
+[ext_resource type="Script" uid="uid://cvhkt5onf4dpi" path="res://Menu/in_game_menu.gd" id="1_2w11b"]
+[ext_resource type="Theme" uid="uid://calu8os4ei520" path="res://UI/Theme/ui_theme.tres" id="1_igoho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igoho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tik3w"]
+bg_color = Color(0.20069808, 0.12254716, 1.2032688e-08, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="InGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_igoho")
+script = ExtResource("1_2w11b")
+
+[node name="Choices" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -65.0
+offset_right = 127.0
+offset_bottom = 68.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Choices"]
+layout_mode = 2
+text = "Paused"
+
+[node name="Resume" type="Button" parent="Choices"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+alignment = 0
+
+[node name="Settings" type="Button" parent="Choices"]
+layout_mode = 2
+text = "Settings"
+alignment = 0
+
+[node name="HSeparator" type="HSeparator" parent="Choices"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_igoho")
+
+[node name="Leave" type="Button" parent="Choices"]
+layout_mode = 2
+text = "Leave"
+alignment = 0
+
+[node name="Settings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -65.0
+offset_right = 190.0
+offset_bottom = 44.0
+grow_vertical = 2
+
+[node name="Settings" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Fullscreen" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Toggle Fullscreen"
+alignment = 0
+
+[node name="FPSButton" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Toggle FPS"
+alignment = 0
+
+[node name="Go back" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Go back"
+alignment = 0
+
+[node name="AreYouSure" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -93.0
+offset_right = 96.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AreYouSure"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 28.0
+offset_right = 184.0
+offset_bottom = 144.0
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tik3w")
+
+[node name="MarginContainer" type="MarginContainer" parent="AreYouSure/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Are you sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "All progress gets deleted."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NoButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Stay!"
+
+[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="YesButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Leave!!"
+
+[connection signal="pressed" from="Choices/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Choices/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Choices/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Settings/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Settings/FPSButton" to="." method="_on_fps_button_pressed"]
+[connection signal="pressed" from="Settings/Go back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]

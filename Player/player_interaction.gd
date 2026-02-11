@@ -1,0 +1,110 @@
+extends Node
+
+@export_category("Key Binds")
+@export_subgroup("Interacting")
+@export var KEY_INTERACT := "interact"
+@export var KEY_DROP := "drop"
+@export var KEY_THROW := "throw"
+
+@onready var player_model: Node3D = $"../PlayerModel"
+@onready var head: Node3D = $"../Head"
+@onready var ray_cast: RayCast3D = $"../Head/RayCast3D"
+@onready var item_holder: Node3D = $"../Head/ItemHolder"
+@onready var pickup_label: Label = $"../HUD/PickupLabel"
+
+var holding_item = false
+var item_data = null
+var original_parent = null
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(KEY_INTERACT):
+		interact_with_item()
+	
+	if Input.is_action_just_pressed(KEY_DROP):
+		if $"..".is_on_floor(): # Player on floor
+			place_carried_item()
+		else:
+			throw_carried_item()
+	
+	update_pickup_label()
+
+
+func update_pickup_label() -> void:
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if collider and collider.is_in_group("pickupable") and not holding_item:
+			pickup_label.visible = true
+			pickup_label.text = "Press [E] to pick up"
+			
+		elif collider and collider.has_method("use_object"):
+			pickup_label.visible = true
+			if not holding_item:
+				pickup_label.text = "Press [E] to use"
+			else:
+				pickup_label.text = "Drop the item first"
+		
+		else:
+			pickup_label.visible = false
+	else:
+		pickup_label.visible = false
+
+
+func interact_with_item() -> void:
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		
+		if collider.is_in_group("pickupable") and not holding_item:
+			carry_item_from_world(collider)
+		
+		if collider.has_method("use_object") and not holding_item:
+				collider.use_object()
+
+
+func carry_item_from_world(carried_node: Node3D):
+	holding_item = true
+	item_data = carried_node
+	original_parent = carried_node.get_parent()
+	carried_node.get_node("CollisionShape3D").disabled = true
+	carried_node.gravity_scale = 0
+	carried_node.freeze = true
+	carried_node.linear_velocity = Vector3.ZERO
+	carried_node.angular_velocity = Vector3.ZERO
+	carried_node.reparent(item_holder)
+	carried_node.position = Vector3(0, 0, 0)
+	carried_node.rotation = Vector3(0, 0, 0)
+
+
+func place_carried_item():
+	if item_holder.get_child_count() == 0:
+		return
+	var carried_node = item_holder.get_child(0)
+	carried_node.reparent(original_parent)
+
+	carried_node.global_position = head.global_position - head.global_transform.basis.z * 1.0 # 1 meter in front of head
+	carried_node.rotation = player_model.rotation
+
+	carried_node.get_node("CollisionShape3D").disabled = false
+	carried_node.gravity_scale = 1
+	carried_node.freeze = false
+	remove_held_item()
+
+
+func throw_carried_item():
+	if not holding_item or item_holder.get_child_count() == 0:
+		return
+	
+	var carried_node = item_holder.get_child(0)
+	place_carried_item()
+
+	if carried_node and carried_node is RigidBody3D:
+		var throw_direction = -head.global_transform.basis.z.normalized()
+		carried_node.apply_central_impulse(throw_direction * 8.0)
+
+
+func remove_held_item():
+	holding_item = false
+	item_data = null
+	original_parent = null
+	
+	if item_holder.get_child_count() > 0 and item_holder.get_child(0):
+		item_holder.get_child(0).queue_free()

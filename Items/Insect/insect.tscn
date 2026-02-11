@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://djibjh5o16grl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt7xw"]
+height = 0.4
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt7xw"]
+albedo_color = Color(0.3553136, 0.35531354, 0.35531357, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jsbw6"]
+material = SubResource("StandardMaterial3D_tt7xw")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.4
+
+[node name="Insect" type="RigidBody3D" unique_id=176088785 groups=["insect", "pickupable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=442397522]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_tt7xw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=275629110]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_jsbw6")

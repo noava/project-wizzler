@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dj2ejog8mi78g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2hd6j"]
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7scv"]
+albedo_color = Color(0.96, 0.45824003, 0.3456, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x7scv"]
+radius = 0.2
+height = 0.4
+
+[node name="Ball" type="RigidBody3D" unique_id=1571310956 groups=["pickupable"]]
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1891242382]
+shape = SubResource("SphereShape3D_2hd6j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=181445768]
+material_override = SubResource("StandardMaterial3D_x7scv")
+mesh = SubResource("SphereMesh_x7scv")
+skeleton = NodePath("../..")
