@@ -17,47 +17,72 @@ var item_data = null
 var original_parent = null
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(KEY_INTERACT):
-		interact_with_item()
+	handle_interactions()
 	
 	if Input.is_action_just_pressed(KEY_DROP):
 		if $"..".is_on_floor(): # Player on floor
 			place_carried_item()
 		else:
 			throw_carried_item()
+
+
+func handle_interactions() -> void:
+	var interact_pressed = Input.is_action_just_pressed(KEY_INTERACT)
 	
-	update_pickup_label()
-
-
-func update_pickup_label() -> void:
-	if ray_cast.is_colliding():
-		var collider = ray_cast.get_collider()
-		if collider and collider.is_in_group("pickupable") and not holding_item:
-			pickup_label.visible = true
-			pickup_label.text = "Press [E] to pick up"
-			
-		elif collider and collider.has_method("use_object"):
-			pickup_label.visible = true
-			if not holding_item:
-				pickup_label.text = "Press [E] to use"
-			else:
-				pickup_label.text = "Drop the item first"
-		
-		else:
-			pickup_label.visible = false
-	else:
+	if not ray_cast.is_colliding():
 		pickup_label.visible = false
-
-
-func interact_with_item() -> void:
-	if ray_cast.is_colliding():
-		var collider = ray_cast.get_collider()
+		return
+	
+	var collider = ray_cast.get_collider()
+	if not collider:
+		pickup_label.visible = false
+		return
+	
+	# Handle jar
+	if collider.is_in_group("jar"):
+		var can_insert = holding_item and item_data.is_in_group("insect") and not collider.insect_data
+		var can_extract = not holding_item and collider.insect_data
 		
-		if collider.is_in_group("pickupable") and not holding_item:
+		if can_insert or can_extract:
+			pickup_label.visible = true
+
+			if can_insert:
+				pickup_label.text = "Press [E] to insert insect"
+			else:
+				pickup_label.text =  "Press [E] to take out insect"
+			
+			if interact_pressed:
+				if can_insert:
+					collider.use_object(item_data)
+					remove_held_item()
+				else:
+					var insect_object = collider.insect_data
+					collider.use_object(insect_object)
+					carry_item_from_world(insect_object)
+			return
+	
+	# Handle pickupable items when not holding anything
+	if collider.is_in_group("pickupable") and not holding_item:
+		pickup_label.visible = true
+		pickup_label.text = "Press [E] to pick up"
+		
+		if interact_pressed:
 			carry_item_from_world(collider)
-		
-		if collider.has_method("use_object") and not holding_item:
+		return
+	
+	# Handle other usable objects (not jars)
+	if collider.has_method("use_object") and not collider.is_in_group("jar"):
+		pickup_label.visible = true
+		if not holding_item:
+			pickup_label.text = "Press [E] to use"
+			
+			if interact_pressed:
 				collider.use_object()
+		else:
+			pickup_label.text = "Drop the item first"
+		return
+	
+	pickup_label.visible = false
 
 
 func carry_item_from_world(carried_node: Node3D):
@@ -105,6 +130,3 @@ func remove_held_item():
 	holding_item = false
 	item_data = null
 	original_parent = null
-	
-	if item_holder.get_child_count() > 0 and item_holder.get_child(0):
-		item_holder.get_child(0).queue_free()
