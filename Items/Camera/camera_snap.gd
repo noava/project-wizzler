@@ -8,6 +8,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	$SubViewport/Camera3D.global_transform = self.global_transform
+	
 	_snap_picture()
 
 
@@ -15,11 +17,7 @@ func _snap_picture():
 	if Input.is_action_just_pressed("item_interact"):
 		cam_ui.hide()
 		print("taking a picture")
-		# Wait for 2 frames to hide the cam UI
-		await get_tree().process_frame
-		await get_tree().process_frame
-		# TODO: Change viewport to virtual camera
-		var viewport = get_viewport()
+		var viewport = $SubViewport
 		var texture = viewport.get_texture()
 		var imgtex = ImageTexture.create_from_image(texture.get_image())
 		
@@ -35,7 +33,7 @@ func _snap_picture():
 		cam_ui.show()
 
 func get_insects_in_frame() -> Array:
-	var camera = $"../Camera3D"
+	var camera = $SubViewport/Camera3D
 	var insects_in_frame = []
 	
 	# Don't know how this scales up when there are many insects in scene.

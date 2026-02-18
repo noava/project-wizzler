@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://v6e35u65li8o"]
+
+[ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Player/camera_snap.gd" id="1_jemxe"]
+[ext_resource type="PackedScene" uid="uid://deu010rii1unc" path="res://Items/Camera/Camera.glb" id="2_e6pwn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fhl08"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e6pwn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o78u6"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_e6pwn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0flkf"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_o78u6")
+size = Vector2(0.32, 0.18)
+
+[node name="CameraSnap" type="Node3D" unique_id=2078401157]
+script = ExtResource("1_jemxe")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="." unique_id=1638923622]
+remote_path = NodePath("../SubViewport/Camera3D")
+update_rotation = false
+update_scale = false
+
+[node name="CamUI" type="CanvasLayer" parent="." unique_id=1925762156]
+
+[node name="TextureRect" type="TextureRect" parent="CamUI" unique_id=453071018]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -707.0
+offset_top = -613.0
+offset_right = -387.0
+offset_bottom = -433.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+texture = SubResource("CanvasTexture_fhl08")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=231005395]
+size = Vector2i(320, 180)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=502685459]
+
+[node name="Camera" parent="." unique_id=1887362544 instance=ExtResource("2_e6pwn")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.042668074, -0.14893489, 0.17034006)
+
+[node name="Screen" type="MeshInstance3D" parent="." unique_id=455368817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08411887, -0.012919545, 0.35399416)
+mesh = SubResource("QuadMesh_0flkf")
