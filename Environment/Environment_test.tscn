@@ -1,0 +1,253 @@
+[gd_scene format=3 uid="uid://bslb3sqv4pg3c"]
+
+[ext_resource type="PackedScene" uid="uid://bhe5ctq1pp74b" path="res://Player/player.tscn" id="1_j8xfd"]
+[ext_resource type="Texture2D" uid="uid://nhjign453fsl" path="res://Environment_Models/sky_47_2k.png" id="1_k7wn3"]
+[ext_resource type="PackedScene" uid="uid://dx7mx2fxauyo7" path="res://Environment_Models/glTF/Bush_Common.gltf" id="2_bxnig"]
+[ext_resource type="PackedScene" uid="uid://c7ba1jfcnu1qj" path="res://Environment_Models/ground_test.glb" id="2_jod0x"]
+[ext_resource type="PackedScene" uid="uid://b3j2d1fkuoak2" path="res://Environment_Models/glTF/Bush_Common_Flowers.gltf" id="3_83wsh"]
+[ext_resource type="PackedScene" uid="uid://e4r25sygst18" path="res://Environment_Models/glTF/Clover_1.gltf" id="4_1bukh"]
+[ext_resource type="PackedScene" uid="uid://b31q488xppjk5" path="res://Environment_Models/glTF/Clover_2.gltf" id="5_myanu"]
+[ext_resource type="PackedScene" uid="uid://cqixf21j8vbd7" path="res://Environment_Models/glTF/CommonTree_1.gltf" id="6_a8x02"]
+[ext_resource type="PackedScene" uid="uid://b24arfw32hg85" path="res://Environment_Models/glTF/CommonTree_2.gltf" id="7_2qmpo"]
+[ext_resource type="PackedScene" uid="uid://ctvmk3w85wsoy" path="res://Environment_Models/glTF/CommonTree_3.gltf" id="8_6h3sa"]
+[ext_resource type="PackedScene" uid="uid://duo7oqvuhqe4x" path="res://Environment_Models/glTF/CommonTree_4.gltf" id="9_1ek4m"]
+[ext_resource type="PackedScene" uid="uid://cu8lrv1ti4ehf" path="res://Environment_Models/glTF/CommonTree_5.gltf" id="10_kf7xx"]
+[ext_resource type="PackedScene" uid="uid://clbs1yp5sy7ot" path="res://Environment_Models/glTF/Fern_1.gltf" id="11_hqhy7"]
+[ext_resource type="PackedScene" uid="uid://cqmiis3ju2tp0" path="res://Environment_Models/glTF/Flower_3_Group.gltf" id="12_1vyse"]
+[ext_resource type="PackedScene" uid="uid://deowbfftvoxig" path="res://Environment_Models/glTF/Flower_3_Single.gltf" id="13_es5es"]
+[ext_resource type="PackedScene" uid="uid://d1mbxiwqdb5ve" path="res://Environment_Models/glTF/Flower_4_Group.gltf" id="14_jod0x"]
+[ext_resource type="PackedScene" uid="uid://dpebvxrscb80b" path="res://Environment_Models/glTF/Pebble_Round_3.gltf" id="15_myanu"]
+[ext_resource type="PackedScene" uid="uid://do8evofbkvvno" path="res://Environment_Models/glTF/Pebble_Round_5.gltf" id="16_a8x02"]
+[ext_resource type="PackedScene" uid="uid://cxwq3ifwnf4ud" path="res://Environment_Models/glTF/Pebble_Round_4.gltf" id="17_2qmpo"]
+[ext_resource type="PackedScene" uid="uid://bwe7adptfu84" path="res://Environment_Models/glTF/Pine_2.gltf" id="18_es5es"]
+[ext_resource type="PackedScene" uid="uid://c3e86fbflck4o" path="res://Environment_Models/glTF/Pine_4.gltf" id="19_jod0x"]
+[ext_resource type="PackedScene" uid="uid://uwcf6ncofogc" path="res://Environment_Models/glTF/Plant_1.gltf" id="20_5okrs"]
+[ext_resource type="PackedScene" uid="uid://cq14j0f1xeldq" path="res://Environment_Models/glTF/Plant_1_Big.gltf" id="21_k7wn3"]
+[ext_resource type="PackedScene" uid="uid://cqy1b4dtn440" path="res://Environment_Models/glTF/Rock_Medium_2.gltf" id="22_fttqx"]
+[ext_resource type="PackedScene" uid="uid://doclqx7b3xjjl" path="res://Environment_Models/glTF/Rock_Medium_3.gltf" id="23_f8lw1"]
+[ext_resource type="PackedScene" uid="uid://ctmtrivnid248" path="res://Environment_Models/glTF/TwistedTree_1.gltf" id="24_x08o7"]
+[ext_resource type="PackedScene" uid="uid://lh66047sbtt5" path="res://Environment_Models/glTF/TwistedTree_2.gltf" id="25_3kk7g"]
+[ext_resource type="PackedScene" uid="uid://6ilg0tapkh4h" path="res://Environment_Models/glTF/DeadTree_1.gltf" id="27_5okrs"]
+[ext_resource type="PackedScene" uid="uid://c6o3dyxiyg5sw" path="res://Environment_Models/frog.glb" id="30_f8lw1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fttqx"]
+panorama = ExtResource("1_k7wn3")
+
+[sub_resource type="Sky" id="Sky_6yc6o"]
+sky_material = SubResource("PanoramaSkyMaterial_fttqx")
+
+[sub_resource type="Environment" id="Environment_504ru"]
+background_mode = 2
+sky = SubResource("Sky_6yc6o")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 1.59
+ssao_power = 1.8467166
+glow_enabled = true
+glow_intensity = 2.38
+glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(0.8326832, 0.7815162, 0.7486202, 1)
+fog_light_energy = 0.7
+fog_sun_scatter = 0.18
+fog_density = 1.0
+fog_sky_affect = 0.342
+fog_depth_curve = 0.99999994
+fog_depth_begin = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.88961625, 0.7167885, 0.7977709, 1)
+volumetric_fog_emission = Color(0.78705573, 0.7080955, 0.572629, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_sky_affect = 0.75
+adjustment_enabled = true
+adjustment_brightness = 1.12
+adjustment_contrast = 1.2
+adjustment_saturation = 1.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k64xb"]
+albedo_color = Color(0.007843138, 0.15686275, 0.050980393, 1)
+uv1_scale = Vector3(7.595, 7.595, 7.595)
+uv1_triplanar_sharpness = 6.7271757
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jod0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7wn3"]
+emission_enabled = true
+emission = Color(0.92655736, 0.8909, 0.8812087, 1)
+emission_energy_multiplier = 5.0
+
+[node name="EnvironmentTest" type="Node3D" unique_id=1236503960]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=987014873]
+environment = SubResource("Environment_504ru")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=660031657]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1937279400 instance=ExtResource("1_j8xfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020005, 6.779402)
+
+[node name="Floor" type="Node3D" parent="." unique_id=645407466]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=473480566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013869286, 0, 0.010238171)
+material_override = SubResource("StandardMaterial3D_k64xb")
+use_collision = true
+size = Vector3(49.86328, 0.1, 38.950928)
+material = SubResource("StandardMaterial3D_jod0x")
+
+[node name="ground_test" parent="." unique_id=2094183776 instance=ExtResource("2_jod0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9209108, -0.30644608, 1.7288013)
+
+[node name="Bush_Common2" parent="." unique_id=1935378440 instance=ExtResource("2_bxnig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.21207, 0.03440571, 0.6346412)
+
+[node name="Bush_Common3" parent="." unique_id=684567434 instance=ExtResource("2_bxnig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.623009, 0.2846949, -0.66328526)
+
+[node name="Bush_Common_Flowers2" parent="." unique_id=1165279545 instance=ExtResource("3_83wsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.325182, 0.2846949, 0.14333916)
+
+[node name="Bush_Common_Flowers3" parent="." unique_id=293876419 instance=ExtResource("3_83wsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.277173, 0.2846949, 1.1438103)
+
+[node name="Clover_12" parent="." unique_id=1726309500 instance=ExtResource("4_1bukh")]
+transform = Transform3D(-0.6052383, 0, 0.7960443, 0, 1, 0, -0.7960443, 0, -0.6052383, -14.293573, 0.06279238, -1.5648189)
+
+[node name="Clover_22" parent="." unique_id=1738284847 instance=ExtResource("5_myanu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.606527, 0.052350942, 2.6280198)
+
+[node name="CommonTree_12" parent="." unique_id=1420879224 instance=ExtResource("6_a8x02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.668503, 0.2927722, -2.2318392)
+
+[node name="CommonTree_22" parent="." unique_id=1726208881 instance=ExtResource("7_2qmpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7215037, 0.2927722, -1.0754461)
+
+[node name="CommonTree_32" parent="." unique_id=703355533 instance=ExtResource("8_6h3sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.741571, 0.2927722, -3.5889587)
+
+[node name="CommonTree_42" parent="." unique_id=1089044810 instance=ExtResource("9_1ek4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0187025, 0.2927722, -4.115794)
+
+[node name="CommonTree_52" parent="." unique_id=56652896 instance=ExtResource("10_kf7xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.402501, 0.2927722, 2.6045985)
+
+[node name="Fern_12" parent="." unique_id=801649828 instance=ExtResource("11_hqhy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.504771, 0.12733462, -2.882985)
+
+[node name="Fern_13" parent="." unique_id=27145805 instance=ExtResource("11_hqhy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5214353, 0.12733462, 0.32013416)
+
+[node name="Flower_3_Group2" parent="." unique_id=1997648828 instance=ExtResource("12_1vyse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5434165, -1.4766568, 1.0984316)
+
+[node name="Flower_3_Group3" parent="." unique_id=1256314004 instance=ExtResource("12_1vyse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.358136, 0.08458378, 3.5702848)
+
+[node name="Flower_3_Single2" parent="." unique_id=358167402 instance=ExtResource("13_es5es")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.855999, 0.068327144, 3.7080498)
+
+[node name="Flower_4_Group2" parent="." unique_id=1537875087 instance=ExtResource("14_jod0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.067384, 0.1069978, -7.732707)
+
+[node name="Pebble_Round_32" parent="." unique_id=149516938 instance=ExtResource("15_myanu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.07683, 0.051753208, 2.5011058)
+
+[node name="Pebble_Round_52" parent="." unique_id=890932779 instance=ExtResource("16_a8x02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1764865, 0.054146048, -0.006219864)
+
+[node name="Pebble_Round_42" parent="." unique_id=1131146051 instance=ExtResource("17_2qmpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7352674, 0.055632118, 0.5713515)
+
+[node name="Bush_Common_Flowers4" parent="." unique_id=1466928814 instance=ExtResource("3_83wsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.75001, 0.03440547, 1.5589728)
+
+[node name="CommonTree_13" parent="." unique_id=810645210 instance=ExtResource("6_a8x02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48000908, 0.2927722, -10.662789)
+
+[node name="CommonTree_23" parent="." unique_id=1497632961 instance=ExtResource("7_2qmpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.071154, 0.2927722, -8.337367)
+
+[node name="CommonTree_33" parent="." unique_id=1722725142 instance=ExtResource("8_6h3sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1338186, 0.2927722, -8.601552)
+
+[node name="CommonTree_43" parent="." unique_id=1866186645 instance=ExtResource("9_1ek4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3979087, 0.2927722, -7.931325)
+
+[node name="CommonTree_44" parent="." unique_id=370262875 instance=ExtResource("9_1ek4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.851633, 0.2927722, -6.4083967)
+
+[node name="Pine_22" parent="." unique_id=717524562 instance=ExtResource("18_es5es")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7857528, 1.865186, -5.4429045)
+
+[node name="Pine_42" parent="." unique_id=829880157 instance=ExtResource("19_jod0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7935293, 1.35801, -6.2613516)
+
+[node name="Pine_42" parent="Pine_42" unique_id=180923901 instance=ExtResource("19_jod0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.419648, -1.2350135, 15.664392)
+
+[node name="Pine_43" parent="." unique_id=1353243714 instance=ExtResource("19_jod0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.958195, 0.28508928, 5.1555824)
+
+[node name="Plant_12" parent="." unique_id=714902945 instance=ExtResource("20_5okrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.299734, 0.08502419, 6.326374)
+
+[node name="Plant_13" parent="." unique_id=391182255 instance=ExtResource("20_5okrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.649372, 0.08502467, 7.2020226)
+
+[node name="Plant_14" parent="." unique_id=1658405291 instance=ExtResource("20_5okrs")]
+transform = Transform3D(-0.71250385, 0, 0.7016682, 0, 1, 0, -0.7016682, 0, -0.71250385, 15.980194, 0.08502419, 5.0957417)
+
+[node name="Plant_1_Big2" parent="." unique_id=968644896 instance=ExtResource("21_k7wn3")]
+transform = Transform3D(0.73234093, 0, 0.6809382, 0, 1, 0, -0.6809382, 0, 0.73234093, -9.513974, 0.08502467, -2.3295965)
+
+[node name="Rock_Medium_22" parent="." unique_id=980436818 instance=ExtResource("22_fttqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0990322, 0.100841776, -8.255314)
+
+[node name="Rock_Medium_34" parent="." unique_id=373527309 instance=ExtResource("23_f8lw1")]
+transform = Transform3D(0.0033818993, 0.0020705285, -0.99999213, -0.003635591, 0.9999914, 0.002058243, 0.9999878, 0.0036286155, 0.003389418, 12.923905, -0.23224425, 3.7986164)
+
+[node name="Rock_Medium_32" parent="." unique_id=30689594 instance=ExtResource("23_f8lw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.090202, 1.1584121, -6.671648)
+
+[node name="TwistedTree_13" parent="." unique_id=1273031995 instance=ExtResource("24_x08o7")]
+transform = Transform3D(-0.5115031, 0, 0.8592815, 0, 1, 0, -0.8592815, 0, -0.5115031, -20.407412, 4.808671, 19.156164)
+
+[node name="TwistedTree_12" parent="." unique_id=130949207 instance=ExtResource("24_x08o7")]
+transform = Transform3D(0.494215, 0, 0.8693397, 0, 1, 0, -0.8693397, 0, 0.494215, -13.765353, 0.2514749, -5.113161)
+
+[node name="TwistedTree_22" parent="." unique_id=220173824 instance=ExtResource("25_3kk7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.090588, 0.25147486, -1.499816)
+
+[node name="Rock_Medium_33" parent="." unique_id=166163671 instance=ExtResource("23_f8lw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.825907, 0.36564413, -3.5143833)
+
+[node name="Rock_Medium_23" parent="." unique_id=1277452932 instance=ExtResource("22_fttqx")]
+transform = Transform3D(0.7898982, 0, 0.613238, 0, 1, 0, -0.613238, 0, 0.7898982, -13.300058, 0.1008413, -3.373433)
+
+[node name="Bush_Common_Flowers5" parent="." unique_id=1123410159 instance=ExtResource("3_83wsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+
+[node name="Clover_23" parent="." unique_id=671786957 instance=ExtResource("5_myanu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9686317, 0.052350823, -7.0872707)
+
+[node name="Clover_24" parent="." unique_id=50377189 instance=ExtResource("5_myanu")]
+transform = Transform3D(-0.34680474, 0, 0.9379374, 0, 1, 0, -0.9379374, 0, -0.34680474, -5.472506, 0.052350704, -7.5019855)
+
+[node name="Clover_25" parent="." unique_id=1021860229 instance=ExtResource("5_myanu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.033472, 0.052350704, -4.1381807)
+
+[node name="DeadTree_12" parent="." unique_id=1123939918 instance=ExtResource("27_5okrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.44376, 16.514887, -27.864582)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1790255847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.748337, 15.175034, 8.6212)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="MeshInstance3D" unique_id=1400583108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.354481, 25.937119, -6.814621)
+material_override = SubResource("StandardMaterial3D_k7wn3")
+
+[node name="frog" parent="." unique_id=1116003482 instance=ExtResource("30_f8lw1")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.7153082, 0.049999963, 8.096043)
