@@ -2,35 +2,43 @@ extends Node3D
 # TODO: Change to camera objects camera viewport
 @onready var cam_ui: CanvasLayer = $CamUI
 @export var distance_from_camera: float = 2.0
+@export var aim_speed: float = 10.0
+
+var camera_equipped = false
+var original_position: Vector3
+var aiming_camera = false
 
 func _ready() -> void:
-	pass
-
+	original_position = self.position
+	$".".hide()
+	cam_ui.get_node("TextureRect").hide() ## TEMP
 
 func _process(_delta: float) -> void:
 	$SubViewport/Camera3D.global_transform = self.global_transform
 	
-	_snap_picture()
+	if Input.is_action_just_pressed("equip_camera"):
+		equip_camera()
+	if camera_equipped:
+		_snap_picture()
+		_aim_camera(_delta)
 
 
 func _snap_picture():
-	if Input.is_action_just_pressed("item_interact"):
-		cam_ui.hide()
-		print("taking a picture")
-		var viewport = $SubViewport
-		var texture = viewport.get_texture()
-		var imgtex = ImageTexture.create_from_image(texture.get_image())
-		
-		# TODO: remove ui elements
-		
-		print(get_insects_in_frame())
-		
-		Global.imagesTaken.append({
-			"texture": imgtex,
-			"insects": get_insects_in_frame()
-		})
-		cam_ui.get_node("TextureRect").texture = imgtex
-		cam_ui.show()
+	if not Input.is_action_just_pressed("item_interact"):
+		return
+	
+	print("taking a picture")
+	var viewport = $SubViewport
+	var texture = viewport.get_texture()
+	var imgtex = ImageTexture.create_from_image(texture.get_image())
+	
+	print(get_insects_in_frame())
+	
+	Global.imagesTaken.append({
+		"texture": imgtex,
+		"insects": get_insects_in_frame()
+	})
+	cam_ui.get_node("TextureRect").texture = imgtex
 
 func get_insects_in_frame() -> Array:
 	var camera = $SubViewport/Camera3D
@@ -46,3 +54,17 @@ func get_insects_in_frame() -> Array:
 			insects_in_frame.append(str(insect.name))
 	
 	return insects_in_frame
+
+func _aim_camera(delta: float):
+	var camera_target_pos = Vector3(0.025, 0, -0.65) if Input.is_action_pressed("item_secondary_interact") else original_position
+	self.position = self.position.lerp(camera_target_pos, delta * aim_speed)
+
+func equip_camera():
+	camera_equipped = !camera_equipped
+	
+	if camera_equipped:
+		$".".show()
+		cam_ui.get_node("TextureRect").show() ## TEMP
+	else:
+		$".".hide()
+		cam_ui.get_node("TextureRect").hide() ## TEMP

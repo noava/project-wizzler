@@ -3,7 +3,7 @@
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_72tdc"]
 
 [node name="TextureRect" type="TextureRect" unique_id=464516316]
-custom_minimum_size = Vector2(256, 144)
+custom_minimum_size = Vector2(160, 120)
 texture = SubResource("NoiseTexture2D_72tdc")
 expand_mode = 1
 

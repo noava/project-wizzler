@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v6e35u65li8o"]
 
-[ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Player/camera_snap.gd" id="1_jemxe"]
+[ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Items/Camera/camera_snap.gd" id="1_e6pwn"]
 [ext_resource type="PackedScene" uid="uid://deu010rii1unc" path="res://Items/Camera/Camera.glb" id="2_e6pwn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_fhl08"]
@@ -10,20 +10,16 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o78u6"]
 resource_local_to_scene = true
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_e6pwn")
 
 [sub_resource type="QuadMesh" id="QuadMesh_0flkf"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_o78u6")
-size = Vector2(0.32, 0.18)
+size = Vector2(0.64, 0.48)
 
 [node name="CameraSnap" type="Node3D" unique_id=2078401157]
-script = ExtResource("1_jemxe")
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="." unique_id=1638923622]
-remote_path = NodePath("../SubViewport/Camera3D")
-update_rotation = false
-update_scale = false
+script = ExtResource("1_e6pwn")
 
 [node name="CamUI" type="CanvasLayer" parent="." unique_id=1925762156]
 
@@ -36,7 +32,7 @@ anchor_bottom = 1.0
 offset_left = -707.0
 offset_top = -613.0
 offset_right = -387.0
-offset_bottom = -433.0
+offset_bottom = -373.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
@@ -44,7 +40,7 @@ texture = SubResource("CanvasTexture_fhl08")
 expand_mode = 1
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=231005395]
-size = Vector2i(320, 180)
+size = Vector2i(640, 480)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=502685459]
 
@@ -52,5 +48,6 @@ size = Vector2i(320, 180)
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.042668074, -0.14893489, 0.17034006)
 
 [node name="Screen" type="MeshInstance3D" parent="." unique_id=455368817]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08411887, -0.012919545, 0.35399416)
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.040652942, -0.018152546, 0.33916694)
+cast_shadow = 0
 mesh = SubResource("QuadMesh_0flkf")

@@ -15,6 +15,7 @@ extends Node3D
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
 var t_bob = 0.0
+var current_bob_position = Vector3.ZERO
 
 # FOV
 const BASE_FOV = 75.0
@@ -48,7 +49,8 @@ func _process(delta: float) -> void:
 	# Head bob
 	t_bob += delta * player.velocity.length() * float(player.is_on_floor())
 	if mouse_lock:
-		camera.transform.origin = _headbob(t_bob)
+		current_bob_position = current_bob_position.lerp(_headbob(t_bob), delta * 10.0)
+		camera.transform.origin = current_bob_position
 	
 	# FOV ZOOM
 	var velocity_clamped = clamp(player.velocity.length(), 0.5, player.SPRINT_SPEED * 2)
@@ -61,6 +63,10 @@ func _process(delta: float) -> void:
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
+	
+	# Disable when aiming camera
+	if Input.is_action_pressed("item_secondary_interact"):
+		return pos
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
