@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Items/Camera/camera_snap.gd" id="1_e6pwn"]
 [ext_resource type="PackedScene" uid="uid://deu010rii1unc" path="res://Items/Camera/Camera.glb" id="2_e6pwn"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_fhl08"]
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_e6pwn"]
 viewport_path = NodePath("SubViewport")
 
@@ -24,19 +22,11 @@ script = ExtResource("1_e6pwn")
 [node name="CamUI" type="CanvasLayer" parent="." unique_id=1925762156]
 
 [node name="TextureRect" type="TextureRect" parent="CamUI" unique_id=453071018]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -707.0
-offset_top = -613.0
-offset_right = -387.0
-offset_bottom = -373.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 340.0
+offset_bottom = 260.0
 size_flags_vertical = 8
-texture = SubResource("CanvasTexture_fhl08")
 expand_mode = 1
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=231005395]

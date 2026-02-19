@@ -1,8 +1,17 @@
 extends Node3D
 # TODO: Change to camera objects camera viewport
 @onready var cam_ui: CanvasLayer = $CamUI
+
+@export_category("Insect Detection")
 @export var distance_from_camera: float = 2.0
+
+@export_category("Aim Camera")
 @export var aim_speed: float = 10.0
+
+@export_category("Zoom")
+@export var min_fov: float = 10.0
+@export var max_fov: float = 90.0
+@export var zoom_step: float = 10.0
 
 var camera_equipped = false
 var original_position: Vector3
@@ -13,14 +22,15 @@ func _ready() -> void:
 	$".".hide()
 	cam_ui.get_node("TextureRect").hide() ## TEMP
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	$SubViewport/Camera3D.global_transform = self.global_transform
 	
 	if Input.is_action_just_pressed("equip_camera"):
 		equip_camera()
 	if camera_equipped:
 		_snap_picture()
-		_aim_camera(_delta)
+		_aim_camera(delta)
+		_zoom_camera()
 
 
 func _snap_picture():
@@ -68,3 +78,10 @@ func equip_camera():
 	else:
 		$".".hide()
 		cam_ui.get_node("TextureRect").hide() ## TEMP
+
+func _zoom_camera():
+	var camera = $SubViewport/Camera3D
+	if Input.is_action_just_pressed("camera_zoom_in"):
+		camera.fov = clamp(camera.fov - zoom_step, min_fov, max_fov)
+	elif Input.is_action_just_pressed("camera_zoom_out"):
+		camera.fov = clamp(camera.fov + zoom_step, min_fov, max_fov)
