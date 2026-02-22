@@ -1,6 +1,6 @@
 extends Node3D
 # TODO: Change to camera objects camera viewport
-@onready var cam_ui: CanvasLayer = $CamUI
+@onready var texture_rect: TextureRect = $CamUI/TextureRect
 
 @export_category("Insect Detection")
 @export var distance_from_camera: float = 2.0
@@ -13,17 +13,25 @@ extends Node3D
 @export var max_fov: float = 90.0
 @export var zoom_step: float = 10.0
 
+@export_category("Audio")
+@export var shutter_pitch: float = 0.7
+@export var zoom_in_pitch: float = 1.3
+@export var zoom_out_pitch: float = 0.8
+
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+const CAMERA_SHUTTER = preload("uid://b88rs4vm3pd3o")
+const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
+
 var camera_equipped = false
 var original_position: Vector3
-var aiming_camera = false
 
 func _ready() -> void:
-	original_position = self.position
-	$".".hide()
-	cam_ui.get_node("TextureRect").hide() ## TEMP
+	original_position = position
+	hide()
+	texture_rect.hide() ## TEMP
 
 func _process(delta: float) -> void:
-	$SubViewport/Camera3D.global_transform = self.global_transform
+	$SubViewport/Camera3D.global_transform = global_transform
 	
 	if Input.is_action_just_pressed("equip_camera"):
 		equip_camera()
@@ -36,6 +44,10 @@ func _process(delta: float) -> void:
 func _snap_picture():
 	if not Input.is_action_just_pressed("item_interact"):
 		return
+
+	audio_player.pitch_scale = shutter_pitch
+	audio_player.stream = CAMERA_SHUTTER
+	audio_player.play()
 	
 	print("taking a picture")
 	var viewport = $SubViewport
@@ -48,7 +60,7 @@ func _snap_picture():
 		"texture": imgtex,
 		"insects": get_insects_in_frame()
 	})
-	cam_ui.get_node("TextureRect").texture = imgtex
+	texture_rect.texture = imgtex
 
 func get_insects_in_frame() -> Array:
 	var camera = $SubViewport/Camera3D
@@ -67,21 +79,36 @@ func get_insects_in_frame() -> Array:
 
 func _aim_camera(delta: float):
 	var camera_target_pos = Vector3(0.025, 0, -0.65) if Input.is_action_pressed("item_secondary_interact") else original_position
-	self.position = self.position.lerp(camera_target_pos, delta * aim_speed)
+	position = position.lerp(camera_target_pos, delta * aim_speed)
 
 func equip_camera():
 	camera_equipped = !camera_equipped
 	
 	if camera_equipped:
-		$".".show()
-		cam_ui.get_node("TextureRect").show() ## TEMP
+		show()
+		texture_rect.show() ## TEMP
 	else:
-		$".".hide()
-		cam_ui.get_node("TextureRect").hide() ## TEMP
+		hide()
+		texture_rect.hide() ## TEMP
 
 func _zoom_camera():
 	var camera = $SubViewport/Camera3D
+	var old_fov = camera.fov
+	var zoom_change = 0
+	var pitch = 1.0
+	
 	if Input.is_action_just_pressed("camera_zoom_in"):
-		camera.fov = clamp(camera.fov - zoom_step, min_fov, max_fov)
+		zoom_change = -zoom_step
+		pitch = zoom_in_pitch
 	elif Input.is_action_just_pressed("camera_zoom_out"):
-		camera.fov = clamp(camera.fov + zoom_step, min_fov, max_fov)
+		zoom_change = zoom_step
+		pitch = zoom_out_pitch
+	
+	if zoom_change != 0:
+		camera.fov = clamp(camera.fov + zoom_change, min_fov, max_fov)
+		if camera.fov != old_fov:
+			audio_player.pitch_scale = pitch
+			audio_player.stream = CAMERA_ZOOM
+			audio_player.play()
+	
+	

@@ -41,3 +41,7 @@ transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.040652942, -0.018152546, 0.33916694)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_0flkf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1843184834]
+max_db = -0.684
+autoplay = true
