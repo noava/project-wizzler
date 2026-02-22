@@ -1,21 +1,55 @@
 [gd_scene format=3 uid="uid://cq1hhps1y3mn6"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_72tdc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72tdc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
-[node name="TextureRect" type="TextureRect" unique_id=464516316]
-custom_minimum_size = Vector2(160, 120)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_72tdc"]
+width = 160
+height = 160
+
+[node name="TextureRect" type="Control" unique_id=525107509]
+custom_minimum_size = Vector2(180, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 200.0
+
+[node name="Panel" type="Panel" parent="." unique_id=936293614]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_72tdc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1101743752]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 170.0
 texture = SubResource("NoiseTexture2D_72tdc")
 expand_mode = 1
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="." unique_id=1245593129]
+[node name="BugName" type="Label" parent="." unique_id=1245593129]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -65.0
-offset_top = -23.0
+offset_left = -75.0
+offset_top = -28.0
+offset_right = -10.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "awdawd"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bug Name"

@@ -71,9 +71,10 @@ func get_insects_in_frame() -> Array:
 		var distance = camera.global_position.distance_to(insect.global_position)
 		if camera.is_position_in_frustum(insect.global_position) and distance <= distance_from_camera:
 			# TODO: Don't count insects behind objects?
-			# TODO: Zoom allows insects to be detected on longer distances. Make another zoom function for camera using scrollwheel
+			# TODO: Zoom allows insects to be detected on longer distances.
 			# TODO: Change to insect.data to get more info from the insect. Use a resource
-			insects_in_frame.append(str(insect.name))
+			
+			insects_in_frame.append(insect)
 	
 	return insects_in_frame
 

@@ -121,12 +121,15 @@ transform = Transform3D(0.38751563, 0, -0.92186314, 0, 1, 0, 0.92186314, 0, 0.38
 
 [node name="Insect" parent="Insects" unique_id=176088785 instance=ExtResource("4_86j4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5804254, 0.7469089, 0.46153164)
+insect_name = "Ant"
 
 [node name="Insect2" parent="Insects" unique_id=1647366041 instance=ExtResource("4_86j4t")]
 transform = Transform3D(-0.16628689, 0, -0.9860774, 0, 1, 0, 0.9860774, 0, -0.16628689, 5.0392904, 0.34963995, 2.242754)
+insect_name = "Beetle"
 
 [node name="Insect3" parent="Insects" unique_id=54224058 instance=ExtResource("4_86j4t")]
 transform = Transform3D(0.26740652, 0, 0.9635838, 0, 1, 0, -0.9635838, 0, 0.26740652, 2.4710822, 0.22870706, 2.535977)
+insect_name = "Freaky Bug"
 
 [node name="Toys" type="Node" parent="." unique_id=1216641006]
 
