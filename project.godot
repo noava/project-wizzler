@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Project Wizzler"
-run/main_scene="uid://cvxwel5g7oofg"
+run/main_scene="uid://bslb3sqv4pg3c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,10 @@ Global="*res://Map/global.gd"
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 [input]
 

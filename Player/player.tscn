@@ -75,9 +75,11 @@ libraries/ = SubResource("AnimationLibrary_fhl08")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8564648, -0.5507225, -0.9563887)
 
 [node name="CameraSnap" type="Node3D" parent="Head" unique_id=508543510]
+visible = false
 script = ExtResource("3_vtle1")
 
 [node name="CamUI" type="CanvasLayer" parent="Head/CameraSnap" unique_id=71946439]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Head/CameraSnap/CamUI" unique_id=854637681]
 anchors_preset = 3
