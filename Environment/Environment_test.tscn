@@ -514,8 +514,8 @@ curve = SubResource("Curve3D_fttqx")
 script = ExtResource("30_x08o7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Butterfly/Path3D" unique_id=600567228]
-transform = Transform3D(0.54822683, -0.13914174, 0.8246068, 0, 0.9858716, 0.16641526, -0.83612406, -0.09123195, 0.5406752, 0.6634551, 1.4384564, 2.6196477)
-progress = 3.2913432
+transform = Transform3D(-0.1269607, 0.4687478, 0.8741106, 0, 0.8810805, -0.4726611, -0.99173504, -0.06000851, -0.11190254, -0.8629751, 1.2423335, 1.7369349)
+progress = 5.135121
 rotation_mode = 4
 
 [node name="Node3D" type="Node3D" parent="Butterfly/Path3D/PathFollow3D" unique_id=2038953997]
