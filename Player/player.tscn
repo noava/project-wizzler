@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ggve2pq57p2c" path="res://Player/player_movement.gd" id="1_k53q1"]
 [ext_resource type="Texture2D" uid="uid://c0hbhyadvgy25" path="res://UI/Assets/crosshair.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://b331uwqq0y7x4" path="res://Player/camera_movement.gd" id="2_k53q1"]
-[ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Player/camera_snap.gd" id="3_vtle1"]
+[ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://ch10bvxhku6xo" path="res://Menu/in_game_menu.tscn" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://bmvmmtixnl86v" path="res://Player/player_interaction.gd" id="7_vtle1"]
 
@@ -47,8 +47,6 @@ _data = {
 &"camera_crouch": SubResource("Animation_k53q1")
 }
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_fhl08"]
-
 [node name="Player" type="CharacterBody3D" unique_id=1937279400 groups=["player"]]
 script = ExtResource("1_k53q1")
 
@@ -74,28 +72,8 @@ libraries/ = SubResource("AnimationLibrary_fhl08")
 [node name="ItemHolder" type="Node3D" parent="Head" unique_id=1647665732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8564648, -0.5507225, -0.9563887)
 
-[node name="CameraSnap" type="Node3D" parent="Head" unique_id=508543510]
-visible = false
-script = ExtResource("3_vtle1")
-
-[node name="CamUI" type="CanvasLayer" parent="Head/CameraSnap" unique_id=71946439]
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="Head/CameraSnap/CamUI" unique_id=854637681]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -344.0
-offset_top = -204.0
-offset_right = -24.0
-offset_bottom = -24.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 8
-texture = SubResource("CanvasTexture_fhl08")
-expand_mode = 1
+[node name="CameraSnap" parent="Head" unique_id=2078401157 instance=ExtResource("3_fhl08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7638407, -0.3711604, -1.0285509)
 
 [node name="UseItem" type="Node3D" parent="." unique_id=2134495917]
 script = ExtResource("7_vtle1")

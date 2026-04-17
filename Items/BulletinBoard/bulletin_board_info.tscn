@@ -45,13 +45,12 @@ theme_override_font_sizes/font_size = 60
 text = "Images"
 
 [node name="Gallery" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1958118776]
-clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 4
+columns = 5
 script = ExtResource("2_pa5x4")
 
 [node name="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=464516316 instance=ExtResource("2_b17mg")]
@@ -67,4 +66,31 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect5" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1971625632 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=265397116 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=946169945 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=860160558 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1907273416 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect10" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=940391311 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect11" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1044085562 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect12" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1975061182 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect13" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1438296229 instance=ExtResource("2_b17mg")]
+layout_mode = 2
+
+[node name="TextureRect14" parent="Panel/MarginContainer/VBoxContainer/Gallery" unique_id=1944806324 instance=ExtResource("2_b17mg")]
 layout_mode = 2

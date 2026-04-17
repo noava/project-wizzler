@@ -14,8 +14,10 @@ func show_images():
 	remove_children()
 	for i in Global.imagesTaken:
 		var img = BOARD_IMAGE.instantiate()
-		img.texture = i.texture
-		img.get_node("Label").text = str(i.insects)
+		img.get_node("TextureRect").texture = i.texture
+		
+		img.get_node("BugName").text = str(i.insects[0].insect_name) if i.insects.size() > 0 else "" # Only get the first insect
+
 		add_child(img)
 
 func remove_children():

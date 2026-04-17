@@ -1,0 +1,85 @@
+[gd_scene format=4 uid="uid://dwfgg16vvt6s3"]
+
+[ext_resource type="Shader" uid="uid://cycdy5q2aniaa" path="res://Map/Bush/leaves.gdshader" id="1_38vgs"]
+[ext_resource type="Texture2D" uid="uid://ubf0g8yxhlt3" path="res://Map/Trees/TreeLeaves_Leave_alpha_2 copy.png" id="2_ibcuk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h07gn"]
+
+[sub_resource type="Gradient" id="Gradient_nd8qs"]
+offsets = PackedFloat32Array(0.459016, 0.795082)
+colors = PackedColorArray(0.219081, 0.259363, 0.0436189, 1, 0.301612, 0.339813, 2.40654e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xaegs"]
+gradient = SubResource("Gradient_nd8qs")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ds75l"]
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nv8em"]
+noise = SubResource("FastNoiseLite_ds75l")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 0.65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7ea5"]
+render_priority = 0
+shader = ExtResource("1_38vgs")
+shader_parameter/texture_albedo = ExtResource("2_ibcuk")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_xaegs")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_nv8em")
+shader_parameter/alpha_scissor_threshold = 0.9
+shader_parameter/transmission = Color(0, 0, 0, 1)
+shader_parameter/total_height = 1.0
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.3
+shader_parameter/wind_strength = 0.05
+shader_parameter/noise_scale = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m1su"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_54svv"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAD/f///AAD///9/AAAAAP///3///wAAAAD/fwAAAAAAAAAA/38AAP//////fwAA//8AAP9/AAAAAP///38AAP9/AAD//wAA/3///wAAAAD/fwAAAAAAAP9//////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k7s31"]
+resource_name = "Tree_Plane_015"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAA"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_7m1su"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAD/f////7////9/AAD/v////3////+/AAD/fwAA/78AAAAA/38AgP//////fwCA//8AAP9/AIAAAP///38AgP9/AAD///+//3///wAA/7//fwAAAAD/v/9///////+/////f////3////9/////f/9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_54svv")
+
+[sub_resource type="MultiMesh" id="MultiMesh_38vgs"]
+transform_format = 1
+instance_count = 32
+mesh = SubResource("ArrayMesh_k7s31")
+buffer = PackedFloat32Array(0.427263, -0.901319, 0.0840917, -0.444528, -0.00404863, -0.0948897, -0.996484, -0.0387187, 0.905224, 0.424996, -0.0441478, 0.223526, -0.323209, -0.279808, 0.905121, -0.146036, 0.655175, -0.7568, 0, -0.380462, 0.684311, 0.592421, 0.427501, 0.288458, -0.125255, 0.311741, 0.942937, 0.149674, 0.92883, 0.373196, 0, 0.181388, -0.351549, 0.874953, -0.335963, 0.440126, -0.0501633, 0.982029, -0.187362, 0.487683, -0.00970607, -0.188067, -0.983126, -0.0978333, -0.999695, -0.0474508, 0.0189468, -0.042632, 0.0630753, 0.66824, 0.742615, 0.319241, 0.99657, -0.0940664, 0, -0.0440393, 0.0697854, 0.739329, -0.67121, 0.381318, -0.922946, 0.139254, -0.361635, 0.0677782, -0.0150907, -0.946344, -0.325892, -0.467254, -0.387225, -0.295028, 0.874652, -0.163473, 0, 0.942452, -0.33732, 0.474994, 1.001, 0, 0, 0.00112205, 0, -0.33732, -0.942452, -0.153119, 0.833687, -0.204282, 0.51501, -0.0810477, 0.238232, 0.972238, 0, 0.490489, -0.500212, 0.122569, 0.858351, 0.0527425, -0.0479286, 0.0165668, 0.999715, 0.000994073, 0.327017, 0.946077, 0, 0.467441, -0.944862, 0.326597, -0.050711, 0.176361, -0.0686987, 0.786906, 0.614866, 0.399182, 0.0237762, 0.617434, -0.787535, 0.298404, -0.998357, -0.039444, -0.0610655, -0.0303975, 0.24886, -0.901379, -0.357192, -0.454585, 0.0183316, 0.373078, -0.928697, 0.16419, 0.969399, 0.224343, 0.109258, 0.12647, 0.78344, 0.34645, -0.517876, 0.169937, -0.0237768, -0.814762, -0.581032, -0.419462, -0.622621, 0.46705, -0.629451, 0.212144, -0.937611, -0.283467, -0.206237, -0.147239, 0.021529, 0.541234, -0.841786, 0.267153, 0.349891, -0.792915, -0.500863, -0.394991, 0.524265, -0.817263, 0.243369, -0.397907, 0.842544, 0.540482, 0, 0.286596, -0.131405, 0.204844, 0.970965, 0.0948383, 0.860409, -0.493491, -0.134773, -0.233877, 0.0115856, 0.282446, -0.960256, 0.134569, 0.511432, 0.823828, 0.248488, 0.419924, -0.149089, -0.0212267, 0.989608, -0.0117873, 0.141096, -0.991006, 0, -0.493954, 0.979727, 0.13949, 0.150593, 0.0728363, 0.0686987, -0.786906, -0.614867, -0.404033, 0.0237762, 0.617434, -0.787535, 0.292486, 0.998357, 0.0394439, 0.0610655, 0.0262518, -0.512624, -0.843134, 0.168355, -0.427819, -0.0104963, -0.189856, -0.982774, -0.0887034, 0.859714, -0.505056, 0.0883868, -0.241212, -0.129538, -0.779205, 0.614866, -0.386476, -0.0241943, -0.617418, -0.787535, -0.313886, 0.992288, -0.116775, 0.0610655, -0.0392175, -0.942592, 0.335819, 0.027331, 0.177208, 0.00471081, 0.0943264, -0.996535, 0.0338378, -0.336897, -0.938259, -0.0904029, -0.465363, 0.362951, -0.617216, -0.699509, -0.32711, 0.0233603, 0.756364, -0.655262, 0.363734, 0.932589, 0.221266, 0.288653, 0.102549, 0.990663, -0.140852, -0.0273694, -0.0786109, 0.0137288, 0.283107, -0.960033, 0.131286, 0.142828, 0.949744, 0.282115, 0.475011, -0.990148, 0.146622, 0.0105112, 0.0631974, 0.00350694, 0.0951186, -0.996464, 0.056506, -0.146956, -0.985624, -0.0946011, -0.491732, -0.607731, 0.526309, 0.596375, 0.25819, 0.655307, 0.756686, 0, 0.37175, -0.450817, 0.390418, -0.803952, 0.211282, -0.363234, 0.56519, -0.74204, 0.288457, 0.842089, 0.541191, 0, 0.283831, 0.401184, -0.624239, -0.671847, -0.292935, -0.0350617, -0.841426, -0.541086, -0.413268, 0.0225271, 0.540617, -0.842156, 0.28063, 1.00013, -0.0416748, 0, -0.00106107, -0.836236, -0.214954, 0.506464, -0.105135, -0.0180316, -0.91024, -0.416099, -0.461206, 0.549896, -0.356732, 0.756543, -0.160974, 0.0640268, -0.332427, 0.942016, -0.186127, 0.982934, 0.189317, 0, 0.0855107, -0.178162, 0.925015, 0.338537, 0.455447, 0.820009, -0.390304, 0.42101, -0.17392, -0.0241203, -0.756852, -0.654671, -0.3926, 0.573589, 0.526155, -0.62941, 0.255929, -0.725787, -0.487142, -0.487778, -0.242067, 0.0247868, 0.689377, -0.725359, 0.337652, 0.688927, -0.538009, -0.487778, -0.276821, -0.0819709, -0.85497, -0.51411, -0.427833, 0.996431, -0.0955337, 0, -0.04178, -0.0490657, -0.511763, 0.85889, -0.253206, 0.932826, 0.220265, -0.288653, 0.126443, -0.0241723, -0.756339, -0.655262, -0.369767, -0.362288, 0.617605, -0.699509, 0.311147)
+
+[node name="Bush" type="Node3D" unique_id=1540797420]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1731800279]
+visible = false
+mesh = SubResource("SphereMesh_h07gn")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=1969333042]
+material_override = SubResource("ShaderMaterial_b7ea5")
+multimesh = SubResource("MultiMesh_38vgs")
