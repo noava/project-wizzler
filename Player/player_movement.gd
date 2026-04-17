@@ -19,6 +19,11 @@ var gravity = 9.8
 var movement_lock = false
 
 func _process(delta):
+	RenderingServer.global_shader_parameter_set(
+			"player_position",
+			global_transform.origin
+			)
+
 	if movement_lock: return
 
 	# Gravity
@@ -58,5 +63,5 @@ func _process(delta):
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
+
 	move_and_slide()

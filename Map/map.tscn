@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhe5ctq1pp74b" path="res://Player/player.tscn" id="2_njngi"]
 [ext_resource type="PackedScene" uid="uid://brs1sd855j0oc" path="res://Items/BulletinBoard/bulletin_board.tscn" id="3_6yc6o"]
 [ext_resource type="PackedScene" uid="uid://djibjh5o16grl" path="res://Items/Insect/insect.tscn" id="4_86j4t"]
+[ext_resource type="PackedScene" uid="uid://b73x44f2dn637" path="res://Items/Grass/grass_3.tscn" id="5_3g1qk"]
 [ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="5_8svjd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
@@ -57,3 +58,6 @@ transform = Transform3D(0.26740652, 0, 0.9635838, 0, 1, 0, -0.9635838, 0, 0.2674
 
 [node name="Ball" parent="." unique_id=1293081392 instance=ExtResource("5_8svjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578871)
+
+[node name="Grass3" parent="." unique_id=12182472 instance=ExtResource("5_3g1qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03768736, -1.8299822)

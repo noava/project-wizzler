@@ -98,3 +98,46 @@ item_interact={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+wind_texture_scale={
+"type": "float",
+"value": 20.0
+}
+wind_direction={
+"type": "vec2",
+"value": Vector2(1, 0.5)
+}
+wind_speed={
+"type": "float",
+"value": 0.1
+}
+still_sway_speed={
+"type": "float",
+"value": 4.5
+}
+gust_strength={
+"type": "float",
+"value": 0.08
+}
+gust_frequency={
+"type": "float",
+"value": 1.0
+}
+still_sway_strength={
+"type": "float",
+"value": 0.1
+}
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+interaction_radius={
+"type": "float",
+"value": 1.0
+}
+interaction_push={
+"type": "float",
+"value": 1.0
+}
