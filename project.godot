@@ -28,6 +28,10 @@ Global="*res://Map/global.gd"
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[editor]
+
+version_control/autoload_on_startup=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
