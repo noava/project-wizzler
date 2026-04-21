@@ -16,7 +16,7 @@ func show_images():
 		var img = BOARD_IMAGE.instantiate()
 		img.get_node("TextureRect").texture = i.texture
 		
-		img.get_node("BugName").text = str(i.insects[0].insect_name) if i.insects.size() > 0 else "" # Only get the first insect
+		img.get_node("BugName").text = str(i.animals[0].animal_name) if i.animals.size() > 0 else "" # Only get the first animal
 
 		add_child(img)
 
