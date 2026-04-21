@@ -99,11 +99,20 @@ func carry_item_from_world(carried_node: Node3D):
 	holding_item = true
 	item_data = carried_node
 	original_parent = carried_node.get_parent()
-	carried_node.get_node("CollisionShape3D").disabled = true
-	carried_node.gravity_scale = 0
-	carried_node.freeze = true
-	carried_node.linear_velocity = Vector3.ZERO
-	carried_node.angular_velocity = Vector3.ZERO
+	
+	var collision_shape = carried_node.get_node_or_null("CollisionShape3D")
+	if collision_shape:
+		collision_shape.disabled = true
+
+	if carried_node is RigidBody3D:
+		carried_node.gravity_scale = 0
+		carried_node.freeze = true
+		carried_node.linear_velocity = Vector3.ZERO
+		carried_node.angular_velocity = Vector3.ZERO
+	
+	if carried_node is Animal:
+		carried_node.picked_up = true
+	
 	carried_node.reparent(item_holder)
 	carried_node.position = Vector3(0, 0, 0)
 	carried_node.rotation = Vector3(0, 0, 0)
@@ -118,9 +127,16 @@ func place_carried_item():
 	carried_node.global_position = head.global_position - head.global_transform.basis.z * 1.0 # 1 meter in front of head
 	carried_node.rotation = player_model.rotation
 
-	carried_node.get_node("CollisionShape3D").disabled = false
-	carried_node.gravity_scale = 1
-	carried_node.freeze = false
+	var collision_shape = carried_node.get_node_or_null("CollisionShape3D")
+	if collision_shape:
+		collision_shape.disabled = false
+
+	if carried_node is RigidBody3D:
+		carried_node.gravity_scale = 1
+		carried_node.freeze = false
+
+	if carried_node is Animal:
+		carried_node.picked_up = false
 	remove_held_item()
 
 

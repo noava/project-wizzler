@@ -11,10 +11,6 @@ func use_object(insect_object) -> void:
 	# Store insect if empty
 	if !insect_data:
 		insect_object.get_node("CollisionShape3D").disabled = true
-		insect_object.gravity_scale = 0
-		insect_object.freeze = true
-		insect_object.linear_velocity = Vector3.ZERO
-		insect_object.angular_velocity = Vector3.ZERO
 		insect_object.reparent(insect_holder)
 		insect_object.position = Vector3(0, 0.1, 0)
 		insect_object.rotation = Vector3(0, 0, 0)

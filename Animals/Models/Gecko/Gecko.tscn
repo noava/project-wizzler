@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dmawnci4bi7l3"]
+
+[ext_resource type="Script" uid="uid://7h1ryukm42mb" path="res://Animals/Models/Gecko/gecko.gd" id="1_g8alt"]
+[ext_resource type="PackedScene" uid="uid://diy5u57kxpvex" path="res://Animals/Models/Gecko/Gecko_Animations.glb" id="1_pnl4h"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i7flh"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g8alt"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_whi7b"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dph6g"]
+xfade_time = 0.1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hc6hm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04kyg"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xx8y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_al82k"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tynls"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fyls7"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g8alt"]
+states/Attack/node = SubResource("AnimationNodeAnimation_i7flh")
+states/Attack/position = Vector2(200, 285)
+states/Run/node = SubResource("AnimationNodeAnimation_g8alt")
+states/Run/position = Vector2(509, 194)
+states/Sit/node = SubResource("AnimationNodeAnimation_whi7b")
+states/Sit/position = Vector2(200, 194)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_dph6g"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_hc6hm"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_04kyg"), "Sit", "Attack", SubResource("AnimationNodeStateMachineTransition_6xx8y"), "Attack", "Sit", SubResource("AnimationNodeStateMachineTransition_al82k"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_tynls"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_fyls7")]
+graph_offset = Vector2(-339, 26)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_whi7b"]
+graph_offset = Vector2(-673.6825, 331.61844)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_g8alt")
+nodes/StateMachine/position = Vector2(20, 160)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whi7b"]
+radius = 0.23046875
+height = 1.4658203
+
+[node name="Gecko" type="CharacterBody3D" unique_id=2136921226 groups=["insect", "pickupable"]]
+script = ExtResource("1_g8alt")
+
+[node name="Gecko_Animations" parent="." unique_id=1947088609 instance=ExtResource("1_pnl4h")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Gecko_Animations/Rig" parent_id_path=PackedInt32Array(1947088609, 1872912168) index="0" unique_id=2037403704]
+bones/1/position = Vector3(-4.918572e-18, -1.8517725e-09, 0.5467384)
+bones/1/rotation = Quaternion(0.6038366, -2.1457439e-17, 2.1457452e-17, 0.7971081)
+bones/1/scale = Vector3(1, 0.96960735, 1)
+bones/2/position = Vector3(-1.689942e-14, -0.11639944, -0.7459714)
+bones/2/rotation = Quaternion(0.09044026, -0.70461226, 0.7037895, 0.004745487)
+bones/2/scale = Vector3(1, 0.99999994, 0.9999998)
+bones/3/rotation = Quaternion(-0.1032338, 0.05588757, -0.017159117, 0.99293756)
+bones/3/scale = Vector3(0.99999994, 1, 0.9999998)
+bones/4/position = Vector3(0.21421519, -0.01340311, 0.39042205)
+bones/4/rotation = Quaternion(-2.798179e-07, 0.12864052, 0.9916913, -4.496767e-08)
+bones/4/scale = Vector3(1, 1, 0.99999994)
+bones/5/position = Vector3(0.15219148, -0.23314275, -0.62371147)
+bones/5/rotation = Quaternion(-2.66298e-08, 0.521775, 0.8530832, -2.8567246e-07)
+bones/5/scale = Vector3(1, 0.99999994, 0.9999999)
+bones/6/position = Vector3(-0.21421519, -0.01340311, 0.39042205)
+bones/6/rotation = Quaternion(2.798179e-07, 0.12864052, 0.9916913, 4.496767e-08)
+bones/6/scale = Vector3(1, 1, 0.99999994)
+bones/7/position = Vector3(-0.15219148, -0.23314275, -0.62371147)
+bones/7/rotation = Quaternion(2.66298e-08, 0.521775, 0.8530832, 2.8567246e-07)
+bones/7/scale = Vector3(1, 0.99999994, 0.9999999)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
+root_node = NodePath("../Gecko_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_whi7b")
+anim_player = NodePath("../Gecko_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090204315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.232, 0)
+shape = SubResource("CapsuleShape3D_whi7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[editable path="Gecko_Animations"]
