@@ -36,7 +36,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$SubViewport/Camera3D.global_transform = global_transform
 	
-	if Input.is_action_just_pressed("equip_camera") and Global.camera_in_inv: # TEMP. Remove "camera_in_inv" if finishing inv system
+	if Input.is_action_just_pressed("equip_camera") and Global.camera_in_inv and $"../../UseItem".holding_item == camera_equipped: # TEMP. Remove "camera_in_inv" and "holding_item" if finishing inv system
 		equip_camera()
 	if camera_equipped:
 		_snap_picture()
@@ -89,6 +89,7 @@ func _aim_camera(delta: float):
 
 func equip_camera():
 	camera_equipped = !camera_equipped
+	$"../../UseItem".holding_item = camera_equipped
 	
 	if camera_equipped:
 		show()

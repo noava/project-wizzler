@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cubgjl6laibc6"]
 
 [ext_resource type="Script" uid="uid://bmi88b1df25wr" path="res://Items/Collectable/collectable.gd" id="1_exd4t"]
+[ext_resource type="Script" uid="uid://bry8fdm8xtny8" path="res://UI/Effects/spin.gd" id="2_kbli2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_exd4t"]
 radius = 0.71520114
@@ -10,3 +11,7 @@ script = ExtResource("1_exd4t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1056994772]
 shape = SubResource("SphereShape3D_exd4t")
+
+[node name="spin" type="Node3D" parent="." unique_id=2086308865]
+script = ExtResource("2_kbli2")
+metadata/_custom_type_script = "uid://bry8fdm8xtny8"

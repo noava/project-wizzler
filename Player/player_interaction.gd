@@ -39,7 +39,7 @@ func handle_interactions() -> void:
 	
 	# Handle jar
 	if collider.is_in_group("jar"):
-		var can_insert = holding_item and item_data.is_in_group("animal") and not collider.animal_data
+		var can_insert = holding_item and item_data and item_data.is_in_group("animal") and not collider.animal_data
 		var can_extract = not holding_item and collider.animal_data
 		
 		if can_insert or can_extract:
