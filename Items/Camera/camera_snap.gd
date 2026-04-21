@@ -22,18 +22,21 @@ extends Node3D
 const CAMERA_SHUTTER = preload("uid://b88rs4vm3pd3o")
 const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
 
+@onready var blur: ColorRect = $CamUI/Blur
+
 var camera_equipped = false
 var original_position: Vector3
 
 func _ready() -> void:
 	original_position = position
 	hide()
-	texture_rect.hide() ## TEMP
-
+	texture_rect.hide() ## TEMP. Remove when images shows nicely
+	blur.hide()
+	
 func _process(delta: float) -> void:
 	$SubViewport/Camera3D.global_transform = global_transform
 	
-	if Input.is_action_just_pressed("equip_camera"):
+	if Input.is_action_just_pressed("equip_camera") and Global.camera_in_inv: # TEMP. Remove "camera_in_inv" if finishing inv system
 		equip_camera()
 	if camera_equipped:
 		_snap_picture()
@@ -79,18 +82,20 @@ func get_insects_in_frame() -> Array:
 	return insects_in_frame
 
 func _aim_camera(delta: float):
-	var camera_target_pos = Vector3(0.025, 0, -0.65) if Input.is_action_pressed("item_secondary_interact") else original_position
+	var camera_target_pos = Vector3(0.2, -0.05, -0.625) if Input.is_action_pressed("item_secondary_interact") else original_position
 	position = position.lerp(camera_target_pos, delta * aim_speed)
+	
+	blur.visible = Input.is_action_pressed("item_secondary_interact")
 
 func equip_camera():
 	camera_equipped = !camera_equipped
 	
 	if camera_equipped:
 		show()
-		texture_rect.show() ## TEMP
+		texture_rect.show() ## TEMP Remove when images shows nicely
 	else:
 		hide()
-		texture_rect.hide() ## TEMP
+		texture_rect.hide() ## TEMP Remove when images shows nicely
 
 func _zoom_camera():
 	var camera = $SubViewport/Camera3D

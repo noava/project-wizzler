@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://u3dx0nb567wh" path="res://Items/Jar/Jar.tscn" id="5_3g1qk"]
 [ext_resource type="PackedScene" uid="uid://dwfgg16vvt6s3" path="res://Map/Bush/bush.tscn" id="5_5cbny"]
 [ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="5_8svjd"]
+[ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="12_vhrv6"]
+[ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
+[ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -135,3 +138,8 @@ insect_name = "Freaky Bug"
 
 [node name="Ball" parent="Toys" unique_id=1293081392 instance=ExtResource("5_8svjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578871)
+
+[node name="ToPickup" parent="Toys" unique_id=1667676149 instance=ExtResource("12_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0112479, 0.5412472, 4.9916058)
+model_scene = ExtResource("13_ry46t")
+item_scene = ExtResource("14_xoeuw")

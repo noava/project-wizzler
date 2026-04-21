@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	handle_interactions()
 	
 	if Input.is_action_just_pressed(KEY_DROP):
-		if $"..".is_on_floor(): # Player on floor
+		if get_tree().get_first_node_in_group("player").is_on_floor(): # Player on floor
 			place_carried_item()
 		else:
 			throw_carried_item()
@@ -68,6 +68,16 @@ func handle_interactions() -> void:
 		
 		if interact_pressed:
 			carry_item_from_world(collider)
+		return
+	
+	# Handle collectable items
+	if collider.is_in_group("collectable"):
+		pickup_label.visible = true
+		pickup_label.text = "Press [E] to collect"
+		
+		if interact_pressed:
+			collider.collect()
+			pass
 		return
 	
 	# Handle other usable objects (not jars)
