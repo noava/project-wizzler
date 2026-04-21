@@ -2,7 +2,7 @@ extends Node3D
 # TODO: Change to camera objects camera viewport
 @onready var texture_rect: TextureRect = $CamUI/TextureRect
 
-@export_category("Insect Detection")
+@export_category("Animal Detection")
 @export var distance_from_camera: float = 2.0
 
 @export_category("Aim Camera")
@@ -57,29 +57,29 @@ func _snap_picture():
 	var texture = viewport.get_texture()
 	var imgtex = ImageTexture.create_from_image(texture.get_image())
 	
-	print(get_insects_in_frame())
+	print(get_animals_in_frame())
 	
 	Global.imagesTaken.append({
 		"texture": imgtex,
-		"insects": get_insects_in_frame()
+		"animals": get_animals_in_frame()
 	})
 	texture_rect.texture = imgtex
 
-func get_insects_in_frame() -> Array:
+func get_animals_in_frame() -> Array:
 	var camera = $SubViewport/Camera3D
-	var insects_in_frame = []
+	var animals_in_frame = []
 	
-	# Don't know how this scales up when there are many insects in scene.
-	for insect in get_tree().get_nodes_in_group("insect"):
-		var distance = camera.global_position.distance_to(insect.global_position)
-		if camera.is_position_in_frustum(insect.global_position) and distance <= distance_from_camera:
-			# TODO: Don't count insects behind objects?
-			# TODO: Zoom allows insects to be detected on longer distances.
-			# TODO: Change to insect.data to get more info from the insect. Use a resource
+	# Don't know how this scales up when there are many animals in scene.
+	for animal in get_tree().get_nodes_in_group("animal"):
+		var distance = camera.global_position.distance_to(animal.global_position)
+		if camera.is_position_in_frustum(animal.global_position) and distance <= distance_from_camera:
+			# TODO: Don't count animals behind objects?
+			# TODO: Zoom allows animals to be detected on longer distances.
+			# TODO: Change to animal.data to get more info from the animal. Use a resource
 			
-			insects_in_frame.append(insect)
+			animals_in_frame.append(animal)
 	
-	return insects_in_frame
+	return animals_in_frame
 
 func _aim_camera(delta: float):
 	var camera_target_pos = Vector3(0.2, -0.05, -0.625) if Input.is_action_pressed("item_secondary_interact") else original_position

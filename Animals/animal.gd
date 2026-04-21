@@ -5,8 +5,11 @@ class_name Animal extends CharacterBody3D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 
+@export_category("Animal Info")
 @export var animal_name: String = ""
 @export var color_modulation: Color = Color(1,1,1)
+
+@export_category("Movement")
 @export var min_distance: float = 1
 @export var activation_distance: float = 5
 @export var speed: float = 5

@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dwfgg16vvt6s3" path="res://Map/Bush/bush.tscn" id="5_5cbny"]
 [ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="5_8svjd"]
 [ext_resource type="PackedScene" uid="uid://dmawnci4bi7l3" path="res://Animals/Models/Gecko/Gecko.tscn" id="10_ptuj4"]
+[ext_resource type="PackedScene" uid="uid://dd1xstcju6v4h" path="res://Animals/Models/Sparrow/Sparrow.tscn" id="10_vhrv6"]
+[ext_resource type="PackedScene" uid="uid://cbxqpnm0hyv0y" path="res://Animals/Models/Muskrat/Muskrat.tscn" id="11_ry46t"]
 [ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="12_vhrv6"]
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
@@ -127,33 +129,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2676995, 0.0074258, 1.41632
 [node name="Jar2" parent="Jars" unique_id=260447500 instance=ExtResource("5_3g1qk")]
 transform = Transform3D(0.38751563, 0, -0.92186314, 0, 1, 0, 0.92186314, 0, 0.38751563, 3.715532, 0.0077471584, 2.1382341)
 
-[node name="Insects" type="Node" parent="." unique_id=60000125]
+[node name="Animals" type="Node" parent="." unique_id=60000125]
 
-[node name="Gecko" parent="Insects" unique_id=2136921226 instance=ExtResource("10_ptuj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58298993, 0, 0)
-animal_name = "Blicky"
-color_modulation = Color(0.57593673, 0.7706608, 0.6507722, 1)
+[node name="Geckos" type="Node" parent="Animals" unique_id=1094868449]
 
-[node name="Gecko2" parent="Insects" unique_id=63184803 instance=ExtResource("10_ptuj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2087398, 0, 0)
-animal_name = "Blarg"
-color_modulation = Color(0.39215687, 1, 1, 1)
-
-[node name="Gecko3" parent="Insects" unique_id=1478664531 instance=ExtResource("10_ptuj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789884, 0, 0)
-animal_name = "Blimey"
-color_modulation = Color(0.68407667, 0.33827114, 0, 1)
-
-[node name="NavGecko" type="Node" parent="Insects" unique_id=1094868449]
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Insects/NavGecko" unique_id=792243572]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Geckos" unique_id=792243572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.228796, 0, 6.0779314)
 navigation_mesh = SubResource("NavigationMesh_ptuj4")
 
-[node name="InsectPlane" type="MeshInstance3D" parent="Insects/NavGecko/NavigationRegion3D" unique_id=1026560916]
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Geckos/NavigationRegion3D" unique_id=1026560916]
 visible = false
 mesh = SubResource("CylinderMesh_rr5ff")
 skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Gecko" parent="Animals/Geckos" unique_id=2136921226 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.228063, 0, 5.8349123)
+animal_name = "Blicky"
+color_modulation = Color(0.57593673, 0.7706608, 0.6507722, 1)
+
+[node name="Gecko2" parent="Animals/Geckos" unique_id=63184803 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6023135, 0, 5.8349123)
+animal_name = "Blarg"
+color_modulation = Color(0.39215687, 1, 1, 1)
+
+[node name="Gecko3" parent="Animals/Geckos" unique_id=1478664531 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.032065, 0, 5.8349123)
+animal_name = "Blimey"
+color_modulation = Color(0.68407667, 0.33827114, 0, 1)
+
+[node name="Sparrows" type="Node" parent="Animals" unique_id=468737632]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Sparrows" unique_id=1498948440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5668387, 0, -8.939809)
+navigation_mesh = SubResource("NavigationMesh_ptuj4")
+navigation_layers = 2
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Sparrows/NavigationRegion3D" unique_id=1742224170]
+visible = false
+mesh = SubResource("CylinderMesh_rr5ff")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Sparrow" parent="Animals/Sparrows" unique_id=1430979171 instance=ExtResource("10_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2099371, 0, -6.7382755)
+animal_name = "Palta"
+color_modulation = Color(0.21086276, 0.17889622, 0.12678167, 1)
+
+[node name="Sparrow2" parent="Animals/Sparrows" unique_id=280888544 instance=ExtResource("10_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9274242, 0, -6.7382755)
+animal_name = "Pirrpirr"
+color_modulation = Color(0.73886144, 0.5225733, 0.5462043, 1)
+
+[node name="Muskrats" type="Node" parent="Animals" unique_id=1323486473]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Muskrats" unique_id=1290581259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6863403, 0, 6.3926115)
+navigation_mesh = SubResource("NavigationMesh_ptuj4")
+navigation_layers = 4
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Muskrats/NavigationRegion3D" unique_id=2069362575]
+visible = false
+mesh = SubResource("CylinderMesh_rr5ff")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Muskrat" parent="Animals/Muskrats" unique_id=2130271889 instance=ExtResource("11_ry46t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.276446, 0, 4.3669186)
+animal_name = "Boingo"
+color_modulation = Color(0.88868046, 0.8836787, 0.44736797, 1)
 
 [node name="Toys" type="Node" parent="." unique_id=1216641006]
 

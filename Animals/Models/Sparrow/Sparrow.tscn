@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dd1xstcju6v4h"]
+
+[ext_resource type="Script" uid="uid://2epkgeu752d0" path="res://Animals/Models/Sparrow/sparrow.gd" id="1_gbchs"]
+[ext_resource type="PackedScene" uid="uid://onkmytsolaau" path="res://Animals/Models/Sparrow/Sparrow_Animations.glb" id="1_kj70e"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3svg"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_it3mw"]
+animation = &"Roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbchs"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b50x8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_25mp6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4bs77"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10m2x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sk30q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usxyl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32rly"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8yaqs"]
+states/Attack/node = SubResource("AnimationNodeAnimation_l3svg")
+states/Attack/position = Vector2(200, 263)
+states/Run/node = SubResource("AnimationNodeAnimation_it3mw")
+states/Run/position = Vector2(346, 175)
+states/Sit/node = SubResource("AnimationNodeAnimation_gbchs")
+states/Sit/position = Vector2(200, 175)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_b50x8"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_25mp6"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_4bs77"), "Sit", "Attack", SubResource("AnimationNodeStateMachineTransition_10m2x"), "Attack", "Sit", SubResource("AnimationNodeStateMachineTransition_sk30q"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_usxyl"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_32rly")]
+graph_offset = Vector2(-309, 69)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hqfmw"]
+graph_offset = Vector2(-291.55933, 174.20496)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_8yaqs")
+nodes/StateMachine/position = Vector2(0, 160)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbchs"]
+radius = 0.35388184
+height = 0.7077637
+
+[node name="Sparrow" type="CharacterBody3D" unique_id=1430979171 groups=["animal", "pickupable"]]
+script = ExtResource("1_gbchs")
+
+[node name="Sparrow_Animations" parent="." unique_id=890111016 instance=ExtResource("1_kj70e")]
+
+[node name="Skeleton3D" parent="Sparrow_Animations/Rig" parent_id_path=PackedInt32Array(890111016, 1474814550) index="0" unique_id=281871598]
+bones/1/position = Vector3(0, 0.04545915, 0.4296624)
+bones/1/rotation = Quaternion(0.6523253, 9.035341e-08, 7.7763225e-08, 0.7579393)
+bones/2/position = Vector3(2.0964033e-07, 0.15466294, -0.4864642)
+bones/2/rotation = Quaternion(-0.2587958, -1.1514809e-07, -3.085084e-08, 0.96593213)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(2.2610358e-07, 0.050822802, -0.516617)
+bones/3/rotation = Quaternion(-0.52163255, -9.947053e-08, -6.340611e-08, 0.8531702)
+bones/4/rotation = Quaternion(-0.48518875, 4.7065284e-14, -1.15678e-07, 0.8744095)
+bones/4/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/5/rotation = Quaternion(-0.63123393, -2.1782032e-14, -1.5049791e-07, 0.77559257)
+bones/5/scale = Vector3(1, 0.9999999, 0.9999997)
+bones/6/position = Vector3(0.47767597, 0.05458052, 0.23534465)
+bones/6/rotation = Quaternion(0.01093288, 0.72346544, -0.6900843, -0.016184406)
+bones/7/position = Vector3(-0.47767606, 0.054580536, 0.23534442)
+bones/7/rotation = Quaternion(-0.01093277, 0.72346544, -0.69008434, 0.016184583)
+bones/8/position = Vector3(0.20294428, -0.29012832, 0.065800734)
+bones/8/rotation = Quaternion(-1.6776328e-07, 0.5075567, 0.8616184, 2.2186e-08)
+bones/9/position = Vector3(-0.20294431, -0.29012832, 0.06580064)
+bones/9/rotation = Quaternion(-3.7662534e-08, 0.5075567, 0.8616184, 9.8824934e-08)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=961623483]
+root_node = NodePath("../Sparrow_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_hqfmw")
+anim_player = NodePath("../Sparrow_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1712951623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35339355, 0)
+shape = SubResource("CapsuleShape3D_gbchs")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=138825235]
+navigation_layers = 2
+
+[editable path="Sparrow_Animations"]

@@ -50,7 +50,7 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.23046875
 height = 1.4658203
 
-[node name="Gecko" type="CharacterBody3D" unique_id=2136921226 groups=["insect", "pickupable"]]
+[node name="Gecko" type="CharacterBody3D" unique_id=2136921226 groups=["animal", "pickupable"]]
 script = ExtResource("1_g8alt")
 
 [node name="Gecko_Animations" parent="." unique_id=1947088609 instance=ExtResource("1_pnl4h")]
