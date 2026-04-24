@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cplg0dd0upiqp" path="res://Animals/Models/Muskrat/muskrat.gd" id="1_2p0pg"]
 [ext_resource type="PackedScene" uid="uid://gvuwghowsk8j" path="res://Animals/Models/Muskrat/Muskrat_Animations.glb" id="1_jwjh1"]
-[ext_resource type="AudioStream" uid="uid://djm86naidtvbd" path="res://Sounds/muskrat.mp3" id="3_gkpd4"]
+[ext_resource type="AudioStream" uid="uid://djm86naidtvbd" path="res://Sounds/MuskRat/muskrat.mp3" id="3_gkpd4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osi37"]
 animation = &"Attack"
