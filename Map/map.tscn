@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="12_vhrv6"]
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
+[ext_resource type="AudioStream" uid="uid://boarkk3cwwn86" path="res://Sounds/Music/paulyudin-piano-piano-music-508963.mp3" id="16_xoeuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -205,3 +206,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0112479, 0.5412472, 4.9916058)
 model_scene = ExtResource("13_ry46t")
 item_scene = ExtResource("14_xoeuw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1931625436]
+stream = ExtResource("16_xoeuw")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

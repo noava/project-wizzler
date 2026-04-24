@@ -88,5 +88,6 @@ navigation_layers = 2
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=245667180]
 stream = ExtResource("3_bjqqb")
+bus = &"Animals"
 
 [editable path="Sparrow_Animations"]

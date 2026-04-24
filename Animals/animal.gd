@@ -68,3 +68,18 @@ func run():
 
 func attack():
 	state_machine.travel("Attack")
+
+func _ready() -> void:
+		animal_sound()
+
+func animal_sound():
+	await get_tree().create_timer(randf_range(1.0,5.0)).timeout
+	$AudioStreamPlayer3D.pitch_scale = randf_range(0.7,1)
+	$AudioStreamPlayer3D.play()
+	animal_sound()
+
+func relative_to_player_sound():
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance < 25 and !$AudioStreamPlayer3D.playing:
+		$AudioStreamPlayer3D.play()
