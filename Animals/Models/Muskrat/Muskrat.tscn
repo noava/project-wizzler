@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cplg0dd0upiqp" path="res://Animals/Models/Muskrat/muskrat.gd" id="1_2p0pg"]
 [ext_resource type="PackedScene" uid="uid://gvuwghowsk8j" path="res://Animals/Models/Muskrat/Muskrat_Animations.glb" id="1_jwjh1"]
+[ext_resource type="AudioStream" uid="uid://djm86naidtvbd" path="res://Sounds/muskrat.mp3" id="3_gkpd4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osi37"]
 animation = &"Attack"
@@ -53,29 +54,33 @@ metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
 
 [node name="Muskrat_Animations" parent="." unique_id=238047894 instance=ExtResource("1_jwjh1")]
 
-[node name="Skeleton3D" parent="Muskrat_Animations/Rig" parent_id_path=PackedInt32Array(238047894, 249905480) index="0" unique_id=365060403]
-bones/1/rotation = Quaternion(0.7071068, 0, 0, 0.7071068)
-bones/2/position = Vector3(8.7599646e-14, -0.28128213, -0.5275697)
-bones/2/rotation = Quaternion(6.7258206e-08, -0.45427406, 0.890862, -3.4296725e-08)
-bones/2/scale = Vector3(1, 0.9999995, 0.9999986)
-bones/3/rotation = Quaternion(-0.046649713, 2.699109e-07, -5.561091e-09, 0.9989113)
-bones/3/scale = Vector3(0.9999999, 0.99999994, 0.99999994)
-bones/4/position = Vector3(0.23889206, 0.3381994, 0.42804134)
-bones/4/rotation = Quaternion(-0.35349125, 0.10133092, -0.35106656, 0.86112034)
-bones/4/scale = Vector3(0.99999994, 1.0000002, 0.9999999)
-bones/5/position = Vector3(-0.23889206, 0.3381994, 0.42804134)
-bones/5/rotation = Quaternion(-0.35349125, -0.10133092, 0.35106656, 0.86112034)
-bones/5/scale = Vector3(0.99999994, 1.0000002, 0.9999999)
-bones/6/position = Vector3(0.20586532, -0.23627408, 0.25541773)
-bones/6/rotation = Quaternion(7.4432634e-08, 0.16739464, 0.98589, 1.2637937e-08)
+[node name="Skeleton3D" parent="Muskrat_Animations/Rig" parent_id_path=PackedInt32Array(238047894, 1661216384) index="0" unique_id=1860112536]
+bones/1/position = Vector3(-4.918572e-18, -6.145642e-08, 0.5425712)
+bones/1/rotation = Quaternion(0.5563837, -3.0480246e-17, 3.0480252e-17, 0.83092546)
+bones/1/scale = Vector3(1, 0.9696073, 1)
+bones/2/position = Vector3(-3.4381275e-15, -0.28128168, -0.52757007)
+bones/2/rotation = Quaternion(0.08983137, -0.8190886, 0.56647325, -0.011500543)
+bones/2/scale = Vector3(1, 1, 0.9999998)
+bones/3/rotation = Quaternion(-0.48432747, -2.0042776e-08, -2.3236697e-07, 0.8748869)
+bones/3/scale = Vector3(0.9999999, 0.99999994, 0.9999998)
+bones/4/position = Vector3(0.23889223, 0.33819956, 0.4280414)
+bones/4/rotation = Quaternion(-0.35349128, 0.10133088, -0.3510666, 0.86112034)
+bones/4/scale = Vector3(1, 1.0000002, 1.0000001)
+bones/5/position = Vector3(-0.23889223, 0.33819956, 0.4280414)
+bones/5/rotation = Quaternion(-0.35349128, -0.10133088, 0.3510666, 0.86112034)
+bones/5/scale = Vector3(1, 1.0000002, 1.0000001)
+bones/6/position = Vector3(0.20586526, -0.3664602, 0.21904033)
+bones/6/rotation = Quaternion(9.002596e-08, 0.30207956, 0.9532827, -8.322061e-08)
 bones/6/scale = Vector3(1, 1.0000001, 1.0000011)
 bones/7/position = Vector3(0.43022716, -0.30799204, -0.3447448)
-bones/7/rotation = Quaternion(-7.549789e-08, 0, 1, 0)
-bones/8/position = Vector3(-0.20586532, -0.23627408, 0.25541773)
-bones/8/rotation = Quaternion(-7.4432634e-08, 0.16739464, 0.98589, -1.2637937e-08)
+bones/7/rotation = Quaternion(-6.5914755e-08, 0.4868792, 0.87346935, -2.6888546e-07)
+bones/7/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/8/position = Vector3(-0.20586526, -0.3664602, 0.21904033)
+bones/8/rotation = Quaternion(-9.002596e-08, 0.30207956, 0.9532827, 8.322061e-08)
 bones/8/scale = Vector3(1, 1.0000001, 1.0000011)
 bones/9/position = Vector3(-0.43022716, -0.30799204, -0.3447448)
-bones/9/rotation = Quaternion(7.549789e-08, 0, 1, 0)
+bones/9/rotation = Quaternion(6.5914755e-08, 0.4868792, 0.87346935, 2.6888546e-07)
+bones/9/scale = Vector3(1, 0.99999994, 0.99999994)
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1513610102]
 root_node = NodePath("../Muskrat_Animations")
@@ -88,5 +93,12 @@ shape = SubResource("CapsuleShape3D_dqn4q")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=214441124]
 navigation_layers = 4
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=275500789]
+stream = ExtResource("3_gkpd4")
+volume_db = 0.4
+autoplay = true
+bus = &"Animals"
+parameters/looping = true
 
 [editable path="Muskrat_Animations"]
