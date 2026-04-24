@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ctvmk3w85wsoy" path="res://Environment_Models/glTF/CommonTree_3.gltf" id="8_6h3sa"]
 [ext_resource type="PackedScene" uid="uid://duo7oqvuhqe4x" path="res://Environment_Models/glTF/CommonTree_4.gltf" id="9_1ek4m"]
 [ext_resource type="PackedScene" uid="uid://cu8lrv1ti4ehf" path="res://Environment_Models/glTF/CommonTree_5.gltf" id="10_kf7xx"]
-[ext_resource type="PackedScene" uid="uid://clbs1yp5sy7ot" path="res://Environment_Models/glTF/Fern_1.gltf" id="11_hqhy7"]
+[ext_resource type="PackedScene" path="res://Environment_Models/Fern_1.gltf" id="11_hqhy7"]
 [ext_resource type="PackedScene" uid="uid://cqmiis3ju2tp0" path="res://Environment_Models/glTF/Flower_3_Group.gltf" id="12_1vyse"]
 [ext_resource type="PackedScene" uid="uid://deowbfftvoxig" path="res://Environment_Models/glTF/Flower_3_Single.gltf" id="13_es5es"]
 [ext_resource type="PackedScene" uid="uid://d1mbxiwqdb5ve" path="res://Environment_Models/glTF/Flower_4_Group.gltf" id="14_jod0x"]
@@ -31,10 +31,10 @@
 [ext_resource type="PackedScene" uid="uid://cqkt8q3bojq46" path="res://Environment_Models/glTF/Grass_Wispy_Tall.gltf" id="29_tishj"]
 [ext_resource type="PackedScene" uid="uid://c6o3dyxiyg5sw" path="res://Environment_Models/frog.glb" id="30_f8lw1"]
 [ext_resource type="PackedScene" uid="uid://crou45sfgyswg" path="res://Environment_Models/glTF/Grass_Wispy_Short.gltf" id="30_rd62q"]
-[ext_resource type="Script" uid="uid://ybdtxiohr6bu" path="res://Environment/butterfly.gd" id="30_x08o7"]
+[ext_resource type="Script" uid="uid://ybdtxiohr6bu" path="res://Environment_Models/Butterfly/butterfly.gd" id="30_x08o7"]
 [ext_resource type="Texture2D" uid="uid://dpoqy2hmocvtx" path="res://Environment_Models/Butterfly/IMG_1708.png" id="31_x08o7"]
 [ext_resource type="PackedScene" uid="uid://bmqp7vrp6rdc7" path="res://Environment_Models/Crate/crate.tscn" id="34_rd62q"]
-[ext_resource type="PackedScene" uid="uid://bc0tjcwmii6qe" path="res://Environment_Models/terrain test/test.glb" id="35_w7nl1"]
+[ext_resource type="PackedScene" path="res://Environment_Models/terrain test/test.glb" id="35_w7nl1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fttqx"]
 panorama = ExtResource("1_k7wn3")
@@ -514,8 +514,8 @@ curve = SubResource("Curve3D_fttqx")
 script = ExtResource("30_x08o7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Butterfly/Path3D" unique_id=600567228]
-transform = Transform3D(-0.1269607, 0.4687478, 0.8741106, 0, 0.8810805, -0.4726611, -0.99173504, -0.06000851, -0.11190254, -0.8629751, 1.2423335, 1.7369349)
-progress = 5.135121
+transform = Transform3D(-0.57597893, 0.5124167, -0.63675976, 0, 0.77886343, 0.62700963, 0.8172534, 0.361138, -0.44877174, -2.0230372, 1.4997648, 2.5792356)
+progress = 8.720385
 rotation_mode = 4
 
 [node name="Node3D" type="Node3D" parent="Butterfly/Path3D/PathFollow3D" unique_id=2038953997]

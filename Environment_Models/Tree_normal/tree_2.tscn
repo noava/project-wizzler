@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://sdx30kyvtsup"]
+
+[ext_resource type="PackedScene" uid="uid://cu8lrv1ti4ehf" path="res://Environment_Models/glTF/CommonTree_5.gltf" id="1_hgcay"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ohcda"]
+height = 1.7822266
+radius = 0.4609375
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt3q1"]
+height = 1.8134766
+radius = 0.45166016
+
+[node name="CommonTree_52" unique_id=56652896 instance=ExtResource("1_hgcay")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CommonTree_5" parent_id_path=PackedInt32Array(528195930) index="0" unique_id=321691775]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CommonTree_5/StaticBody3D" index="0" unique_id=210824955]
+transform = Transform3D(0.9935045, 0.11276515, -0.0152584715, -0.11379279, 0.98453236, -0.13321899, 0, 0.13408996, 0.9909692, 0.06211853, 0.69140625, 0.08486819)
+shape = SubResource("CylinderShape3D_ohcda")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CommonTree_5/StaticBody3D" index="1" unique_id=451722757]
+transform = Transform3D(0.99243736, -0.122752786, 0, 0.1220641, 0.9868694, 0.10577808, -0.012984559, -0.10497816, 0.9943898, 0.011452198, 2.321157, 0.09204352)
+shape = SubResource("CylinderShape3D_tt3q1")
