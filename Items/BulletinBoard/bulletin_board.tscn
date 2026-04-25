@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://brs1sd855j0oc"]
 
+[ext_resource type="Script" uid="uid://dqu2jtm3538um" path="res://Items/BulletinBoard/bulletin_board.gd" id="1_s3ttp"]
 [ext_resource type="PackedScene" uid="uid://w4dtpjlscdqi" path="res://Items/BulletinBoard/bulletin_board_info.tscn" id="2_m23of"]
+[ext_resource type="PackedScene" uid="uid://b6p5737m4ey8p" path="res://Items/BulletinBoard/BulletinBoard.glb" id="2_mtv34"]
+[ext_resource type="Script" uid="uid://c8h1a3f0ee7sf" path="res://Items/BulletinBoard/interactive_button.gd" id="3_m23of"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qnxn1"]
 viewport_path = NodePath("Plane/SubViewport")
@@ -12,39 +15,97 @@ albedo_texture = SubResource("ViewportTexture_qnxn1")
 [sub_resource type="PlaneMesh" id="PlaneMesh_m23of"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_mtv34")
-size = Vector2(4, 2)
+size = Vector2(1.5, 1)
 orientation = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnxn1"]
-albedo_color = Color(0.24058232, 0.12656176, 0.021025136, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3ttp"]
+size = Vector3(0.05173828, 0.16308594, 0.41430664)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3ttp"]
+albedo_color = Color(0.26737344, 0.2794463, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_acjgf"]
+material = SubResource("StandardMaterial3D_s3ttp")
+size = Vector3(0.04, 0.15, 0.4)
 
 [node name="BulletinBoard" type="Node3D" unique_id=1237578697]
+script = ExtResource("1_s3ttp")
+
+[node name="BulletinBoard" parent="." unique_id=977635266 instance=ExtResource("2_mtv34")]
 
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=1787702835]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019167721, 1.3460233, 0)
 mesh = SubResource("PlaneMesh_m23of")
 
 [node name="SubViewport" type="SubViewport" parent="Plane" unique_id=373031937]
-size = Vector2i(1152, 648)
+size = Vector2i(1500, 1000)
 
 [node name="BulletinBoardInfo" parent="Plane/SubViewport" unique_id=420336493 instance=ExtResource("2_m23of")]
+offset_right = -453.00012
+offset_bottom = -543.0001
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=792452117]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 1.5, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=695838151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06463623, 1.2636719, 0)
+visible = false
 use_collision = true
-size = Vector3(0.035839844, 2.1, 4.1)
-material = SubResource("StandardMaterial3D_qnxn1")
+size = Vector3(0.14904785, 2.5292969, 1.9990234)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1856120006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053, 0.3, -1.2)
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=461161801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13929749, 2.3229678, 0)
+visible = false
 use_collision = true
-radius = 0.048339844
-height = 0.6
-material = SubResource("StandardMaterial3D_qnxn1")
+collision_layer = 2
+size = Vector3(1.0328674, 0.45361328, 2.600586)
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2029663664]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053, 0.3, 1.2)
-use_collision = true
-radius = 0.048339844
-height = 0.6
-material = SubResource("StandardMaterial3D_qnxn1")
+[node name="Buttons" type="Node3D" parent="." unique_id=1739606622]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.06053567, 0.71089756, 0)
+
+[node name="PrevBtn" type="StaticBody3D" parent="Buttons" unique_id=1724307084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.48839045)
+script = ExtResource("3_m23of")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/PrevBtn" unique_id=334621034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045869112, 0, 0)
+shape = SubResource("BoxShape3D_s3ttp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/PrevBtn" unique_id=1929658682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+mesh = SubResource("BoxMesh_acjgf")
+
+[node name="Prev" type="Label3D" parent="Buttons/PrevBtn" unique_id=1085614209]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06975533, 0.008356881, -3.0491019e-09)
+pixel_size = 0.001
+text = "Previous"
+font_size = 90
+
+[node name="Page" type="Label3D" parent="Buttons" unique_id=2106252319]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.027602948, 0.05987391, -1.206563e-09)
+pixel_size = 0.001
+text = "Page No."
+
+[node name="PageCount" type="Label3D" parent="Buttons" unique_id=2098874845]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.027602948, -0.013059413, -1.206563e-09)
+pixel_size = 0.001
+text = "0/0"
+font_size = 90
+
+[node name="NextBtn" type="StaticBody3D" parent="Buttons" unique_id=10032235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4812447)
+script = ExtResource("3_m23of")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/NextBtn" unique_id=554355840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+shape = SubResource("BoxShape3D_s3ttp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/NextBtn" unique_id=286307715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+mesh = SubResource("BoxMesh_acjgf")
+
+[node name="Next" type="Label3D" parent="Buttons/NextBtn" unique_id=1746204185]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06975533, 0.008356881, -3.0491019e-09)
+pixel_size = 0.001
+text = "Next"
+font_size = 90
+
+[connection signal="on_btn_clicked" from="Buttons/PrevBtn" to="." method="_on_prev_btn_on_btn_clicked"]
+[connection signal="on_btn_clicked" from="Buttons/NextBtn" to="." method="_on_next_btn_on_btn_clicked"]

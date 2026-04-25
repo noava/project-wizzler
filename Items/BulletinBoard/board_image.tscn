@@ -11,8 +11,8 @@ corner_radius_bottom_left = 2
 width = 160
 height = 160
 
-[node name="TextureRect" type="Control" unique_id=525107509]
-custom_minimum_size = Vector2(180, 200)
+[node name="BoardImage" type="Control" unique_id=525107509]
+custom_minimum_size = Vector2(210, 250)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 180.0
@@ -28,7 +28,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_72tdc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1101743752]
-custom_minimum_size = Vector2(160, 160)
+custom_minimum_size = Vector2(190, 190)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -40,16 +40,18 @@ stretch_mode = 4
 
 [node name="BugName" type="Label" parent="." unique_id=1245593129]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -28.0
-offset_right = -10.0
-offset_bottom = -5.0
-grow_horizontal = 0
+offset_left = -50.5
+offset_top = -40.0
+offset_right = 50.5
+offset_bottom = -12.0
+grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Bug Name"
+horizontal_alignment = 1
