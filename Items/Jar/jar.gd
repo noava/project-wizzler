@@ -7,7 +7,7 @@ var animal_data = null
 func _ready() -> void:
 	lid.visible = false
 
-func use_object(animal_object) -> void:
+func use_jar(animal_object) -> void:
 	# Store animal if empty
 	if !animal_data:
 		animal_object.get_node("CollisionShape3D").disabled = true

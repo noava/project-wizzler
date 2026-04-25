@@ -8,7 +8,7 @@ extends Node
 
 @onready var player_model: Node3D = $"../PlayerModel"
 @onready var head: Node3D = $"../Head"
-@onready var ray_cast: RayCast3D = $"../Head/RayCast3D"
+@onready var ray_cast: RayCast3D = $"../Head/Camera3D/RayCast3D"
 @onready var item_holder: Node3D = $"../Head/ItemHolder"
 @onready var pickup_label: Label = $"../HUD/PickupLabel"
 
@@ -52,11 +52,11 @@ func handle_interactions() -> void:
 			
 			if interact_pressed:
 				if can_insert:
-					collider.use_object(item_data)
+					collider.use_jar(item_data)
 					remove_held_item()
 				else:
 					var animal_object = collider.animal_data
-					collider.use_object(animal_object)
+					collider.use_jar(animal_object)
 					carry_item_from_world(animal_object)
 			return
 	
@@ -79,16 +79,14 @@ func handle_interactions() -> void:
 			pass
 		return
 	
-	# Handle other usable objects (not jars)
-	if collider.has_method("use_object") and not collider.is_in_group("jar"):
+	# Handle other usable objects
+	if collider.has_method("use_object"):
 		pickup_label.visible = true
-		if not holding_item:
-			pickup_label.text = "Press [E] to use"
-			
-			if interact_pressed:
-				collider.use_object()
-		else:
-			pickup_label.text = "Drop the item first"
+		pickup_label.text = "Press [E] to use"
+		
+		if interact_pressed:
+			collider.use_object()
+
 		return
 	
 	pickup_label.visible = false

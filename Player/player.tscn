@@ -63,7 +63,7 @@ script = ExtResource("2_k53q1")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1970798928]
 fov = 80.0
 
-[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=620281462]
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=620281462]
 target_position = Vector3(0, 0, -3)
 
 [node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Head" unique_id=1254867983]
