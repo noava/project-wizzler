@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://w4dtpjlscdqi" path="res://Items/BulletinBoard/bulletin_board_info.tscn" id="2_m23of"]
 [ext_resource type="PackedScene" uid="uid://b6p5737m4ey8p" path="res://Items/BulletinBoard/BulletinBoard.glb" id="2_mtv34"]
 [ext_resource type="Script" uid="uid://c8h1a3f0ee7sf" path="res://Items/BulletinBoard/interactive_button.gd" id="3_m23of"]
+[ext_resource type="PackedScene" uid="uid://c1lxh12hyclot" path="res://Items/BulletinBoard/Nail/nail.glb" id="4_s3ttp"]
 [ext_resource type="PackedScene" uid="uid://qcs8ouuadg57" path="res://Items/BulletinBoard/Button/Button.glb" id="5_acjgf"]
+[ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="6_1o714"]
+[ext_resource type="Texture2D" uid="uid://d2ng3tnxwefuh" path="res://Items/BulletinBoard/Paper/leave_no_trace.png" id="7_pdt33"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qnxn1"]
 viewport_path = NodePath("Plane/SubViewport")
@@ -107,6 +110,15 @@ modulate = Color(0.9195943, 0.78183085, 0.70429957, 1)
 text = "Next"
 font_size = 80
 outline_size = 0
+
+[node name="Posters" type="Node3D" parent="." unique_id=1097305920]
+
+[node name="paper" parent="Posters" unique_id=94505661 instance=ExtResource("6_1o714")]
+transform = Transform3D(0.07327925, 0.03538789, -0.9966834, -0.0025948235, 0.9993736, 0.035292633, 0.9973082, -2.9239278e-11, 0.07332519, 0.2638227, 1.1992257, 0.9423456)
+image_texture = ExtResource("7_pdt33")
+
+[node name="nail" parent="Posters" unique_id=1633250614 instance=ExtResource("4_s3ttp")]
+transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, 0.2638227, 1.3728387, 0.93565226)
 
 [connection signal="on_btn_clicked" from="Buttons/PrevBtn" to="." method="_on_prev_btn_on_btn_clicked"]
 [connection signal="on_btn_clicked" from="Buttons/NextBtn" to="." method="_on_next_btn_on_btn_clicked"]
