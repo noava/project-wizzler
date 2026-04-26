@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://w4dtpjlscdqi" path="res://Items/BulletinBoard/bulletin_board_info.tscn" id="2_m23of"]
 [ext_resource type="PackedScene" uid="uid://b6p5737m4ey8p" path="res://Items/BulletinBoard/BulletinBoard.glb" id="2_mtv34"]
 [ext_resource type="Script" uid="uid://c8h1a3f0ee7sf" path="res://Items/BulletinBoard/interactive_button.gd" id="3_m23of"]
+[ext_resource type="PackedScene" uid="uid://qcs8ouuadg57" path="res://Items/BulletinBoard/Button/Button.glb" id="5_acjgf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qnxn1"]
 viewport_path = NodePath("Plane/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtv34"]
 resource_local_to_scene = true
+transparency = 1
 albedo_texture = SubResource("ViewportTexture_qnxn1")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m23of"]
@@ -19,25 +21,19 @@ size = Vector2(1.5, 1)
 orientation = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3ttp"]
-size = Vector3(0.05173828, 0.16308594, 0.41430664)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3ttp"]
-albedo_color = Color(0.26737344, 0.2794463, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_acjgf"]
-material = SubResource("StandardMaterial3D_s3ttp")
-size = Vector3(0.04, 0.15, 0.4)
+size = Vector3(0.05, 0.163, 0.414)
 
 [node name="BulletinBoard" type="Node3D" unique_id=1237578697]
 script = ExtResource("1_s3ttp")
 
-[node name="BulletinBoard" parent="." unique_id=977635266 instance=ExtResource("2_mtv34")]
+[node name="BulletinBoard" parent="." unique_id=463944506 instance=ExtResource("2_mtv34")]
 
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=1787702835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019167721, 1.3460233, 0)
 mesh = SubResource("PlaneMesh_m23of")
 
 [node name="SubViewport" type="SubViewport" parent="Plane" unique_id=373031937]
+transparent_bg = true
 size = Vector2i(1500, 1000)
 
 [node name="BulletinBoardInfo" parent="Plane/SubViewport" unique_id=420336493 instance=ExtResource("2_m23of")]
@@ -54,58 +50,63 @@ size = Vector3(0.14904785, 2.5292969, 1.9990234)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13929749, 2.3229678, 0)
 visible = false
 use_collision = true
-collision_layer = 2
 size = Vector3(1.0328674, 0.45361328, 2.600586)
 
 [node name="Buttons" type="Node3D" parent="." unique_id=1739606622]
-transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.06053567, 0.71089756, 0)
+transform = Transform3D(0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0, 0, 0, 1, 0.06053567, 0.71089756, 0)
 
 [node name="PrevBtn" type="StaticBody3D" parent="Buttons" unique_id=1724307084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.48839045)
 script = ExtResource("3_m23of")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/PrevBtn" unique_id=334621034]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045869112, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
 shape = SubResource("BoxShape3D_s3ttp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/PrevBtn" unique_id=1929658682]
+[node name="ButtonMesh" parent="Buttons/PrevBtn" unique_id=1649217604 instance=ExtResource("5_acjgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-mesh = SubResource("BoxMesh_acjgf")
 
 [node name="Prev" type="Label3D" parent="Buttons/PrevBtn" unique_id=1085614209]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06975533, 0.008356881, -3.0491019e-09)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07025958, 0.008356881, -3.0711431e-09)
 pixel_size = 0.001
+modulate = Color(0.91764706, 0.78039217, 0.7058824, 1)
 text = "Previous"
-font_size = 90
+font_size = 80
+outline_size = 0
 
 [node name="Page" type="Label3D" parent="Buttons" unique_id=2106252319]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.027602948, 0.05987391, -1.206563e-09)
 pixel_size = 0.001
+modulate = Color(0.91764706, 0.78039217, 0.7058824, 1)
 text = "Page No."
+outline_size = 0
 
 [node name="PageCount" type="Label3D" parent="Buttons" unique_id=2098874845]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.027602948, -0.013059413, -1.206563e-09)
 pixel_size = 0.001
+modulate = Color(0.91764706, 0.78039217, 0.7058824, 1)
 text = "0/0"
 font_size = 90
+outline_size = 0
 
 [node name="NextBtn" type="StaticBody3D" parent="Buttons" unique_id=10032235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4812447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.481)
 script = ExtResource("3_m23of")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/NextBtn" unique_id=554355840]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
 shape = SubResource("BoxShape3D_s3ttp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Buttons/NextBtn" unique_id=286307715]
+[node name="ButtonMesh" parent="Buttons/NextBtn" unique_id=1628850044 instance=ExtResource("5_acjgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-mesh = SubResource("BoxMesh_acjgf")
 
 [node name="Next" type="Label3D" parent="Buttons/NextBtn" unique_id=1746204185]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06975533, 0.008356881, -3.0491019e-09)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07067586, 0.008356881, -3.0893395e-09)
 pixel_size = 0.001
+modulate = Color(0.9195943, 0.78183085, 0.70429957, 1)
 text = "Next"
-font_size = 90
+font_size = 80
+outline_size = 0
 
 [connection signal="on_btn_clicked" from="Buttons/PrevBtn" to="." method="_on_prev_btn_on_btn_clicked"]
 [connection signal="on_btn_clicked" from="Buttons/NextBtn" to="." method="_on_next_btn_on_btn_clicked"]

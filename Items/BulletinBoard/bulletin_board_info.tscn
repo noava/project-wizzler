@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cq1hhps1y3mn6" path="res://Items/BulletinBoard/board_image.tscn" id="2_b17mg"]
 [ext_resource type="Script" uid="uid://cmk1l74or67ga" path="res://Items/BulletinBoard/show_images.gd" id="2_pa5x4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa5x4"]
-bg_color = Color(0.16225263, 0.08251167, 0.0029214825, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa5x4"]
 
 [node name="BulletinBoardInfo" type="Control" unique_id=420336493]
 layout_mode = 3
@@ -23,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pa5x4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pa5x4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1216142266]
 layout_mode = 2
@@ -97,6 +96,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/MarginContainer" unique_id=1790224964]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.78039217, 0.7058824, 1)
 theme_override_font_sizes/font_size = 80
 text = "No Images Taken!"
 horizontal_alignment = 1

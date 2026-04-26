@@ -24,13 +24,18 @@ func show_images():
 
 	var start_index: int = current_page * IMAGES_PER_PAGE
 	var end_index: int = min(start_index + IMAGES_PER_PAGE, Global.imagesTaken.size())
-	for i in Global.imagesTaken.slice(start_index, end_index):
-		var img = BOARD_IMAGE.instantiate()
-		img.get_node("TextureRect").texture = i.texture
+	for index in range(start_index, end_index):
+		var img_data = Global.imagesTaken[index]
+		var img: Control = BOARD_IMAGE.instantiate()
+		img.get_node("TextureRect").texture = img_data.texture
 		
-		img.get_node("BugName").text = str(i.animals[0].animal_name) if i.animals.size() > 0 else "" # Only get the first animal
+		img.get_node("BugName").text = str(img_data.animals[0].animal_name) if img_data.animals.size() > 0 else "" # Only get the first animal
 
-		gallery.add_child(img)
+		var card: Control = Control.new() # For allowing rotation of each image
+		card.custom_minimum_size = img.custom_minimum_size
+		img.rotation_degrees = randf_range(-2.0, 2.0)
+		card.add_child(img)
+		gallery.add_child(card)
 
 func remove_children():
 	for c in gallery.get_children():
