@@ -1,6 +1,7 @@
 extends Control
 
 var is_menu: bool = false
+
 @onready var player: CharacterBody3D = $"../.."
 @onready var fps_label: Label = $"../FPSLabel"
 
@@ -73,4 +74,4 @@ func _on_no_button_pressed() -> void:
 	$AreYouSure.hide()
 
 func _on_yes_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")

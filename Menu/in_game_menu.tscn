@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch10bvxhku6xo"]
+[gd_scene format=3 uid="uid://ch10bvxhku6xo"]
 
 [ext_resource type="Script" uid="uid://cvhkt5onf4dpi" path="res://Menu/in_game_menu.gd" id="1_2w11b"]
-[ext_resource type="Theme" uid="uid://calu8os4ei520" path="res://UI/Theme/ui_theme.tres" id="1_igoho"]
+[ext_resource type="Texture2D" uid="uid://c1vnrnc7c8lwx" path="res://UI/Assets/Panel/Panel.png" id="2_xe67i"]
+[ext_resource type="FontFile" uid="uid://jqiypb5ad4" path="res://UI/Theme/PROPAGAN.ttf" id="3_igoho"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xe67i"]
+texture = ExtResource("2_xe67i")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igoho"]
 
@@ -12,83 +16,121 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="InGameMenu" type="Control"]
+[node name="InGameMenu" type="Control" unique_id=1069040448]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_igoho")
 script = ExtResource("1_2w11b")
 
-[node name="Choices" type="VBoxContainer" parent="."]
+[node name="Choices" type="Control" parent="." unique_id=59261001]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 56.0
-offset_top = -65.0
-offset_right = 127.0
-offset_bottom = 68.0
+offset_left = 50.0
+offset_top = -90.5
+offset_right = 181.0
+offset_bottom = 90.50012
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Choices"]
+[node name="PanelContainer" type="PanelContainer" parent="Choices" unique_id=830183575]
+layout_mode = 1
+offset_right = 131.0
+offset_bottom = 181.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xe67i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Choices/PanelContainer" unique_id=154576126]
 layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Choices" type="VBoxContainer" parent="Choices/PanelContainer/MarginContainer" unique_id=1287901537]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Choices/PanelContainer/MarginContainer/Choices" unique_id=940409616]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_igoho")
 text = "Paused"
 
-[node name="Resume" type="Button" parent="Choices"]
+[node name="Resume" type="Button" parent="Choices/PanelContainer/MarginContainer/Choices" unique_id=2040079238]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Resume"
 alignment = 0
 
-[node name="Settings" type="Button" parent="Choices"]
+[node name="Settings" type="Button" parent="Choices/PanelContainer/MarginContainer/Choices" unique_id=90526477]
 layout_mode = 2
 text = "Settings"
 alignment = 0
 
-[node name="HSeparator" type="HSeparator" parent="Choices"]
+[node name="HSeparator" type="HSeparator" parent="Choices/PanelContainer/MarginContainer/Choices" unique_id=2092968031]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_igoho")
 
-[node name="Leave" type="Button" parent="Choices"]
+[node name="Leave" type="Button" parent="Choices/PanelContainer/MarginContainer/Choices" unique_id=1435094382]
 layout_mode = 2
 text = "Leave"
 alignment = 0
 
-[node name="Settings" type="VBoxContainer" parent="."]
+[node name="Settings" type="Control" parent="." unique_id=1414228336]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 56.0
-offset_top = -65.0
-offset_right = 190.0
-offset_bottom = 44.0
+offset_left = 50.0
+offset_top = -90.5
+offset_right = 181.0
+offset_bottom = 90.50012
 grow_vertical = 2
 
-[node name="Settings" type="Label" parent="Settings"]
+[node name="PanelContainer" type="PanelContainer" parent="Settings" unique_id=2076480736]
+layout_mode = 1
+offset_right = 131.0
+offset_bottom = 181.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xe67i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/PanelContainer" unique_id=248068816]
 layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Settings" type="VBoxContainer" parent="Settings/PanelContainer/MarginContainer" unique_id=241212194]
+layout_mode = 2
+
+[node name="Settings" type="Label" parent="Settings/PanelContainer/MarginContainer/Settings" unique_id=1202847912]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_igoho")
 text = "Settings"
 
-[node name="Fullscreen" type="Button" parent="Settings"]
+[node name="Fullscreen" type="Button" parent="Settings/PanelContainer/MarginContainer/Settings" unique_id=2060906513]
 layout_mode = 2
 text = "Toggle Fullscreen"
 alignment = 0
 
-[node name="FPSButton" type="Button" parent="Settings"]
+[node name="FPSButton" type="Button" parent="Settings/PanelContainer/MarginContainer/Settings" unique_id=1038678729]
 layout_mode = 2
 text = "Toggle FPS"
 alignment = 0
 
-[node name="Go back" type="Button" parent="Settings"]
+[node name="HSeparator" type="HSeparator" parent="Settings/PanelContainer/MarginContainer/Settings" unique_id=140218476]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_igoho")
+
+[node name="Go back" type="Button" parent="Settings/PanelContainer/MarginContainer/Settings" unique_id=660085852]
 layout_mode = 2
 text = "Go back"
 alignment = 0
 
-[node name="AreYouSure" type="Control" parent="."]
+[node name="AreYouSure" type="Control" parent="." unique_id=547606735]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,7 +144,7 @@ offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="AreYouSure"]
+[node name="PanelContainer" type="PanelContainer" parent="AreYouSure" unique_id=1259283897]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 28.0
@@ -111,56 +153,56 @@ offset_bottom = 144.0
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tik3w")
 
-[node name="MarginContainer" type="MarginContainer" parent="AreYouSure/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AreYouSure/PanelContainer" unique_id=304469197]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer" unique_id=1035468933]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer" unique_id=217709055]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 26
 text = "Are you sure?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer" unique_id=1991737280]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 15
 text = "All progress gets deleted."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer" unique_id=335892971]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer" unique_id=1347812084]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="NoButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NoButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1054516694]
 layout_mode = 2
 text = "Stay!"
 
-[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=34269590]
 layout_mode = 2
 
-[node name="YesButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="YesButton" type="Button" parent="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=829545970]
 layout_mode = 2
 text = "Leave!!"
 
-[connection signal="pressed" from="Choices/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Choices/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Choices/Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="Settings/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="Settings/FPSButton" to="." method="_on_fps_button_pressed"]
-[connection signal="pressed" from="Settings/Go back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Choices/PanelContainer/MarginContainer/Choices/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Choices/PanelContainer/MarginContainer/Choices/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Choices/PanelContainer/MarginContainer/Choices/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Settings/PanelContainer/MarginContainer/Settings/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Settings/PanelContainer/MarginContainer/Settings/FPSButton" to="." method="_on_fps_button_pressed"]
+[connection signal="pressed" from="Settings/PanelContainer/MarginContainer/Settings/Go back" to="." method="_on_go_back_pressed"]
 [connection signal="pressed" from="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
 [connection signal="pressed" from="AreYouSure/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]

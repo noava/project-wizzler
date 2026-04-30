@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://calu8os4ei520"]
+[gd_resource type="Theme" format=3 uid="uid://calu8os4ei520"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybov5"]
 
@@ -16,4 +16,5 @@ Button/styles/focus = SubResource("StyleBoxEmpty_ybov5")
 Button/styles/hover = SubResource("StyleBoxEmpty_0ys1n")
 Button/styles/normal = SubResource("StyleBoxEmpty_86c21")
 Button/styles/pressed = SubResource("StyleBoxEmpty_17iv7")
-Label/font_sizes/font_size = 20
+Label/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
+Label/font_sizes/font_size = 15
