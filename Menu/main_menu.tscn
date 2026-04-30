@@ -7,9 +7,46 @@
 [ext_resource type="Texture2D" uid="uid://d2ng3tnxwefuh" path="res://Items/BulletinBoard/Paper/leave_no_trace.png" id="6_dqyvv"]
 [ext_resource type="PackedScene" uid="uid://c1lxh12hyclot" path="res://Items/BulletinBoard/Nail/nail.glb" id="7_m8x2t"]
 [ext_resource type="Script" uid="uid://6hn0s350sudo" path="res://Menu/main_menu.gd" id="8_e2v8n"]
+[ext_resource type="Texture2D" uid="uid://ciyb50fdv8eiu" path="res://Items/BulletinBoard/Paper/MadeBy.png" id="8_ywk15"]
 [ext_resource type="Texture2D" uid="uid://bgs0enmj1dqlj" path="res://UI/Theme/Back.svg" id="9_is5sc"]
-[ext_resource type="FontFile" uid="uid://jqiypb5ad4" path="res://UI/Theme/PROPAGAN.ttf" id="9_ywk15"]
 [ext_resource type="Texture2D" uid="uid://cv3s01hfd21mk" path="res://Environment_Models/Textures/sky_47_2k.png" id="10_lb8o0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_snioh"]
+panorama = ExtResource("10_lb8o0")
+
+[sub_resource type="Sky" id="Sky_218iu"]
+sky_material = SubResource("PanoramaSkyMaterial_snioh")
+
+[sub_resource type="Environment" id="Environment_2pfp8"]
+background_mode = 2
+sky = SubResource("Sky_218iu")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_power = 1.8467166
+glow_intensity = 1.0
+glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(0.50069076, 0.64627075, 0.9401338, 1)
+fog_light_energy = 0.5
+fog_sun_scatter = 0.09
+fog_density = 1.0
+fog_aerial_perspective = 0.41
+fog_sky_affect = 0.1
+fog_height = 1.0
+fog_height_density = 0.9589
+fog_depth_curve = 0.99999994
+fog_depth_begin = 50.0
+fog_depth_end = 200.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.6677858, 0.88385576, 0.9405628, 1)
+volumetric_fog_emission = Color(0.8455746, 0.6792467, 0.7335431, 1)
+volumetric_fog_emission_energy = 0.2
+volumetric_fog_length = 100.0
+volumetric_fog_sky_affect = 0.3
+adjustment_enabled = true
+adjustment_brightness = 1.2
+adjustment_saturation = 1.15
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nj5sw"]
 
@@ -60,44 +97,14 @@ buffer = PackedFloat32Array(5.966425e-08, 0, -1.001, -5.7298737, 0, 1.001, 0, 0.
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_845if"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_snioh"]
-panorama = ExtResource("10_lb8o0")
-
-[sub_resource type="Sky" id="Sky_y3ud2"]
-sky_material = SubResource("PanoramaSkyMaterial_snioh")
-
-[sub_resource type="Environment" id="Environment_2pfp8"]
-background_mode = 2
-sky = SubResource("Sky_y3ud2")
-tonemap_mode = 2
-ssao_enabled = true
-ssao_power = 1.8467166
-glow_intensity = 1.0
-glow_blend_mode = 0
-fog_mode = 1
-fog_light_color = Color(0.50069076, 0.64627075, 0.9401338, 1)
-fog_light_energy = 0.5
-fog_sun_scatter = 0.09
-fog_density = 1.0
-fog_aerial_perspective = 0.41
-fog_sky_affect = 0.1
-fog_height = 1.0
-fog_height_density = 0.9589
-fog_depth_curve = 0.99999994
-fog_depth_begin = 50.0
-fog_depth_end = 200.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
-volumetric_fog_albedo = Color(0.6677858, 0.88385576, 0.9405628, 1)
-volumetric_fog_emission = Color(0.8455746, 0.6792467, 0.7335431, 1)
-volumetric_fog_emission_energy = 0.2
-volumetric_fog_length = 100.0
-volumetric_fog_sky_affect = 0.3
-adjustment_enabled = true
-adjustment_brightness = 1.2
-adjustment_saturation = 1.15
-
 [node name="MainMenu" type="Node3D" unique_id=1314181570]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451998389]
+environment = SubResource("Environment_2pfp8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1863461914]
+transform = Transform3D(-0.92677677, -0.2866117, -0.2427729, -0.12682639, -0.36959952, 0.92049515, -0.3535534, 0.8838835, 0.3061863, 0, -0.92731285, 0)
+shadow_enabled = true
 
 [node name="Ocean" type="MeshInstance3D" parent="." unique_id=1939547157]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
@@ -128,27 +135,27 @@ multimesh = SubResource("MultiMesh_w5eka")
 [node name="Posters" type="Node3D" parent="BulletinBoard" unique_id=1097305920]
 
 [node name="Paper1" type="Node3D" parent="BulletinBoard/Posters" unique_id=1894490395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33749342, 1.2232286, 0.8788141)
+transform = Transform3D(0.9748702, 0.22277373, 0, -0.22277373, 0.9748702, 0, 0, 0, 1, 0.36472654, 1.3424021, 0.8788141)
 
 [node name="paper" parent="BulletinBoard/Posters/Paper1" unique_id=94505661 instance=ExtResource("5_o4wy8")]
-transform = Transform3D(0.9987314, 0.0043648016, -0.050167315, -0.0025948235, 0.9993736, 0.035292633, 0.050289966, -0.03511768, 0.9981171, 0, 0, 0)
+transform = Transform3D(0.9787889, -0.19700131, -0.05624737, 0.19860561, 0.97977406, 0.024465594, 0.050289966, -0.035117663, 0.9981169, -0.0067326725, -0.0011980534, 0)
 image_texture = ExtResource("6_dqyvv")
 
 [node name="nail" parent="BulletinBoard/Posters/Paper1" unique_id=1633250614 instance=ExtResource("7_m8x2t")]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.026180953, 0.18465054, 0)
+transform = Transform3D(0.20140272, 0.9795088, 0, -0.9795088, 0.20140272, 0, 0, 0, 1, -0.06956613, 0.17439532, 0)
 
 [node name="Paper2" type="Node3D" parent="BulletinBoard/Posters" unique_id=1360744032]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.08914907, 0.7391491, 0.48967892)
 
 [node name="paper" parent="BulletinBoard/Posters/Paper2" unique_id=758062983 instance=ExtResource("5_o4wy8")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.015139999, 0)
-image_texture = ExtResource("6_dqyvv")
+image_texture = ExtResource("8_ywk15")
 
 [node name="nail" parent="BulletinBoard/Posters/Paper2" unique_id=2025074110 instance=ExtResource("7_m8x2t")]
-transform = Transform3D(-8.940697e-08, 1, 0, -1, -8.940697e-08, 0, 0, 0, 1, -0.03415227, -0.008265525, -0.18040949)
+transform = Transform3D(-8.940697e-08, 1, 0, -1, -8.940697e-08, 0, 0, 0, 1, -0.03415227, 0.04112653, -0.15202692)
 
 [node name="nail2" parent="BulletinBoard/Posters/Paper2" unique_id=1820256112 instance=ExtResource("7_m8x2t")]
-transform = Transform3D(-8.940697e-08, 1, 0, -1, -8.940697e-08, 0, 0, 0, 1, -0.03415221, 0.025621623, 0.18747216)
+transform = Transform3D(-8.940697e-08, 1, 0, -1, -8.940697e-08, 0, 0, 0, 1, -0.03415221, 0.012907647, 0.18747216)
 
 [node name="Paper3" type="Node3D" parent="BulletinBoard/Posters" unique_id=1477513062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018556595, 1.1480342, -0.51536787)
@@ -161,7 +168,7 @@ image_texture = ExtResource("6_dqyvv")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.026180953, 0.18465054, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2126772689]
-transform = Transform3D(-2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, -2.9802322e-08, 1.2090027, 1.3585677, 0)
+transform = Transform3D(-2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, -2.9802322e-08, 1.2090027, 1.310388, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=186783680]
 
@@ -197,9 +204,9 @@ expand_mode = 1
 [node name="Go back" type="Button" parent="CanvasLayer/Menu/Back" unique_id=1803777037]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 1.0
-offset_right = 59.0
-offset_bottom = 18.0
+offset_top = -3.0
+offset_right = 80.0
+offset_bottom = 22.0
 text = "Go back"
 
 [node name="Choices" type="VBoxContainer" parent="CanvasLayer/Menu" unique_id=105757054]
@@ -220,8 +227,7 @@ size_flags_vertical = 4
 
 [node name="Game Title" type="Label" parent="CanvasLayer/Menu/Choices" unique_id=814891940]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_ywk15")
-theme_override_font_sizes/font_size = 50
+theme_type_variation = &"HeaderLarge"
 text = "Island Snap"
 horizontal_alignment = 1
 
@@ -255,17 +261,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -94.0
-offset_right = 116.0
-offset_bottom = 94.0
+offset_left = -137.5
+offset_top = -110.0
+offset_right = 137.5
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Settings" type="Label" parent="CanvasLayer/Menu/Settings" unique_id=1381735167]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_ywk15")
-theme_override_font_sizes/font_size = 50
+theme_type_variation = &"HeaderLarge"
 text = "Settings"
 horizontal_alignment = 1
 
@@ -277,12 +282,8 @@ text = "Toggle Fullscreen"
 layout_mode = 2
 text = "Toggle FPS"
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Menu/Settings" unique_id=321357933]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_845if")
-
 [node name="HowToPlay" type="Control" parent="CanvasLayer/Menu" unique_id=582431772]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -314,9 +315,9 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer" unique_id=491942358]
+[node name="HowToPlay" type="Label" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer" unique_id=491942358]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_ywk15")
+theme_type_variation = &"HeaderSmall"
 text = "How To Play"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer" unique_id=1525150712]
@@ -328,16 +329,18 @@ Jump: 	Space
 E:			Interact / Pickup
 Q:			Drop / Throw
 C:			Zoom
-Nr. 1: 			Use camera. If picked up
+No. 1: 		Equip camera. If picked up
+L Click: 	Take picture
+R Click: 	Focus famera
 Scroll Wheel: Zoom camera"
 fit_content = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer" unique_id=1151774579]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer2" unique_id=756050599]
+[node name="WhatToDo" type="Label" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer2" unique_id=756050599]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_ywk15")
+theme_type_variation = &"HeaderSmall"
 text = "What to do"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer2" unique_id=676869950]
@@ -345,13 +348,6 @@ custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 text = "Pick up some animals and take photos!!"
 fit_content = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451998389]
-environment = SubResource("Environment_2pfp8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1863461914]
-transform = Transform3D(-0.92677677, -0.28661174, -0.24277289, -0.12682639, -0.36959952, 0.9204951, -0.3535534, 0.8838835, 0.3061863, 0, -0.92731285, 0)
-shadow_enabled = true
 
 [connection signal="pressed" from="CanvasLayer/Menu/Back/Go back" to="CanvasLayer/Menu" method="_on_go_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/Choices/StartBtn" to="CanvasLayer/Menu" method="_on_start_btn_pressed"]

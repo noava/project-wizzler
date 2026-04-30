@@ -39,7 +39,7 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 [gui]
 
 theme/custom="uid://calu8os4ei520"
-theme/custom_font="uid://b0nobddyrwj2"
+theme/custom_font="uid://goay3yrps6na"
 
 [input]
 
