@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://chpxl68wgjvn6"]
+
+[ext_resource type="Script" uid="uid://bcvpr2upjmk7k" path="res://Animals/Models/Herring/herring.gd" id="1_dca01"]
+[ext_resource type="PackedScene" uid="uid://qmxveraq7ihl" path="res://Animals/Models/Herring/Herring_Animations.glb" id="2_dca01"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2oko"]
+animation = &"Splash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r5gqr"]
+animation = &"Bounce"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ks1nr"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltyrp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utjsm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bks7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb3c4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r2ry"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvh4l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hnka5"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y4fqn"]
+states/Run/node = SubResource("AnimationNodeAnimation_f2oko")
+states/Run/position = Vector2(413, 184)
+states/Sit/node = SubResource("AnimationNodeAnimation_r5gqr")
+states/Sit/position = Vector2(200, 184)
+states/Walk/node = SubResource("AnimationNodeAnimation_ks1nr")
+states/Walk/position = Vector2(200, 275)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_ltyrp"), "Sit", "Walk", SubResource("AnimationNodeStateMachineTransition_utjsm"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_3bks7"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_gb3c4"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_7r2ry"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_kvh4l"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_hnka5")]
+graph_offset = Vector2(-418, 75)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ns4y3"]
+graph_offset = Vector2(-260, 44)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_y4fqn")
+nodes/StateMachine/position = Vector2(40, 140)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whi7b"]
+radius = 0.23046875
+height = 1.4658203
+
+[node name="Herring" type="CharacterBody3D" unique_id=1444891096 groups=["animal", "pickupable"]]
+script = ExtResource("1_dca01")
+metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
+
+[node name="HerringModel" parent="." unique_id=216394154 instance=ExtResource("2_dca01")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
+root_node = NodePath("../HerringModel")
+tree_root = SubResource("AnimationNodeBlendTree_ns4y3")
+anim_player = NodePath("../HerringModel/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090204315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.232, 0)
+shape = SubResource("CapsuleShape3D_whi7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[editable path="HerringModel"]

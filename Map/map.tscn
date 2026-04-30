@@ -14,7 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://cbxqpnm0hyv0y" path="res://Animals/Models/Muskrat/Muskrat.tscn" id="11_ry46t"]
 [ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="12_vhrv6"]
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
+[ext_resource type="PackedScene" uid="uid://cba77dglp2woo" path="res://Animals/Models/Rat/Rat.tscn" id="13_tgjig"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
+[ext_resource type="PackedScene" uid="uid://chpxl68wgjvn6" path="res://Animals/Models/Herring/Herring.tscn" id="15_ky2gv"]
+[ext_resource type="PackedScene" uid="uid://lainmb88veno" path="res://Animals/Models/Snake/Snake.tscn" id="16_svr43"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -195,6 +198,27 @@ skeleton = NodePath("../../../../Grass/Plane")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.276446, 0, 4.3669186)
 animal_name = "Boingo"
 color_modulation = Color(0.88868046, 0.8836787, 0.44736797, 1)
+
+[node name="Rats" type="Node" parent="Animals" unique_id=523566149]
+
+[node name="Rat" parent="Animals/Rats" unique_id=1444891096 instance=ExtResource("13_tgjig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91572624, 0, 2.192882)
+animal_name = "Stinker"
+color_modulation = Color(0.15871596, 0.10458795, 0.07805436, 1)
+
+[node name="Herrings" type="Node" parent="Animals" unique_id=1510954332]
+
+[node name="Herring" parent="Animals/Herrings" unique_id=726353137 instance=ExtResource("15_ky2gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8520617, 0, 6.005378)
+animal_name = "fisk"
+color_modulation = Color(0.80213785, 0.00055850926, 0.81309056, 1)
+speed = 2.0
+
+[node name="Snake" type="Node" parent="Animals" unique_id=1617988473]
+
+[node name="Snake" parent="Animals/Snake" unique_id=1786662447 instance=ExtResource("16_svr43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1116676, 0, 4.391526)
+animal_name = "Slither"
 
 [node name="Toys" type="Node" parent="." unique_id=1216641006]
 

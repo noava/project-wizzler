@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://lainmb88veno"]
+
+[ext_resource type="Script" uid="uid://d315c5x0wul26" path="res://Animals/Models/Snake/snake.gd" id="1_uqlre"]
+[ext_resource type="PackedScene" uid="uid://qbajk5qt20r7" path="res://Animals/Models/Snake/Taipan_Animations.glb" id="2_uqlre"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2oko"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r5gqr"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ks1nr"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltyrp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utjsm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bks7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb3c4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r2ry"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvh4l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hnka5"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y4fqn"]
+states/Run/node = SubResource("AnimationNodeAnimation_f2oko")
+states/Run/position = Vector2(413, 184)
+states/Sit/node = SubResource("AnimationNodeAnimation_r5gqr")
+states/Sit/position = Vector2(200, 184)
+states/Walk/node = SubResource("AnimationNodeAnimation_ks1nr")
+states/Walk/position = Vector2(200, 275)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_ltyrp"), "Sit", "Walk", SubResource("AnimationNodeStateMachineTransition_utjsm"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_3bks7"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_gb3c4"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_7r2ry"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_kvh4l"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_hnka5")]
+graph_offset = Vector2(-418, 75)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ns4y3"]
+graph_offset = Vector2(-260, 44)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_y4fqn")
+nodes/StateMachine/position = Vector2(40, 140)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whi7b"]
+radius = 0.27
+height = 1.0297852
+
+[node name="Snake" type="CharacterBody3D" unique_id=1444891096 groups=["animal", "pickupable"]]
+script = ExtResource("1_uqlre")
+metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
+
+[node name="Taipan_Animations" parent="." unique_id=1573411278 instance=ExtResource("2_uqlre")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Taipan_Animations/Rig" parent_id_path=PackedInt32Array(1573411278, 1702681526) index="0" unique_id=1344493644]
+bones/1/position = Vector3(-0.0013976813, -0.35910332, 0.06891539)
+bones/1/rotation = Quaternion(0.66026473, -7.3965805e-20, 7.394717e-20, 0.75103295)
+bones/2/position = Vector3(-0.06036178, 0.26882702, -0.253568)
+bones/2/rotation = Quaternion(-0.039157774, 0.86103404, -0.50499505, -0.045465205)
+bones/2/scale = Vector3(0.99999994, 0.9999997, 0.9999986)
+bones/3/position = Vector3(-0.18246365, 0.48161668, -0.00315101)
+bones/3/rotation = Quaternion(0.4987575, 0.019950284, 0.11839933, 0.85838485)
+bones/3/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
+bones/4/position = Vector3(0.1824636, 0.4642574, 0.009865575)
+bones/4/rotation = Quaternion(-0.3988074, -0.018350272, -0.11688814, 0.9093696)
+bones/5/position = Vector3(0.0013976814, 1.1376963, 0.03530854)
+bones/5/rotation = Quaternion(2.008135e-07, 0.99939996, -0.034637645, -5.7940656e-06)
+bones/6/position = Vector3(-1.1425533e-12, 0.39346096, -2.3888806e-08)
+bones/6/rotation = Quaternion(-0.6431138, -5.4772227e-07, -6.9969697e-06, 0.7657706)
+bones/7/position = Vector3(-2.661702e-12, 0.5088064, 1.0448936e-08)
+bones/7/rotation = Quaternion(-0.21151994, 2.6797795e-06, -2.7299654e-06, 0.9773737)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
+root_node = NodePath("../Taipan_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_ns4y3")
+anim_player = NodePath("../Taipan_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090204315]
+transform = Transform3D(-4.371139e-08, 4.371139e-08, 1, 1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 1.9102389e-09, 0.27, 0.043701172)
+shape = SubResource("CapsuleShape3D_whi7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[editable path="Taipan_Animations"]
