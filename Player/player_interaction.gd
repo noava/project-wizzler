@@ -14,15 +14,15 @@ extends Node
 
 var holding_item = false
 var item_data = null
+var throw_multiplier = 0.0
 
 func _process(_delta: float) -> void:
 	handle_interactions()
 	
-	if Input.is_action_just_pressed(KEY_DROP):
-		if get_tree().get_first_node_in_group("player").is_on_floor(): # Player on floor
-			place_carried_item()
-		else:
-			throw_carried_item()
+	if Input.is_action_pressed(KEY_DROP):
+		throw_multiplier += 0.05
+	if Input.is_action_just_released(KEY_DROP):
+		throw_carried_item()
 
 
 func handle_interactions() -> void:
@@ -142,11 +142,12 @@ func throw_carried_item():
 	
 	var carried_node = item_holder.get_child(0)
 	place_carried_item()
-
-	if carried_node and carried_node is RigidBody3D:
+	
+	if carried_node and carried_node is RigidBody3D and throw_multiplier > 2.0:
 		var throw_direction = -head.global_transform.basis.z.normalized()
-		carried_node.apply_central_impulse(throw_direction * 8.0)
-
+		carried_node.apply_central_impulse(throw_direction * throw_multiplier)
+	
+	throw_multiplier = 0.0
 
 func remove_held_item():
 	holding_item = false

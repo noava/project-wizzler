@@ -61,6 +61,20 @@ height = 0.001
 rings = 3
 cap_bottom = false
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr5ff"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.34117648)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0x20"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.34117648)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
 [node name="Map" type="Node" unique_id=2146170304]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1602354383]
@@ -209,3 +223,27 @@ item_scene = ExtResource("14_xoeuw")
 
 [node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("16_xoeuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316245, 0)
+
+[node name="Border" type="CSGCombiner3D" parent="." unique_id=1999119773]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0.35938358, 0)
+cast_shadow = 0
+visibility_range_begin = 10.0
+operation = 1
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Border" unique_id=1237952589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679443, 0)
+cast_shadow = 0
+radius = 100.0
+height = 24.0
+sides = 32
+material = SubResource("StandardMaterial3D_rr5ff")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Border" unique_id=248942419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679443, 0)
+cast_shadow = 0
+operation = 2
+radius = 90.0
+height = 26.0
+sides = 32
+material = SubResource("StandardMaterial3D_a0x20")
