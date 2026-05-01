@@ -24,8 +24,11 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sk30q"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usxyl"]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32rly"]
+xfade_time = 0.3
+break_loop_at_end = true
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8yaqs"]
 states/Attack/node = SubResource("AnimationNodeAnimation_l3svg")
@@ -47,31 +50,45 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.35388184
 height = 0.7077637
 
+[sub_resource type="Curve" id="Curve_3f17x"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_hx62n"]
+width = 32
+curve = SubResource("Curve_3f17x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tqdcj"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_hx62n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjqqb"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5029817, 0.43804106, 0.25048187, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vpbss"]
+material = SubResource("StandardMaterial3D_bjqqb")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
 [node name="Sparrow" type="CharacterBody3D" unique_id=1430979171 groups=["animal", "pickupable"]]
 script = ExtResource("1_gbchs")
 
-[node name="Sparrow_Animations" parent="." unique_id=890111016 instance=ExtResource("1_kj70e")]
-
-[node name="Skeleton3D" parent="Sparrow_Animations/Rig" parent_id_path=PackedInt32Array(890111016, 1474814550) index="0" unique_id=281871598]
-bones/1/position = Vector3(0, 0.04545915, 0.4296624)
-bones/1/rotation = Quaternion(0.6523253, 9.035341e-08, 7.7763225e-08, 0.7579393)
-bones/2/position = Vector3(2.0964033e-07, 0.15466294, -0.4864642)
-bones/2/rotation = Quaternion(-0.2587958, -1.1514809e-07, -3.085084e-08, 0.96593213)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(2.2610358e-07, 0.050822802, -0.516617)
-bones/3/rotation = Quaternion(-0.52163255, -9.947053e-08, -6.340611e-08, 0.8531702)
-bones/4/rotation = Quaternion(-0.48518875, 4.7065284e-14, -1.15678e-07, 0.8744095)
-bones/4/scale = Vector3(1, 1.0000001, 1.0000001)
-bones/5/rotation = Quaternion(-0.63123393, -2.1782032e-14, -1.5049791e-07, 0.77559257)
-bones/5/scale = Vector3(1, 0.9999999, 0.9999997)
-bones/6/position = Vector3(0.47767597, 0.05458052, 0.23534465)
-bones/6/rotation = Quaternion(0.01093288, 0.72346544, -0.6900843, -0.016184406)
-bones/7/position = Vector3(-0.47767606, 0.054580536, 0.23534442)
-bones/7/rotation = Quaternion(-0.01093277, 0.72346544, -0.69008434, 0.016184583)
-bones/8/position = Vector3(0.20294428, -0.29012832, 0.065800734)
-bones/8/rotation = Quaternion(-1.6776328e-07, 0.5075567, 0.8616184, 2.2186e-08)
-bones/9/position = Vector3(-0.20294431, -0.29012832, 0.06580064)
-bones/9/rotation = Quaternion(-3.7662534e-08, 0.5075567, 0.8616184, 9.8824934e-08)
+[node name="Sparrow_Animations" parent="." unique_id=1416430152 instance=ExtResource("1_kj70e")]
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=961623483]
 root_node = NodePath("../Sparrow_Animations")
@@ -84,5 +101,16 @@ shape = SubResource("CapsuleShape3D_gbchs")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=138825235]
 navigation_layers = 2
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1285032330]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136607, -0.190934)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_tqdcj")
+draw_pass_1 = SubResource("SphereMesh_vpbss")
 
 [editable path="Sparrow_Animations"]

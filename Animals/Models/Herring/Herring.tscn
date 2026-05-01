@@ -20,8 +20,10 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bks7"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb3c4"]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r2ry"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvh4l"]
 
@@ -47,11 +49,46 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.23046875
 height = 1.4658203
 
+[sub_resource type="Curve" id="Curve_dca01"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_5jyab"]
+width = 32
+curve = SubResource("Curve_dca01")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ekr02"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_5jyab")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtbqu"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.26986012, 0.4859085, 0.49245638, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_oalm5"]
+material = SubResource("StandardMaterial3D_rtbqu")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
 [node name="Herring" type="CharacterBody3D" unique_id=1444891096 groups=["animal", "pickupable"]]
 script = ExtResource("1_dca01")
 metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
 
-[node name="HerringModel" parent="." unique_id=216394154 instance=ExtResource("2_dca01")]
+[node name="HerringModel" parent="." unique_id=973126251 instance=ExtResource("2_dca01")]
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
 root_node = NodePath("../HerringModel")
@@ -63,5 +100,16 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 shape = SubResource("CapsuleShape3D_whi7b")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=526527035]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.054642804, -0.0763736)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_ekr02")
+draw_pass_1 = SubResource("SphereMesh_oalm5")
 
 [editable path="HerringModel"]
