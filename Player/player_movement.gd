@@ -11,6 +11,7 @@ const SENSITIVITY = 0.004
 @onready var audio = $FootstepAudio
 
 #audio intervals
+#have to differentiate sounds between crouch, walk and sprinting/running
 
 var texture_sounds = {
 	0: preload("res://Sounds/Material/grass.wav")
@@ -18,6 +19,18 @@ var texture_sounds = {
 
 var footstep_timer := 0.0
 var footstep_interval := 0.4
+
+func _physics_process(delta: float) -> void:
+	if velocity.length() > 0.1 and is_on_floor():
+		footsteps_handle(delta)
+
+func footsteps_handle(delta):
+	footstep_timer -= delta
+	
+	if footstep_timer <= 0.0:
+		footstep_timer = footstep_interval
+		play_footstep()
+
 
 # Crouch
 var is_crouching = false
@@ -29,8 +42,6 @@ var gravity = 9.8
 
 # When opening the menu
 var movement_lock = false
-
-
 
 func _process(delta):
 	if movement_lock: return
