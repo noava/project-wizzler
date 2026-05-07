@@ -7,6 +7,18 @@ const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.0
 const SENSITIVITY = 0.004
 
+@onready var terrain = $"../Terrain3D"
+@onready var audio = $FootstepAudio
+
+#audio intervals
+
+var texture_sounds = {
+	0: preload("res://Sounds/Material/grass.wav")
+}
+
+var footstep_timer := 0.0
+var footstep_interval := 0.4
+
 # Crouch
 var is_crouching = false
 @export_range(5, 10, 0.1) var CROUCH_ANIM_SPEED : float = 7.0
@@ -17,6 +29,8 @@ var gravity = 9.8
 
 # When opening the menu
 var movement_lock = false
+
+
 
 func _process(delta):
 	if movement_lock: return
