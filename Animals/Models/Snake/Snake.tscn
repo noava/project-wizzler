@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://lainmb88veno"]
+
+[ext_resource type="Script" uid="uid://d315c5x0wul26" path="res://Animals/Models/Snake/snake.gd" id="1_uqlre"]
+[ext_resource type="PackedScene" uid="uid://qbajk5qt20r7" path="res://Animals/Models/Snake/Taipan_Animations.glb" id="2_uqlre"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2oko"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r5gqr"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ks1nr"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltyrp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utjsm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bks7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb3c4"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r2ry"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvh4l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hnka5"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y4fqn"]
+states/Run/node = SubResource("AnimationNodeAnimation_f2oko")
+states/Run/position = Vector2(413, 184)
+states/Sit/node = SubResource("AnimationNodeAnimation_r5gqr")
+states/Sit/position = Vector2(200, 184)
+states/Walk/node = SubResource("AnimationNodeAnimation_ks1nr")
+states/Walk/position = Vector2(200, 275)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_ltyrp"), "Sit", "Walk", SubResource("AnimationNodeStateMachineTransition_utjsm"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_3bks7"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_gb3c4"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_7r2ry"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_kvh4l"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_hnka5")]
+graph_offset = Vector2(-418, 75)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ns4y3"]
+graph_offset = Vector2(-260, 44)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_y4fqn")
+nodes/StateMachine/position = Vector2(40, 140)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whi7b"]
+radius = 0.27
+height = 1.0297852
+
+[sub_resource type="Curve" id="Curve_uqlre"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_okyh3"]
+width = 32
+curve = SubResource("Curve_uqlre")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6lgnu"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_okyh3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3qmo"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5019608, 0.29411766, 0.2509804, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mluk1"]
+material = SubResource("StandardMaterial3D_n3qmo")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
+[node name="Snake" type="CharacterBody3D" unique_id=1444891096 groups=["animal", "pickupable"]]
+script = ExtResource("1_uqlre")
+metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
+
+[node name="Taipan_Animations" parent="." unique_id=354822157 instance=ExtResource("2_uqlre")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
+root_node = NodePath("../Taipan_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_ns4y3")
+anim_player = NodePath("../Taipan_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090204315]
+transform = Transform3D(-4.371139e-08, 4.371139e-08, 1, 1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 1.9102389e-09, 0.27, 0.043701172)
+shape = SubResource("CapsuleShape3D_whi7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1350765999]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.054642804, -0.0763736)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_6lgnu")
+draw_pass_1 = SubResource("SphereMesh_mluk1")
+
+[editable path="Taipan_Animations"]
