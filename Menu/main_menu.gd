@@ -3,6 +3,7 @@ extends Control
 var MAP_SCENE: PackedScene = preload("res://Environment/game_environment.scn") # Main Scene
 #var MAP_SCENE: PackedScene = preload("res://Map/map.tscn") # Test Scene
 const GAME_ENVIRONMENT = preload("uid://qy7va4i3kmqt")
+var INTRO_SCENE: PackedScene = preload("res://Intro/Intro.tscn") # Intro Scene
 
 func _ready() -> void:
 	show()
@@ -13,7 +14,10 @@ func _ready() -> void:
 
 
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_packed(MAP_SCENE)
+	
+	get_tree().change_scene_to_packed(INTRO_SCENE) 
+	# on video finsihed	 
+	#get_tree().change_scene_to_packed(MAP_SCENE) 
 	
 	hide()
 	$Choices.hide()
