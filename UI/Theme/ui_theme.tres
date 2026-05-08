@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://calu8os4ei520"]
+[gd_resource type="Theme" format=3 uid="uid://calu8os4ei520"]
+
+[ext_resource type="FontFile" uid="uid://jqiypb5ad4" path="res://UI/Theme/PROPAGAN.ttf" id="1_0ys1n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybov5"]
 
@@ -12,8 +14,15 @@
 Button/colors/font_focus_color = Color(1, 0.5254902, 0.38039216, 1)
 Button/colors/font_hover_color = Color(1, 0.5254902, 0.38039216, 1)
 Button/colors/font_pressed_color = Color(0.9848601, 0.31133363, 0, 1)
+Button/font_sizes/font_size = 24
 Button/styles/focus = SubResource("StyleBoxEmpty_ybov5")
 Button/styles/hover = SubResource("StyleBoxEmpty_0ys1n")
 Button/styles/normal = SubResource("StyleBoxEmpty_86c21")
 Button/styles/pressed = SubResource("StyleBoxEmpty_17iv7")
-Label/font_sizes/font_size = 20
+HeaderLarge/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
+HeaderLarge/font_sizes/font_size = 50
+HeaderLarge/fonts/font = ExtResource("1_0ys1n")
+HeaderSmall/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
+HeaderSmall/fonts/font = ExtResource("1_0ys1n")
+Label/font_sizes/font_size = 15
+RichTextLabel/font_sizes/normal_font_size = 18

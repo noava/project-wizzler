@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cbxqpnm0hyv0y"]
+
+[ext_resource type="Script" uid="uid://cplg0dd0upiqp" path="res://Animals/Models/Muskrat/muskrat.gd" id="1_2p0pg"]
+[ext_resource type="PackedScene" uid="uid://gvuwghowsk8j" path="res://Animals/Models/Muskrat/Muskrat_Animations.glb" id="1_jwjh1"]
+[ext_resource type="AudioStream" uid="uid://djm86naidtvbd" path="res://Sounds/MuskRat/muskrat.mp3" id="3_gkpd4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osi37"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggsuf"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sh5ea"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_64j7i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r545j"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ymw6d"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4b8pe"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2bxqj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kurvq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ljvcx"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l8265"]
+states/Attack/node = SubResource("AnimationNodeAnimation_osi37")
+states/Attack/position = Vector2(200, 259)
+states/Run/node = SubResource("AnimationNodeAnimation_ggsuf")
+states/Run/position = Vector2(407, 174)
+states/Sit/node = SubResource("AnimationNodeAnimation_sh5ea")
+states/Sit/position = Vector2(200, 174)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_64j7i"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_r545j"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_ymw6d"), "Sit", "Attack", SubResource("AnimationNodeStateMachineTransition_4b8pe"), "Attack", "Sit", SubResource("AnimationNodeStateMachineTransition_2bxqj"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_kurvq"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_ljvcx")]
+graph_offset = Vector2(-520, 21)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a6w1y"]
+graph_offset = Vector2(0, 20)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_l8265")
+nodes/StateMachine/position = Vector2(40, 160)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqn4q"]
+radius = 0.2553711
+height = 0.9609375
+
+[sub_resource type="Curve" id="Curve_0lr5y"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_hx62n"]
+width = 32
+curve = SubResource("Curve_0lr5y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gkpd4"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_hx62n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjqqb"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.53741914, 0.42931184, 0.11178713, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i1a3b"]
+material = SubResource("StandardMaterial3D_bjqqb")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
+[node name="Muskrat" type="CharacterBody3D" unique_id=2130271889 groups=["animal", "pickupable"]]
+script = ExtResource("1_2p0pg")
+metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
+
+[node name="Muskrat_Animations" parent="." unique_id=1410812622 instance=ExtResource("1_jwjh1")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1513610102]
+root_node = NodePath("../Muskrat_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_a6w1y")
+anim_player = NodePath("../Muskrat_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2005100911]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.25880426, -0.016479492)
+shape = SubResource("CapsuleShape3D_dqn4q")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=214441124]
+navigation_layers = 4
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=275500789]
+stream = ExtResource("3_gkpd4")
+volume_db = 0.4
+autoplay = true
+bus = &"Animals"
+parameters/looping = true
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1878231976]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136607, -0.190934)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_gkpd4")
+draw_pass_1 = SubResource("SphereMesh_i1a3b")
+
+[editable path="Muskrat_Animations"]
