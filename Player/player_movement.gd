@@ -84,7 +84,6 @@ func update_footstep_sounds():
 	footstep_timer = 0
 	
 func play_footstep():
-	print("pitch:", audio.pitch_scale)
 	if terrain == null:
 		return
 	
@@ -96,6 +95,7 @@ func play_footstep():
 	
 	if texture_sounds.has(texture_id):
 		audio.stream = texture_sounds[texture_id]
+		print("infooo", texture_id,terrain_id, audio.stream.resource_path)
 		audio.play()
 		footstep_timer = max(footstep_interval, audio.stream.get_length())
 
