@@ -15,6 +15,7 @@ const SENSITIVITY = 0.004
 
 var walk_interval := 0.5
 var sprint_interval := 0.25
+var crouch_interval := 0.85
 
 var texture_sounds = {
     0: preload("res://Sounds/Material/grass.wav")
@@ -23,43 +24,8 @@ var texture_sounds = {
 var footstep_timer := 0.0
 var footstep_interval := walk_interval
 
-func _physics_process(delta: float) -> void:
-    footstep_timer -= delta
-    
-    if velocity.length() > 0.1 and is_on_floor():
-        footsteps_handle(delta)
-        
-    if Input.is_action_pressed("sprint"):
-        footstep_interval = sprint_interval
-        audio.volume_db = 50
-    else:
-        footstep_interval = walk_interval
-        audio.volume_db = -10
+var is_sprinting := false
 
-func footsteps_handle(delta):
-    footstep_timer -= delta
-    
-    if footstep_timer <= 0.0:
-        footstep_timer = footstep_interval
-        play_footstep()
-
-func play_footstep():
-    if terrain == null:
-        return
-    
-    if audio.playing:
-        return
-    
-    var terrain_id = terrain.data.get_texture_id(global_position)
-    var texture_id = int(terrain_id.x)
-    
-    if texture_sounds.has(texture_id):
-        print("Volume DB:", audio.volume_db)
-        print("Playing:", audio.playing)
-        audio.stream = texture_sounds[texture_id]
-        audio.play()
-        footstep_timer = max(footstep_interval, audio.stream.get_length())
-        
 # Crouch
 var is_crouching = false
 @export_range(5, 10, 0.1) var CROUCH_ANIM_SPEED : float = 7.0
@@ -70,6 +36,61 @@ var gravity = 9.8
 
 # When opening the menu
 var movement_lock = false
+
+func _physics_process(delta: float) -> void:
+    footstep_timer -= delta
+    
+    var sprinting = Input.is_action_pressed("sprint")
+    var crouching = Input.is_action_pressed("crouch")
+    
+    if sprinting != is_sprinting or is_crouching != crouching:
+        is_sprinting = sprinting
+        is_crouching = crouching
+        update_footstep_sounds()
+        
+    if velocity.length() > 0.1 and is_on_floor():
+        footsteps_handle(delta)
+        
+func footsteps_handle(delta):
+    footstep_timer -= delta
+    
+    if footstep_timer <= 0.0:
+        footstep_timer = footstep_interval
+        play_footstep()
+
+func update_footstep_sounds():
+
+    if Input.is_action_pressed("sprint"):
+        print("Sprint")
+        footstep_interval = sprint_interval
+        audio.pitch_scale = 1.5
+    elif Input.is_action_pressed("crouch"):
+        print("Crouching")
+        footstep_interval = crouch_interval
+        audio.pitch_scale = 0.85
+    else:
+        print("walking")
+        footstep_interval = walk_interval
+        audio.pitch_scale = 1
+        
+    footstep_timer = 0
+    
+func play_footstep():
+    print("pitch:", audio.pitch_scale)
+    if terrain == null:
+        return
+    
+    if audio.playing:
+        return
+    
+    var terrain_id = terrain.data.get_texture_id(global_position)
+    var texture_id = int(terrain_id.x)
+    
+    if texture_sounds.has(texture_id):
+        audio.stream = texture_sounds[texture_id]
+        audio.play()
+        footstep_timer = max(footstep_interval, audio.stream.get_length())
+
 
 func _process(delta):
     if movement_lock: return
