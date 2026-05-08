@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_video_stream_player_finished() -> void:
 	
-	await FadeManager.fade(1.0, 2).finished
-	get_tree().change_scene_to_packed(MAP_SCENE) 
-	await FadeManager.fade(0.0, 2).finished
+	await FadeManager.fade(1.0, 1).finished
+	get_tree().change_scene_to_packed(MAP_SCENE)
+
 	
