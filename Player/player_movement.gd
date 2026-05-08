@@ -13,16 +13,28 @@ const SENSITIVITY = 0.004
 #audio intervals
 #have to differentiate sounds between crouch, walk and sprinting/running
 
+var walk_interval := 0.5
+var sprint_interval := 0.25
+
 var texture_sounds = {
     0: preload("res://Sounds/Material/grass.wav")
 }
 
 var footstep_timer := 0.0
-var footstep_interval := 0.4
+var footstep_interval := walk_interval
 
 func _physics_process(delta: float) -> void:
+    footstep_timer -= delta
+    
     if velocity.length() > 0.1 and is_on_floor():
         footsteps_handle(delta)
+        
+    if Input.is_action_pressed("sprint"):
+        footstep_interval = sprint_interval
+        audio.volume_db = 50
+    else:
+        footstep_interval = walk_interval
+        audio.volume_db = -10
 
 func footsteps_handle(delta):
     footstep_timer -= delta
@@ -41,16 +53,13 @@ func play_footstep():
     var terrain_id = terrain.data.get_texture_id(global_position)
     var texture_id = int(terrain_id.x)
     
-    print("Terrain ID", texture_id)
     if texture_sounds.has(texture_id):
-        #print("has sound", texture_sounds.has(texture_id))
+        print("Volume DB:", audio.volume_db)
+        print("Playing:", audio.playing)
         audio.stream = texture_sounds[texture_id]
-        if audio.stream:
-            print(audio.stream.resource_path)
-        else:
-            print("No audio")
         audio.play()
-
+        footstep_timer = max(footstep_interval, audio.stream.get_length())
+        
 # Crouch
 var is_crouching = false
 @export_range(5, 10, 0.1) var CROUCH_ANIM_SPEED : float = 7.0
