@@ -58,6 +58,7 @@ radius = 15.0
 [sub_resource type="NavigationMesh" id="NavigationMesh_ptuj4"]
 vertices = PackedVector3Array(-4.25, 0.4995, 2, -3.25, 0.4995, 3.5, -1.5, 0.4995, 4.5, 2, 0.4995, 4.25, 3.5, 0.4995, 3.25, 4.5, 0.4995, 1.5, 4.5, 0.4995, -1.5, 3.25, 0.4995, -3.5, 1.5, 0.4995, -4.5, -1.5, 0.4995, -4.5, -3.5, 0.4995, -3.25, -4.5, 0.4995, -1.5)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 11), PackedInt32Array(11, 6, 0), PackedInt32Array(0, 6, 3)]
+agent_radius = 0.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rr5ff"]
 top_radius = 5.0
