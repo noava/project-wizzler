@@ -5,6 +5,8 @@ var MAP_SCENE: PackedScene = preload("res://Environment/game_environment.scn") #
 const GAME_ENVIRONMENT = preload("uid://qy7va4i3kmqt")
 var INTRO_SCENE: PackedScene = preload("res://Intro/Intro.tscn") # Intro Scene
 
+#@onready var fade: CanvasLayer = $"../../Fade"
+
 func _ready() -> void:
 	show()
 	$Choices.show()
@@ -12,10 +14,12 @@ func _ready() -> void:
 	$Settings.hide()
 	$HowToPlay.hide()
 
-
 func _on_start_btn_pressed() -> void:
 	
-	get_tree().change_scene_to_packed(INTRO_SCENE) 
+	await FadeManager.fade(1.0, 2).finished
+	get_tree().change_scene_to_packed(INTRO_SCENE)
+	await FadeManager.fade(0.0, 2).finished
+	
 	# on video finsihed	 
 	#get_tree().change_scene_to_packed(MAP_SCENE) 
 	
