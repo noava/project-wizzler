@@ -35,6 +35,9 @@ func play_footstep():
     if terrain == null:
         return
     
+    if audio.playing:
+        return
+    
     var terrain_id = terrain.data.get_texture_id(global_position)
     var texture_id = int(terrain_id.x)
     
