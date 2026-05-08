@@ -17,8 +17,10 @@ animation = &"Sit"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r545j"]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ymw6d"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4b8pe"]
 
@@ -39,7 +41,7 @@ transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-520, 21)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a6w1y"]
-graph_offset = Vector2(-450, 20)
+graph_offset = Vector2(0, 20)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_l8265")
 nodes/StateMachine/position = Vector2(40, 160)
 node_connections = [&"output", 0, &"StateMachine"]
@@ -48,39 +50,46 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.2553711
 height = 0.9609375
 
+[sub_resource type="Curve" id="Curve_0lr5y"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_hx62n"]
+width = 32
+curve = SubResource("Curve_0lr5y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gkpd4"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_hx62n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjqqb"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.53741914, 0.42931184, 0.11178713, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i1a3b"]
+material = SubResource("StandardMaterial3D_bjqqb")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
 [node name="Muskrat" type="CharacterBody3D" unique_id=2130271889 groups=["animal", "pickupable"]]
 script = ExtResource("1_2p0pg")
 metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
 
-[node name="Muskrat_Animations" parent="." unique_id=238047894 instance=ExtResource("1_jwjh1")]
-
-[node name="Skeleton3D" parent="Muskrat_Animations/Rig" parent_id_path=PackedInt32Array(238047894, 1661216384) index="0" unique_id=1860112536]
-bones/1/position = Vector3(-4.918572e-18, -6.145642e-08, 0.5425712)
-bones/1/rotation = Quaternion(0.5563837, -3.0480246e-17, 3.0480252e-17, 0.83092546)
-bones/1/scale = Vector3(1, 0.9696073, 1)
-bones/2/position = Vector3(-3.4381275e-15, -0.28128168, -0.52757007)
-bones/2/rotation = Quaternion(0.08983137, -0.8190886, 0.56647325, -0.011500543)
-bones/2/scale = Vector3(1, 1, 0.9999998)
-bones/3/rotation = Quaternion(-0.48432747, -2.0042776e-08, -2.3236697e-07, 0.8748869)
-bones/3/scale = Vector3(0.9999999, 0.99999994, 0.9999998)
-bones/4/position = Vector3(0.23889223, 0.33819956, 0.4280414)
-bones/4/rotation = Quaternion(-0.35349128, 0.10133088, -0.3510666, 0.86112034)
-bones/4/scale = Vector3(1, 1.0000002, 1.0000001)
-bones/5/position = Vector3(-0.23889223, 0.33819956, 0.4280414)
-bones/5/rotation = Quaternion(-0.35349128, -0.10133088, 0.3510666, 0.86112034)
-bones/5/scale = Vector3(1, 1.0000002, 1.0000001)
-bones/6/position = Vector3(0.20586526, -0.3664602, 0.21904033)
-bones/6/rotation = Quaternion(9.002596e-08, 0.30207956, 0.9532827, -8.322061e-08)
-bones/6/scale = Vector3(1, 1.0000001, 1.0000011)
-bones/7/position = Vector3(0.43022716, -0.30799204, -0.3447448)
-bones/7/rotation = Quaternion(-6.5914755e-08, 0.4868792, 0.87346935, -2.6888546e-07)
-bones/7/scale = Vector3(1, 0.99999994, 0.99999994)
-bones/8/position = Vector3(-0.20586526, -0.3664602, 0.21904033)
-bones/8/rotation = Quaternion(-9.002596e-08, 0.30207956, 0.9532827, 8.322061e-08)
-bones/8/scale = Vector3(1, 1.0000001, 1.0000011)
-bones/9/position = Vector3(-0.43022716, -0.30799204, -0.3447448)
-bones/9/rotation = Quaternion(6.5914755e-08, 0.4868792, 0.87346935, 2.6888546e-07)
-bones/9/scale = Vector3(1, 0.99999994, 0.99999994)
+[node name="Muskrat_Animations" parent="." unique_id=1410812622 instance=ExtResource("1_jwjh1")]
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1513610102]
 root_node = NodePath("../Muskrat_Animations")
@@ -100,5 +109,16 @@ volume_db = 0.4
 autoplay = true
 bus = &"Animals"
 parameters/looping = true
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1878231976]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136607, -0.190934)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_gkpd4")
+draw_pass_1 = SubResource("SphereMesh_i1a3b")
 
 [editable path="Muskrat_Animations"]

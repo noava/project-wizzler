@@ -8,21 +8,21 @@ extends Node
 
 @onready var player_model: Node3D = $"../PlayerModel"
 @onready var head: Node3D = $"../Head"
-@onready var ray_cast: RayCast3D = $"../Head/RayCast3D"
+@onready var ray_cast: RayCast3D = $"../Head/Camera3D/RayCast3D"
 @onready var item_holder: Node3D = $"../Head/ItemHolder"
 @onready var pickup_label: Label = $"../HUD/PickupLabel"
 
 var holding_item = false
 var item_data = null
+var throw_multiplier = 0.0
 
 func _process(_delta: float) -> void:
 	handle_interactions()
 	
-	if Input.is_action_just_pressed(KEY_DROP):
-		if get_tree().get_first_node_in_group("player").is_on_floor(): # Player on floor
-			place_carried_item()
-		else:
-			throw_carried_item()
+	if Input.is_action_pressed(KEY_DROP):
+		throw_multiplier += 0.05
+	if Input.is_action_just_released(KEY_DROP):
+		throw_carried_item()
 
 
 func handle_interactions() -> void:
@@ -39,7 +39,7 @@ func handle_interactions() -> void:
 	
 	# Handle jar
 	if collider.is_in_group("jar"):
-		var can_insert = holding_item and item_data.is_in_group("animal") and not collider.animal_data
+		var can_insert = holding_item and item_data and item_data.is_in_group("animal") and not collider.animal_data
 		var can_extract = not holding_item and collider.animal_data
 		
 		if can_insert or can_extract:
@@ -52,11 +52,11 @@ func handle_interactions() -> void:
 			
 			if interact_pressed:
 				if can_insert:
-					collider.use_object(item_data)
+					collider.use_jar(item_data)
 					remove_held_item()
 				else:
 					var animal_object = collider.animal_data
-					collider.use_object(animal_object)
+					collider.use_jar(animal_object)
 					carry_item_from_world(animal_object)
 			return
 	
@@ -79,16 +79,14 @@ func handle_interactions() -> void:
 			pass
 		return
 	
-	# Handle other usable objects (not jars)
-	if collider.has_method("use_object") and not collider.is_in_group("jar"):
+	# Handle other usable objects
+	if collider.has_method("use_object"):
 		pickup_label.visible = true
-		if not holding_item:
-			pickup_label.text = "Press [E] to use"
-			
-			if interact_pressed:
-				collider.use_object()
-		else:
-			pickup_label.text = "Drop the item first"
+		pickup_label.text = "Press [E] to use"
+		
+		if interact_pressed:
+			collider.use_object()
+
 		return
 	
 	pickup_label.visible = false
@@ -144,11 +142,12 @@ func throw_carried_item():
 	
 	var carried_node = item_holder.get_child(0)
 	place_carried_item()
-
-	if carried_node and carried_node is RigidBody3D:
+	
+	if carried_node and carried_node is RigidBody3D and throw_multiplier > 2.0:
 		var throw_direction = -head.global_transform.basis.z.normalized()
-		carried_node.apply_central_impulse(throw_direction * 8.0)
-
+		carried_node.apply_central_impulse(throw_direction * throw_multiplier)
+	
+	throw_multiplier = 0.0
 
 func remove_held_item():
 	holding_item = false

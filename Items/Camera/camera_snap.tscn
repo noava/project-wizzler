@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnuuor20blte2" path="res://Items/Camera/camera_snap.gd" id="1_e6pwn"]
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="2_e6pwn"]
 [ext_resource type="Shader" uid="uid://dqrrdx7rr338m" path="res://UI/Effects/blur.gdshader" id="2_o78u6"]
+[ext_resource type="PackedScene" uid="uid://cq1hhps1y3mn6" path="res://Items/BulletinBoard/board_image.tscn" id="4_0flkf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0flkf"]
 shader = ExtResource("2_o78u6")
@@ -25,6 +26,20 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_o78u6")
 size = Vector2(0.25, 0.25)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_whm5x"]
+viewport_path = NodePath("ImageTaken/ImageMesh/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f1yg"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_whm5x")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o78u6"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_6f1yg")
+size = Vector2(0.45, 0.58)
+orientation = 2
+
 [node name="CameraSnap" type="Node3D" unique_id=2078401157]
 script = ExtResource("1_e6pwn")
 
@@ -38,14 +53,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="CamUI" unique_id=453071018]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 260.0
-offset_bottom = 260.0
-size_flags_vertical = 8
-expand_mode = 1
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=231005395]
 size = Vector2i(640, 640)
@@ -63,3 +70,18 @@ mesh = SubResource("QuadMesh_0flkf")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1843184834]
 max_db = -0.684
 autoplay = true
+
+[node name="ImageTaken" type="Node3D" parent="." unique_id=1558854965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14145052, 0.13911223)
+
+[node name="ImageMesh" type="MeshInstance3D" parent="ImageTaken" unique_id=1864197285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0068057477, 0.21157914, 0)
+mesh = SubResource("PlaneMesh_o78u6")
+
+[node name="SubViewport" type="SubViewport" parent="ImageTaken/ImageMesh" unique_id=304529830]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="ImageTaken/ImageMesh/SubViewport" unique_id=525107509 instance=ExtResource("4_0flkf")]
+unique_name_in_owner = true
+scale = Vector2(2, 2)

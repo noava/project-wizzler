@@ -21,7 +21,7 @@ advance_mode = 2
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04kyg"]
-xfade_time = 0.1
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xx8y"]
 
@@ -42,7 +42,6 @@ transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-339, 26)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_whi7b"]
-graph_offset = Vector2(-673.6825, 331.61844)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_g8alt")
 nodes/StateMachine/position = Vector2(20, 160)
 node_connections = [&"output", 0, &"StateMachine"]
@@ -51,33 +50,48 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.23046875
 height = 1.4658203
 
+[sub_resource type="Curve" id="Curve_3acds"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_3acds"]
+width = 32
+curve = SubResource("Curve_3acds")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvuf7"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_3acds")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvuf7"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5019608, 0.54901963, 0.2509804, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1mfav"]
+material = SubResource("StandardMaterial3D_fvuf7")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
 [node name="Gecko" type="CharacterBody3D" unique_id=2136921226 groups=["animal", "pickupable"]]
 script = ExtResource("1_g8alt")
 
-[node name="Gecko_Animations" parent="." unique_id=1947088609 instance=ExtResource("1_pnl4h")]
+[node name="Gecko_Animations" parent="." unique_id=1033715297 instance=ExtResource("1_pnl4h")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Gecko_Animations/Rig" parent_id_path=PackedInt32Array(1947088609, 200026556) index="0" unique_id=525567826]
-bones/1/position = Vector3(-4.918572e-18, -1.8517725e-09, 0.5467384)
-bones/1/rotation = Quaternion(0.6038366, -2.1457439e-17, 2.1457452e-17, 0.7971081)
-bones/1/scale = Vector3(1, 0.96960735, 1)
-bones/2/position = Vector3(-1.689942e-14, -0.11639944, -0.7459714)
-bones/2/rotation = Quaternion(0.09044026, -0.70461226, 0.7037895, 0.004745487)
-bones/2/scale = Vector3(1, 0.99999994, 0.9999998)
-bones/3/rotation = Quaternion(-0.1032338, 0.05588757, -0.017159117, 0.99293756)
-bones/3/scale = Vector3(0.99999994, 1, 0.9999998)
-bones/4/position = Vector3(0.21421519, -0.01340311, 0.39042205)
-bones/4/rotation = Quaternion(-2.798179e-07, 0.12864052, 0.9916913, -4.496767e-08)
-bones/4/scale = Vector3(1, 1, 0.99999994)
-bones/5/position = Vector3(0.15219148, -0.23314275, -0.62371147)
-bones/5/rotation = Quaternion(-2.66298e-08, 0.521775, 0.8530832, -2.8567246e-07)
-bones/5/scale = Vector3(1, 0.99999994, 0.9999999)
-bones/6/position = Vector3(-0.21421519, -0.01340311, 0.39042205)
-bones/6/rotation = Quaternion(2.798179e-07, 0.12864052, 0.9916913, 4.496767e-08)
-bones/6/scale = Vector3(1, 1, 0.99999994)
-bones/7/position = Vector3(-0.15219148, -0.23314275, -0.62371147)
-bones/7/rotation = Quaternion(2.66298e-08, 0.521775, 0.8530832, 2.8567246e-07)
-bones/7/scale = Vector3(1, 0.99999994, 0.9999999)
+[node name="Skeleton3D" parent="Gecko_Animations/Rig" parent_id_path=PackedInt32Array(1947088609, 1872912168) index="0" unique_id=2037403704]
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
 root_node = NodePath("../Gecko_Animations")
@@ -89,6 +103,17 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 shape = SubResource("CapsuleShape3D_whi7b")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=766748985]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.054642804, -0.0763736)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_fvuf7")
+draw_pass_1 = SubResource("SphereMesh_1mfav")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=726739792]
 stream = ExtResource("3_fvuf7")

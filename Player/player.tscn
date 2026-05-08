@@ -63,7 +63,7 @@ script = ExtResource("2_k53q1")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1970798928]
 fov = 80.0
 
-[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=620281462]
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=620281462]
 target_position = Vector3(0, 0, -3)
 
 [node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Head" unique_id=1254867983]
@@ -101,7 +101,7 @@ expand_mode = 1
 [node name="FPSLabel" type="Label" parent="HUD" unique_id=323925681]
 offset_right = 40.0
 offset_bottom = 45.0
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 20
 
 [node name="PickupLabel" type="Label" parent="HUD" unique_id=1514511901]
 anchors_preset = 8
@@ -115,7 +115,7 @@ offset_right = 21.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 20
 text = "E"
 horizontal_alignment = 1
 

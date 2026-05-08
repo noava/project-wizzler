@@ -1,6 +1,7 @@
 extends Control
 
 var is_menu: bool = false
+
 @onready var player: CharacterBody3D = $"../.."
 @onready var fps_label: Label = $"../FPSLabel"
 
@@ -17,7 +18,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 			open_menu()
 		else:
 			_on_resume_pressed()
-	
+
+func _physics_process(_delta: float) -> void:
 	if fps_label.visible:
 		fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 
@@ -73,4 +75,4 @@ func _on_no_button_pressed() -> void:
 	$AreYouSure.hide()
 
 func _on_yes_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")

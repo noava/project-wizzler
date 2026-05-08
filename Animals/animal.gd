@@ -4,6 +4,7 @@ class_name Animal extends CharacterBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var animation_tree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
+@onready var dust_particles: GPUParticles3D = %DustParticles
 @onready var animation_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export_category("Animal Info")
@@ -22,6 +23,8 @@ var picked_up: bool = false
 func _physics_process(delta: float) -> void:
 	if picked_up:
 		idle()
+		if dust_particles:
+			dust_particles.emitting = false
 		return
 	
 	if player:
@@ -57,7 +60,9 @@ func _physics_process(delta: float) -> void:
 		run()
 	else:
 		idle()
-	
+
+	if dust_particles:
+		dust_particles.emitting = is_on_floor() && ground_speed > 0.5
 	# Sounds
 	
 	relative_to_player_sound()
