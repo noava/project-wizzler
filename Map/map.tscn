@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
 [ext_resource type="PackedScene" uid="uid://cba77dglp2woo" path="res://Animals/Models/Rat/Rat.tscn" id="13_tgjig"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
-[ext_resource type="AudioStream" uid="uid://boarkk3cwwn86" path="res://Sounds/Music/paulyudin-piano-piano-music-508963.mp3" id="16_tgjig"]
-[ext_resource type="AudioStream" uid="uid://c45w22c84q4so" path="res://Sounds/Ocean Wave/oceanwaves.ogg" id="17_5ps16"]
 [ext_resource type="PackedScene" uid="uid://chpxl68wgjvn6" path="res://Animals/Models/Herring/Herring.tscn" id="15_ky2gv"]
 [ext_resource type="PackedScene" uid="uid://lainmb88veno" path="res://Animals/Models/Snake/Snake.tscn" id="16_svr43"]
+[ext_resource type="AudioStream" uid="uid://boarkk3cwwn86" path="res://Sounds/Music/paulyudin-piano-piano-music-508963.mp3" id="16_tgjig"]
 [ext_resource type="PackedScene" uid="uid://cv0w2pvjf3s8c" path="res://Animals/BirdInTheSky/bird_in_the_sky.tscn" id="16_xoeuw"]
+[ext_resource type="AudioStream" uid="uid://c45w22c84q4so" path="res://Sounds/Ocean Wave/oceanwaves.ogg" id="17_5ps16"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -273,6 +273,7 @@ stream = ExtResource("17_5ps16")
 volume_db = 25.0
 autoplay = true
 bus = &"Ambient"
+
 [node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("16_xoeuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316245, 0)
 

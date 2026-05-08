@@ -65,7 +65,8 @@ func _physics_process(delta: float) -> void:
 		dust_particles.emitting = is_on_floor() && ground_speed > 0.5
 	# Sounds
 	
-	relative_to_player_sound()
+	if player:
+		relative_to_player_sound()
 	
 	move_and_slide()
 
@@ -89,5 +90,5 @@ func animal_sound():
 func relative_to_player_sound():
 	var distance = global_position.distance_to(player.global_position)
 	
-	if distance < distance_from_player and !animation_stream.playing:
+	if animation_stream and distance < distance_from_player and !animation_stream.playing:
 		animal_sound()
