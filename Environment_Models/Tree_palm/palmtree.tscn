@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b6jpodm2v08ou"]
+
+[ext_resource type="PackedScene" uid="uid://b7kvoy670ster" path="res://Environment_Models/Tree_palm/palmtree.glb" id="1_elvp2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tciu2"]
+height = 5.5146484
+radius = 0.7553711
+
+[node name="palmtree" unique_id=2137192473 instance=ExtResource("1_elvp2")]
+
+[node name="group83_pCylinder51__mIdrTreePalmTrunk" parent="." index="0" unique_id=1640241965]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="group83_pCylinder51__mIdrTreePalmTrunk" index="0" unique_id=1899881348]
+transform = Transform3D(39.370083, 0, 0, 0, 39.370083, 0, 0, 0, 39.370083, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="group83_pCylinder51__mIdrTreePalmTrunk/StaticBody3D" index="0" unique_id=1283998872]
+transform = Transform3D(0.09990353, 0.0043828418, 0, -0.0043828418, 0.09990353, 0, 0, 0, 0.09999985, 0.009033344, 0.22027536, 0)
+shape = SubResource("CylinderShape3D_tciu2")
+
+[node name="pCylinder12_1__mIdrTreePalmLeaf" parent="." index="1" unique_id=894244434]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)

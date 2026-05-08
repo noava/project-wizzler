@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://lqdr5vgvbwim"]
+
+[ext_resource type="PackedScene" uid="uid://di014h16tfkay" path="res://Environment_Models/glTF/Pine_1.gltf" id="1_opdvk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rjynl"]
+height = 4.392578
+radius = 0.2055664
+
+[node name="Pine_12" unique_id=403026081 instance=ExtResource("1_opdvk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pine_1" parent_id_path=PackedInt32Array(237599318) index="0" unique_id=390558020]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pine_1/StaticBody3D" index="0" unique_id=1573467591]
+transform = Transform3D(1, 0, 0, 0, 0.9938087, 0.11110469, 0, -0.11110469, 0.9938087, 0, 1.9836867, -0.2249707)
+shape = SubResource("CylinderShape3D_rjynl")
