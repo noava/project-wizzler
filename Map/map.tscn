@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
 [ext_resource type="PackedScene" uid="uid://chpxl68wgjvn6" path="res://Animals/Models/Herring/Herring.tscn" id="15_ky2gv"]
 [ext_resource type="PackedScene" uid="uid://lainmb88veno" path="res://Animals/Models/Snake/Snake.tscn" id="16_svr43"]
+[ext_resource type="AudioStream" uid="uid://boarkk3cwwn86" path="res://Sounds/Music/paulyudin-piano-piano-music-508963.mp3" id="16_tgjig"]
 [ext_resource type="PackedScene" uid="uid://cv0w2pvjf3s8c" path="res://Animals/BirdInTheSky/bird_in_the_sky.tscn" id="16_xoeuw"]
+[ext_resource type="AudioStream" uid="uid://c45w22c84q4so" path="res://Sounds/Ocean Wave/oceanwaves.ogg" id="17_5ps16"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -94,6 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020005, 7.8691673)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.595, 0, 0.867)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=46888978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3021164, -1.0695114, 1.0922966)
 mesh = SubResource("PlaneMesh_5cbny")
 
 [node name="Grass" type="Node" parent="." unique_id=555957345]
@@ -244,6 +247,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0112479, 0.5412472, 4.9916058)
 model_scene = ExtResource("13_ry46t")
 item_scene = ExtResource("14_xoeuw")
+
+[node name="Background_Music" type="AudioStreamPlayer" parent="." unique_id=1361056391]
+stream = ExtResource("16_tgjig")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[node name="OceanWave" type="AudioStreamPlayer3D" parent="." unique_id=2069809695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.627953, 0, 0)
+stream = ExtResource("17_5ps16")
+volume_db = 15.0
+autoplay = true
+bus = &"Ambient"
+
+[node name="OceanWave2" type="AudioStreamPlayer3D" parent="." unique_id=864870822]
+transform = Transform3D(-0.79465836, 0, 0.607057, 0.53814775, 0.46275464, 0.7044538, -0.28091842, 0.8864864, -0.36773184, 22.693592, 0, 0)
+stream = ExtResource("17_5ps16")
+autoplay = true
+bus = &"Ambient"
+
+[node name="OceanWave3" type="AudioStreamPlayer3D" parent="." unique_id=1290961451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33937263, 0, -62.923294)
+stream = ExtResource("17_5ps16")
+volume_db = 25.0
+autoplay = true
+bus = &"Ambient"
 
 [node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("16_xoeuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316245, 0)

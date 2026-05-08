@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cplg0dd0upiqp" path="res://Animals/Models/Muskrat/muskrat.gd" id="1_2p0pg"]
 [ext_resource type="PackedScene" uid="uid://gvuwghowsk8j" path="res://Animals/Models/Muskrat/Muskrat_Animations.glb" id="1_jwjh1"]
+[ext_resource type="AudioStream" uid="uid://djm86naidtvbd" path="res://Sounds/MuskRat/muskrat.mp3" id="3_gkpd4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osi37"]
 animation = &"Attack"
@@ -101,6 +102,13 @@ shape = SubResource("CapsuleShape3D_dqn4q")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=214441124]
 navigation_layers = 4
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=275500789]
+stream = ExtResource("3_gkpd4")
+volume_db = 0.4
+autoplay = true
+bus = &"Animals"
+parameters/looping = true
 
 [node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1878231976]
 unique_name_in_owner = true

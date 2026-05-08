@@ -5,6 +5,7 @@ class_name Animal extends CharacterBody3D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 @onready var dust_particles: GPUParticles3D = %DustParticles
+@onready var animation_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export_category("Animal Info")
 @export var animal_name: String = ""
@@ -14,6 +15,8 @@ class_name Animal extends CharacterBody3D
 @export var min_distance: float = 1
 @export var activation_distance: float = 5
 @export var speed: float = 5
+
+@export var distance_from_player: int = 25
 
 var picked_up: bool = false
 
@@ -60,6 +63,11 @@ func _physics_process(delta: float) -> void:
 
 	if dust_particles:
 		dust_particles.emitting = is_on_floor() && ground_speed > 0.5
+	# Sounds
+	
+	if player:
+		relative_to_player_sound()
+	
 	move_and_slide()
 
 func update_target_location(target_location):
@@ -73,3 +81,14 @@ func run():
 
 func attack():
 	state_machine.travel("Attack")
+
+func animal_sound():
+	await get_tree().create_timer(randf_range(1.0,5.0)).timeout
+	animation_stream.pitch_scale = randf_range(0.7,1)
+	animation_stream.play()
+
+func relative_to_player_sound():
+	var distance = global_position.distance_to(player.global_position)
+	
+	if animation_stream and distance < distance_from_player and !animation_stream.playing:
+		animal_sound()

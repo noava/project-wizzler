@@ -1,0 +1,26 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cljjbg68xb006"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
+resource_name = "Limiter"
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -35.00669
+bus/1/send = &"Master"
+bus/2/name = &"Ambient"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -42.866817
+bus/2/send = &"Master"
+bus/3/name = &"Animals"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -24.136963
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/3/effect/0/enabled = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7h1ryukm42mb" path="res://Animals/Models/Gecko/gecko.gd" id="1_g8alt"]
 [ext_resource type="PackedScene" uid="uid://diy5u57kxpvex" path="res://Animals/Models/Gecko/Gecko_Animations.glb" id="1_pnl4h"]
+[ext_resource type="AudioStream" uid="uid://dvgkr8yleq55q" path="res://Sounds/Gecko/gecko_01.wav" id="3_fvuf7"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i7flh"]
 animation = &"Attack"
@@ -90,6 +91,8 @@ script = ExtResource("1_g8alt")
 [node name="Gecko_Animations" parent="." unique_id=1033715297 instance=ExtResource("1_pnl4h")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
+[node name="Skeleton3D" parent="Gecko_Animations/Rig" parent_id_path=PackedInt32Array(1947088609, 1872912168) index="0" unique_id=2037403704]
+
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
 root_node = NodePath("../Gecko_Animations")
 tree_root = SubResource("AnimationNodeBlendTree_whi7b")
@@ -111,5 +114,10 @@ lifetime = 0.7
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_fvuf7")
 draw_pass_1 = SubResource("SphereMesh_1mfav")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=726739792]
+stream = ExtResource("3_fvuf7")
+autoplay = true
+bus = &"Animals"
 
 [editable path="Gecko_Animations"]
