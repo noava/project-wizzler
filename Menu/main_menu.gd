@@ -6,6 +6,7 @@ const GAME_ENVIRONMENT = preload("uid://qy7va4i3kmqt")
 var INTRO_SCENE: PackedScene = preload("res://Intro/Intro.tscn") # Intro Scene
 
 #@onready var fade: CanvasLayer = $"../../Fade"
+var transitioning := false
 
 func _ready() -> void:
 	show()
@@ -15,10 +16,13 @@ func _ready() -> void:
 	$HowToPlay.hide()
 
 func _on_start_btn_pressed() -> void:
-	
-	await FadeManager.fade(1.0, 2).finished
+	if transitioning:
+		return
+	transitioning = true
+	set_process_unhandled_input(false)
+	get_viewport().set_input_as_handled() 
+	await FadeManager.fade(1.0, 1.5).finished
 	get_tree().change_scene_to_packed(INTRO_SCENE)
-	await FadeManager.fade(0.0, 2).finished
 	
 	# on video finsihed	 
 	#get_tree().change_scene_to_packed(MAP_SCENE) 
