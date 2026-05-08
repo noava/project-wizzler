@@ -29,7 +29,7 @@ func show_images():
 		var img: Control = BOARD_IMAGE.instantiate()
 		img.get_node("TextureRect").texture = img_data.texture
 		
-		img.get_node("BugName").text = str(img_data.animals[0].animal_name) if img_data.animals.size() > 0 else "" # Only get the first animal
+		img.get_node("AnimalName").text = str(img_data.animals[0].animal_name) if img_data.animals.size() > 0 else "" # Only get the first animal
 
 		var card: Control = Control.new() # For allowing rotation of each image
 		card.custom_minimum_size = img.custom_minimum_size

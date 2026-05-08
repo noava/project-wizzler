@@ -18,7 +18,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 			open_menu()
 		else:
 			_on_resume_pressed()
-	
+
+func _physics_process(_delta: float) -> void:
 	if fps_label.visible:
 		fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 

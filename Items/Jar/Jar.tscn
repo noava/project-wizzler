@@ -20,6 +20,14 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 height = 0.3388672
 radius = 0.7373047
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_jj45o"]
+viewport_path = NodePath("NamePlateText/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ieif"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_jj45o")
+
 [node name="Jar" type="StaticBody3D" unique_id=1977943059 groups=["jar"]]
 script = ExtResource("1_ya8au")
 
@@ -27,22 +35,57 @@ script = ExtResource("1_ya8au")
 transform = Transform3D(0.34453842, 0, 0, 0, 0.34453842, 0, 0, 0, 0.34453842, 0, 0.3979737, 0)
 shape = SubResource("ConcavePolygonShape3D_jj45o")
 
-[node name="jar" parent="." unique_id=1035132653 instance=ExtResource("3_cmd04")]
+[node name="jar" parent="." unique_id=1624265916 instance=ExtResource("3_cmd04")]
 
-[node name="Glass" parent="jar" index="0" unique_id=883179497]
+[node name="Glass" parent="jar" index="0" unique_id=1800727697]
 material_override = SubResource("ShaderMaterial_cmd04")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="jar/Lid" parent_id_path=PackedInt32Array(1035132653, 160316549) index="0" unique_id=851903597]
+[node name="StaticBody3D" type="StaticBody3D" parent="jar/Lid" parent_id_path=PackedInt32Array(1624265916, 187168265) index="0" unique_id=851903597]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="jar/Lid/StaticBody3D" unique_id=432139908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3540539, 0)
 shape = SubResource("CylinderShape3D_cmd04")
+
+[node name="NamePlateText" parent="jar" index="2" unique_id=1379245977]
+material_override = SubResource("StandardMaterial3D_8ieif")
+
+[node name="SubViewport" type="SubViewport" parent="jar/NamePlateText" index="0" unique_id=1921462336]
+transparent_bg = true
+size = Vector2i(512, 260)
+
+[node name="Control" type="Control" parent="jar/NamePlateText/SubViewport" unique_id=1390791196]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimalName" type="Label" parent="jar/NamePlateText/SubViewport/Control" unique_id=1142682061]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.09960962, 0.039581448, 0.0021568532, 1)
+theme_override_font_sizes/font_size = 180
+text = "Bruh"
+horizontal_alignment = 1
 
 [node name="Animals" type="Node3D" parent="." unique_id=566589473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08344585, 0)
 
 [node name="Spin" type="Node3D" parent="Animals" unique_id=236732783]
 script = ExtResource("4_jj45o")
-metadata/_custom_type_script = "uid://bry8fdm8xtny8"
 
 [editable path="jar"]

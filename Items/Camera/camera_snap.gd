@@ -1,7 +1,7 @@
 extends Node3D
 
 @export_category("Animal Detection")
-@export var distance_from_camera: float = 2.0
+@export var distance_from_camera: float = 5.0
 
 @export_category("Aim Camera")
 @export var aim_speed: float = 10.0
@@ -17,9 +17,9 @@ extends Node3D
 @export var zoom_out_pitch: float = 0.8
 
 @export_category("Captured Image Tween")
-@export var image_tween_start: float = -0.345
-@export var image_tween_end: float = 0.141
-@export var image_tween_duration: float = 0.8
+var image_tween_start: float = -0.345
+var image_tween_end: float = 0.141
+var image_tween_duration: float = 0.8
 @export var image_hold_duration: float = 3.0
 
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -29,7 +29,7 @@ const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
 @onready var blur: ColorRect = $CamUI/Blur
 
 # Camera Image
-@onready var camera_image: Control = $ImageTaken/ImageMesh/SubViewport/BoardImage.get_node("TextureRect")
+@onready var camera_image: Control = %BoardImage.get_node("TextureRect")
 @onready var image_taken: Node3D = $ImageTaken
 
 
@@ -110,7 +110,7 @@ func get_animals_in_frame() -> Array:
 	return animals_in_frame
 
 func _aim_camera(delta: float):
-	var camera_target_pos = Vector3(0.2, -0.05, -0.625) if Input.is_action_pressed("item_secondary_interact") else original_position
+	var camera_target_pos = Vector3(0.1925, -0.055, -0.625) if Input.is_action_pressed("item_secondary_interact") else original_position
 	position = position.lerp(camera_target_pos, delta * aim_speed)
 	
 	blur.visible = Input.is_action_pressed("item_secondary_interact")
