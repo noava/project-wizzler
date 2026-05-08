@@ -35,10 +35,12 @@ func play_footstep():
     if terrain == null:
         return
     
-    var texture_id = terrain.data.get_texture_id(global_position)
+    var terrain_id = terrain.data.get_texture_id(global_position)
+    var texture_id = int(terrain_id.x)
+    
     print("Terrain ID", texture_id)
     if texture_sounds.has(texture_id):
-        print("has sound", texture_sounds.has(texture_id))
+        #print("has sound", texture_sounds.has(texture_id))
         audio.stream = texture_sounds[texture_id]
         if audio.stream:
             print(audio.stream.resource_path)
