@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bt7dc5jnv7lfw"]
+
+[ext_resource type="PackedScene" uid="uid://6xk4y7id8rgk" path="res://Environment_Models/island_test.gltf" id="1_hrirj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sno3e"]
+albedo_color = Color(0.4771183, 0.5882028, 0.27695626, 1)
+
+[node name="island_test" unique_id=618424351 instance=ExtResource("1_hrirj")]
+
+[node name="Plane_001" parent="." index="0" unique_id=2005293066]
+material_override = SubResource("StandardMaterial3D_sno3e")

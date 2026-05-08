@@ -1,9 +1,24 @@
 [gd_scene format=3 uid="uid://cvxwel5g7oofg"]
 
 [ext_resource type="PackedScene" uid="uid://bhe5ctq1pp74b" path="res://Player/player.tscn" id="2_njngi"]
+[ext_resource type="PackedScene" uid="uid://cqql72tnw0nt5" path="res://Map/Trees/tree.tscn" id="3_5ej7w"]
 [ext_resource type="PackedScene" uid="uid://brs1sd855j0oc" path="res://Items/BulletinBoard/bulletin_board.tscn" id="3_6yc6o"]
-[ext_resource type="PackedScene" uid="uid://djibjh5o16grl" path="res://Items/Insect/insect.tscn" id="4_86j4t"]
+[ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://Map/Water/water.tres" id="3_lymsy"]
+[ext_resource type="MultiMesh" uid="uid://bui8en0sltred" path="res://Map/Grass/all_grass.tres" id="4_a0x20"]
+[ext_resource type="PackedScene" uid="uid://ms7mavy3lm2b" path="res://Map/Rocks/large_rock.tscn" id="4_lymsy"]
+[ext_resource type="PackedScene" uid="uid://u3dx0nb567wh" path="res://Items/Jar/Jar.tscn" id="5_3g1qk"]
+[ext_resource type="PackedScene" uid="uid://dwfgg16vvt6s3" path="res://Map/Bush/bush.tscn" id="5_5cbny"]
 [ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="5_8svjd"]
+[ext_resource type="PackedScene" uid="uid://dmawnci4bi7l3" path="res://Animals/Models/Gecko/Gecko.tscn" id="10_ptuj4"]
+[ext_resource type="PackedScene" uid="uid://dd1xstcju6v4h" path="res://Animals/Models/Sparrow/Sparrow.tscn" id="10_vhrv6"]
+[ext_resource type="PackedScene" uid="uid://cbxqpnm0hyv0y" path="res://Animals/Models/Muskrat/Muskrat.tscn" id="11_ry46t"]
+[ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="12_vhrv6"]
+[ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="13_ry46t"]
+[ext_resource type="PackedScene" uid="uid://cba77dglp2woo" path="res://Animals/Models/Rat/Rat.tscn" id="13_tgjig"]
+[ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="14_xoeuw"]
+[ext_resource type="PackedScene" uid="uid://chpxl68wgjvn6" path="res://Animals/Models/Herring/Herring.tscn" id="15_ky2gv"]
+[ext_resource type="PackedScene" uid="uid://lainmb88veno" path="res://Animals/Models/Snake/Snake.tscn" id="16_svr43"]
+[ext_resource type="PackedScene" uid="uid://cv0w2pvjf3s8c" path="res://Animals/BirdInTheSky/bird_in_the_sky.tscn" id="16_xoeuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njngi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,12 +34,51 @@ sky = SubResource("Sky_6yc6o")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lymsy"]
-albedo_color = Color(0.007843138, 0.15686275, 0.050980393, 1)
-uv1_scale = Vector3(7.595, 7.595, 7.595)
-uv1_triplanar_sharpness = 6.7271757
+[sub_resource type="PlaneMesh" id="PlaneMesh_5cbny"]
+material = ExtResource("3_lymsy")
+size = Vector2(300, 300)
 
-[node name="Map" type="Node3D" unique_id=1335930776]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cbny"]
+albedo_color = Color(0.17254902, 0.5921569, 0.1764706, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ptuj4"]
+material = SubResource("StandardMaterial3D_5cbny")
+top_radius = 15.0
+bottom_radius = 15.0
+height = 0.001
+rings = 3
+cap_bottom = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5cbny"]
+height = 0.12
+radius = 15.0
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ptuj4"]
+vertices = PackedVector3Array(-4.25, 0.4995, 2, -3.25, 0.4995, 3.5, -1.5, 0.4995, 4.5, 2, 0.4995, 4.25, 3.5, 0.4995, 3.25, 4.5, 0.4995, 1.5, 4.5, 0.4995, -1.5, 3.25, 0.4995, -3.5, 1.5, 0.4995, -4.5, -1.5, 0.4995, -4.5, -3.5, 0.4995, -3.25, -4.5, 0.4995, -1.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 11), PackedInt32Array(11, 6, 0), PackedInt32Array(0, 6, 3)]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rr5ff"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 0.001
+rings = 3
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr5ff"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.34117648)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0x20"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.34117648)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
+[node name="Map" type="Node" unique_id=2146170304]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1602354383]
 environment = SubResource("Environment_86j4t")
@@ -36,24 +90,184 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=1538208269 instance=ExtResource("2_njngi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6020005, 7.8691673)
 
-[node name="Floor" type="Node3D" parent="." unique_id=737060628]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=222698270]
-material_override = SubResource("StandardMaterial3D_lymsy")
-use_collision = true
-size = Vector3(16, 0.1, 16)
-
 [node name="BulletinBoard" parent="." unique_id=1237578697 instance=ExtResource("3_6yc6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5952764, 0.05000019, 0.8673773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.595, 0, 0.867)
 
-[node name="Insect" parent="." unique_id=176088785 instance=ExtResource("4_86j4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.240478, 0.1500002, 4.7583346)
+[node name="Water" type="MeshInstance3D" parent="." unique_id=46888978]
+mesh = SubResource("PlaneMesh_5cbny")
 
-[node name="Insect2" parent="." unique_id=1647366041 instance=ExtResource("4_86j4t")]
-transform = Transform3D(-0.16628689, 0, -0.9860774, 0, 1, 0, 0.9860774, 0, -0.16628689, 5.0392904, 0.1500002, 2.242754)
+[node name="Grass" type="Node" parent="." unique_id=555957345]
 
-[node name="Insect3" parent="." unique_id=54224058 instance=ExtResource("4_86j4t")]
-transform = Transform3D(0.26740652, 0, 0.9635838, 0, 1, 0, -0.9635838, 0, 0.26740652, 2.4710822, 0.1500002, 2.535977)
+[node name="Plane" type="MeshInstance3D" parent="Grass" unique_id=1641219971]
+mesh = SubResource("CylinderMesh_ptuj4")
 
-[node name="Ball" parent="." unique_id=1293081392 instance=ExtResource("5_8svjd")]
+[node name="StaticBody3D" type="StaticBody3D" parent="Grass/Plane" unique_id=1906194701]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grass/Plane/StaticBody3D" unique_id=1721738552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+shape = SubResource("CylinderShape3D_5cbny")
+
+[node name="Grass" type="MultiMeshInstance3D" parent="Grass" unique_id=1509494331]
+visible = false
+cast_shadow = 0
+multimesh = ExtResource("4_a0x20")
+
+[node name="Trees" type="Node" parent="." unique_id=1609194393]
+
+[node name="Tree" parent="Trees" unique_id=1325884916 instance=ExtResource("3_5ej7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4378653, 0, -9.062874)
+
+[node name="Tree2" parent="Trees" unique_id=1118396012 instance=ExtResource("3_5ej7w")]
+transform = Transform3D(-0.37753376, 0, 0.9259958, 0, 1, 0, -0.9259958, 0, -0.37753376, -8.341911, 0, -6.589901)
+
+[node name="Rocks" type="Node" parent="." unique_id=1141552789]
+
+[node name="large_rock" parent="Rocks" unique_id=132065982 instance=ExtResource("4_lymsy")]
+transform = Transform3D(0.31492025, 0, 0.94911814, 0, 1, 0, -0.94911814, 0, 0.31492025, -4.574682, 0.014578581, -4.1779814)
+
+[node name="large_rock2" parent="Rocks" unique_id=456371790 instance=ExtResource("4_lymsy")]
+transform = Transform3D(-0.6811171, 0, 0.73217446, 0, 1, 0, -0.73217446, 0, -0.6811171, -4.574682, 0.014578581, -9.810236)
+
+[node name="large_rock3" parent="Rocks" unique_id=1626359039 instance=ExtResource("4_lymsy")]
+transform = Transform3D(-0.37264386, 0, 0.5687826, 0, 0.57653785, 0, -0.4005777, 0, -0.52911925, -8.911188, -0.12756342, -9.810236)
+
+[node name="Bushes" type="Node" parent="." unique_id=579765464]
+
+[node name="Bush" parent="Bushes" unique_id=1540797420 instance=ExtResource("5_5cbny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6394806, 0.412799, -7.5075784)
+
+[node name="Bush2" parent="Bushes" unique_id=783670309 instance=ExtResource("5_5cbny")]
+transform = Transform3D(0.4841989, 0, 0.874958, 0, 1, 0, -0.874958, 0, 0.4841989, 3.2282872, 0.412799, -10.20718)
+
+[node name="Jars" type="Node" parent="." unique_id=46440672]
+
+[node name="Jar" parent="Jars" unique_id=1977943059 instance=ExtResource("5_3g1qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2676995, 0.0074258, 1.4163275)
+
+[node name="Jar2" parent="Jars" unique_id=260447500 instance=ExtResource("5_3g1qk")]
+transform = Transform3D(0.38751563, 0, -0.92186314, 0, 1, 0, 0.92186314, 0, 0.38751563, 3.715532, 0.0077471584, 2.1382341)
+
+[node name="Animals" type="Node" parent="." unique_id=60000125]
+
+[node name="Geckos" type="Node" parent="Animals" unique_id=1094868449]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Geckos" unique_id=792243572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.228796, 0, 6.0779314)
+navigation_mesh = SubResource("NavigationMesh_ptuj4")
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Geckos/NavigationRegion3D" unique_id=1026560916]
+visible = false
+mesh = SubResource("CylinderMesh_rr5ff")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Gecko" parent="Animals/Geckos" unique_id=2136921226 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.228063, 0, 5.8349123)
+animal_name = "Blicky"
+color_modulation = Color(0.57593673, 0.7706608, 0.6507722, 1)
+
+[node name="Gecko2" parent="Animals/Geckos" unique_id=63184803 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6023135, 0, 5.8349123)
+animal_name = "Blarg"
+color_modulation = Color(0.39215687, 1, 1, 1)
+
+[node name="Gecko3" parent="Animals/Geckos" unique_id=1478664531 instance=ExtResource("10_ptuj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.032065, 0, 5.8349123)
+animal_name = "Blimey"
+color_modulation = Color(0.68407667, 0.33827114, 0, 1)
+
+[node name="Sparrows" type="Node" parent="Animals" unique_id=468737632]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Sparrows" unique_id=1498948440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5668387, 0, -8.939809)
+navigation_mesh = SubResource("NavigationMesh_ptuj4")
+navigation_layers = 2
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Sparrows/NavigationRegion3D" unique_id=1742224170]
+visible = false
+mesh = SubResource("CylinderMesh_rr5ff")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Sparrow" parent="Animals/Sparrows" unique_id=1430979171 instance=ExtResource("10_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2099371, 0, -6.7382755)
+animal_name = "Palta"
+color_modulation = Color(0.21086276, 0.17889622, 0.12678167, 1)
+
+[node name="Sparrow2" parent="Animals/Sparrows" unique_id=280888544 instance=ExtResource("10_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9274242, 0, -6.7382755)
+animal_name = "Pirrpirr"
+color_modulation = Color(0.73886144, 0.5225733, 0.5462043, 1)
+
+[node name="Muskrats" type="Node" parent="Animals" unique_id=1323486473]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Animals/Muskrats" unique_id=1290581259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6863403, 0, 6.3926115)
+navigation_mesh = SubResource("NavigationMesh_ptuj4")
+navigation_layers = 4
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Animals/Muskrats/NavigationRegion3D" unique_id=2069362575]
+visible = false
+mesh = SubResource("CylinderMesh_rr5ff")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Muskrat" parent="Animals/Muskrats" unique_id=2130271889 instance=ExtResource("11_ry46t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.276446, 0, 4.3669186)
+animal_name = "Boingo"
+color_modulation = Color(0.88868046, 0.8836787, 0.44736797, 1)
+
+[node name="Rats" type="Node" parent="Animals" unique_id=523566149]
+
+[node name="Rat" parent="Animals/Rats" unique_id=1444891096 instance=ExtResource("13_tgjig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91572624, 0, 2.192882)
+animal_name = "Stinker"
+color_modulation = Color(0.15871596, 0.10458795, 0.07805436, 1)
+
+[node name="Herrings" type="Node" parent="Animals" unique_id=1510954332]
+
+[node name="Herring" parent="Animals/Herrings" unique_id=726353137 instance=ExtResource("15_ky2gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8520617, 0, 6.005378)
+animal_name = "fisk"
+color_modulation = Color(0.80213785, 0.00055850926, 0.81309056, 1)
+speed = 2.0
+
+[node name="Snake" type="Node" parent="Animals" unique_id=1617988473]
+
+[node name="Snake" parent="Animals/Snake" unique_id=1786662447 instance=ExtResource("16_svr43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1116676, 0, 4.391526)
+animal_name = "Slither"
+
+[node name="Toys" type="Node" parent="." unique_id=1216641006]
+
+[node name="Ball" parent="Toys" unique_id=1293081392 instance=ExtResource("5_8svjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1042285, 0.25000018, 3.7578871)
+
+[node name="ToPickup" parent="Toys" unique_id=1667676149 instance=ExtResource("12_vhrv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0112479, 0.5412472, 4.9916058)
+model_scene = ExtResource("13_ry46t")
+item_scene = ExtResource("14_xoeuw")
+
+[node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("16_xoeuw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316245, 0)
+
+[node name="Border" type="CSGCombiner3D" parent="." unique_id=1999119773]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0.35938358, 0)
+cast_shadow = 0
+visibility_range_begin = 10.0
+operation = 1
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Border" unique_id=1237952589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679443, 0)
+cast_shadow = 0
+radius = 100.0
+height = 24.0
+sides = 32
+material = SubResource("StandardMaterial3D_rr5ff")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Border" unique_id=248942419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679443, 0)
+cast_shadow = 0
+operation = 2
+radius = 90.0
+height = 26.0
+sides = 32
+material = SubResource("StandardMaterial3D_a0x20")

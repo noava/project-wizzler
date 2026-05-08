@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cba77dglp2woo"]
+
+[ext_resource type="Script" uid="uid://bcreqnlbr0pa8" path="res://Animals/Models/Rat/rat.gd" id="1_d4wf5"]
+[ext_resource type="PackedScene" uid="uid://dpo4ivqudrmbw" path="res://Animals/Models/Rat/Rat.glb" id="2_d4wf5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d4wf5"]
+animation = &"Rat_Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nn2co"]
+animation = &"Rat_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pt3yw"]
+animation = &"Rat_Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3ry3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8hu1v"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y68kk"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8tjf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wg037"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yvowx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gwaob"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s6ljh"]
+states/Run/node = SubResource("AnimationNodeAnimation_d4wf5")
+states/Run/position = Vector2(410, 188)
+states/Sit/node = SubResource("AnimationNodeAnimation_nn2co")
+states/Sit/position = Vector2(200, 188)
+states/Walk/node = SubResource("AnimationNodeAnimation_pt3yw")
+states/Walk/position = Vector2(200, 306)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_x3ry3"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_8hu1v"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_y68kk"), "Sit", "Walk", SubResource("AnimationNodeStateMachineTransition_a8tjf"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_wg037"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_yvowx"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_gwaob")]
+graph_offset = Vector2(-405, 95)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ns4y3"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_s6ljh")
+nodes/StateMachine/position = Vector2(40, 160)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whi7b"]
+radius = 0.23046875
+height = 0.8691406
+
+[sub_resource type="Curve" id="Curve_d4wf5"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_3acds"]
+width = 32
+curve = SubResource("Curve_d4wf5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nn2co"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_3acds")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvuf7"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.28934664, 0.24924594, 0.12849584, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pt3yw"]
+material = SubResource("StandardMaterial3D_fvuf7")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
+[node name="Rat" type="CharacterBody3D" unique_id=1444891096 groups=["animal", "pickupable"]]
+script = ExtResource("1_d4wf5")
+metadata/_custom_type_script = "uid://bn4ujllfmvv1i"
+
+[node name="RatModel" parent="." unique_id=953906314 instance=ExtResource("2_d4wf5")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
+root_node = NodePath("../RatModel")
+tree_root = SubResource("AnimationNodeBlendTree_ns4y3")
+anim_player = NodePath("../RatModel/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1090204315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.232, 0)
+shape = SubResource("CapsuleShape3D_whi7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=514026242]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.054642804, -0.0763736)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_nn2co")
+draw_pass_1 = SubResource("SphereMesh_pt3yw")
+
+[editable path="RatModel"]

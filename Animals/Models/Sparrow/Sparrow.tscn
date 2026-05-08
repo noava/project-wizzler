@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dd1xstcju6v4h"]
+
+[ext_resource type="Script" uid="uid://2epkgeu752d0" path="res://Animals/Models/Sparrow/sparrow.gd" id="1_gbchs"]
+[ext_resource type="PackedScene" uid="uid://onkmytsolaau" path="res://Animals/Models/Sparrow/Sparrow_Animations.glb" id="1_kj70e"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3svg"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_it3mw"]
+animation = &"Roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbchs"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b50x8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_25mp6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4bs77"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10m2x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sk30q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usxyl"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32rly"]
+xfade_time = 0.3
+break_loop_at_end = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8yaqs"]
+states/Attack/node = SubResource("AnimationNodeAnimation_l3svg")
+states/Attack/position = Vector2(200, 263)
+states/Run/node = SubResource("AnimationNodeAnimation_it3mw")
+states/Run/position = Vector2(346, 175)
+states/Sit/node = SubResource("AnimationNodeAnimation_gbchs")
+states/Sit/position = Vector2(200, 175)
+transitions = ["Start", "Sit", SubResource("AnimationNodeStateMachineTransition_b50x8"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_25mp6"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_4bs77"), "Sit", "Attack", SubResource("AnimationNodeStateMachineTransition_10m2x"), "Attack", "Sit", SubResource("AnimationNodeStateMachineTransition_sk30q"), "Sit", "Run", SubResource("AnimationNodeStateMachineTransition_usxyl"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_32rly")]
+graph_offset = Vector2(-309, 69)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hqfmw"]
+graph_offset = Vector2(-291.55933, 174.20496)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_8yaqs")
+nodes/StateMachine/position = Vector2(0, 160)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbchs"]
+radius = 0.35388184
+height = 0.7077637
+
+[sub_resource type="Curve" id="Curve_3f17x"]
+_data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_hx62n"]
+width = 32
+curve = SubResource("Curve_3f17x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tqdcj"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0.5, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.199998
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_hx62n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjqqb"]
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5029817, 0.43804106, 0.25048187, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vpbss"]
+material = SubResource("StandardMaterial3D_bjqqb")
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 8
+
+[node name="Sparrow" type="CharacterBody3D" unique_id=1430979171 groups=["animal", "pickupable"]]
+script = ExtResource("1_gbchs")
+
+[node name="Sparrow_Animations" parent="." unique_id=1416430152 instance=ExtResource("1_kj70e")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=961623483]
+root_node = NodePath("../Sparrow_Animations")
+tree_root = SubResource("AnimationNodeBlendTree_hqfmw")
+anim_player = NodePath("../Sparrow_Animations/AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1712951623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35339355, 0)
+shape = SubResource("CapsuleShape3D_gbchs")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=138825235]
+navigation_layers = 2
+
+[node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1285032330]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136607, -0.190934)
+cast_shadow = 0
+gi_mode = 0
+amount = 10
+lifetime = 0.7
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_tqdcj")
+draw_pass_1 = SubResource("SphereMesh_vpbss")
+
+[editable path="Sparrow_Animations"]

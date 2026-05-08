@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4attcshcpkwt"]
+
+[ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="1_bwuw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axx4v"]
+size = Vector3(0.5805054, 0.42382813, 0.7251587)
+
+[node name="Camera" type="Node3D" unique_id=2107516741]
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=1695510054]
+
+[node name="camera" parent="AnimatableBody3D" unique_id=508052522 instance=ExtResource("1_bwuw8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1030817590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016174316, 0.021484375, -0.04846704)
+shape = SubResource("BoxShape3D_axx4v")

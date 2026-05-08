@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://nt771jb35x5k"]
+
+[ext_resource type="PackedScene" uid="uid://kcyqknt0odjk" path="res://Items/BulletinBoard/Paper/paper.glb" id="1_gxy3a"]
+[ext_resource type="Script" uid="uid://djmgkauffd2oi" path="res://Items/BulletinBoard/Paper/paper.gd" id="2_itet8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jeum3"]
+cull_mode = 2
+albedo_color = Color(1, 0.9490196, 0.8, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jeum3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itet8"]
+transparency = 1
+albedo_texture = SubResource("PlaceholderTexture2D_jeum3")
+
+[node name="paper" unique_id=94505661 instance=ExtResource("1_gxy3a")]
+script = ExtResource("2_itet8")
+
+[node name="Plane" parent="." index="0" unique_id=637385690]
+material_override = SubResource("StandardMaterial3D_jeum3")
+material_overlay = SubResource("StandardMaterial3D_itet8")

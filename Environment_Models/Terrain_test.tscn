@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bpwbj077qrhd1"]
+
+[ext_resource type="PackedScene" uid="uid://c7ba1jfcnu1qj" path="res://Environment_Models/ground_test.glb" id="1_mh4yo"]
+
+[node name="Node3D" type="Node3D" unique_id=1772569187]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=292986578]
+
+[node name="ground_test" parent="MeshInstance3D" unique_id=2094183776 instance=ExtResource("1_mh4yo")]

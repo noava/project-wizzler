@@ -32,8 +32,8 @@ func _process(delta):
 	# Crouch (hold)
 	is_crouching = Input.is_action_pressed("crouch")
 	
-	# Crouch (toggle) Uncomment code below for toggle crouch TODO: Make task of adding this as a toggle in settings
-	#if Input.is_action_pressed("crouch"):
+	# Crouch (toggle) Uncomment code below for toggle crouch TODO: Make this as a toggle in settings
+	#if Input.is_action_just_pressed("crouch"):
 	#	is_crouching = !is_crouching
 		
 	# Sprint
