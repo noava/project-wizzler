@@ -19,9 +19,14 @@ run/main_scene="uid://bc6sf6th1yvi8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cljjbg68xb006"
+
 [autoload]
 
 Global="*res://Map/global.gd"
+UiSoundPlayer="*uid://bhqy1x4oeq2ty"
 
 [display]
 

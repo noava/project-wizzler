@@ -10,6 +10,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17iv7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ys1n"]
+bg_color = Color(0.42745098, 0.23921569, 0.1254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17iv7"]
+bg_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_17iv7"]
+color = Color(0, 0, 0, 0.30980393)
+thickness = 4
+
 [resource]
 Button/colors/font_focus_color = Color(1, 0.5254902, 0.38039216, 1)
 Button/colors/font_hover_color = Color(1, 0.5254902, 0.38039216, 1)
@@ -19,10 +29,14 @@ Button/styles/focus = SubResource("StyleBoxEmpty_ybov5")
 Button/styles/hover = SubResource("StyleBoxEmpty_0ys1n")
 Button/styles/normal = SubResource("StyleBoxEmpty_86c21")
 Button/styles/pressed = SubResource("StyleBoxEmpty_17iv7")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_0ys1n")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_17iv7")
+HSlider/styles/slider = SubResource("StyleBoxLine_17iv7")
 HeaderLarge/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
 HeaderLarge/font_sizes/font_size = 50
 HeaderLarge/fonts/font = ExtResource("1_0ys1n")
 HeaderSmall/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
+HeaderSmall/font_sizes/font_size = 15
 HeaderSmall/fonts/font = ExtResource("1_0ys1n")
-Label/font_sizes/font_size = 15
+Label/font_sizes/font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 18
