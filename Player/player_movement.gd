@@ -17,12 +17,12 @@ var walk_interval := 0.5
 var sprint_interval := 0.25
 var crouch_interval := 0.85
 
-var texture_sounds = {
-	0: preload("res://Sounds/Material/grass.wav"),
-	1: preload("res://Sounds/Material/sand.wav"),
-	2: preload("res://Sounds/Material/rock.wav")
-}
-
+#var texture_sounds = {
+#	0: preload("res://Sounds/Material/grass.wav"),
+#	1: preload("res://Sounds/Material/sand.wav"),
+#	2: preload("res://Sounds/Material/rock.wav")
+#}
+var footstep_sound = preload("res://Sounds/Material/walking.mp3")
 var footstep_timer := 0.0
 var footstep_interval := walk_interval
 
@@ -69,15 +69,15 @@ func footsteps_handle(delta):
 func update_footstep_sounds():
 
 	if Input.is_action_pressed("sprint"):
-		print("Sprint")
+		#print("Sprint")
 		footstep_interval = sprint_interval
 		audio.pitch_scale = 1.5
 	elif Input.is_action_pressed("crouch"):
-		print("Crouching")
+		#print("Crouching")
 		footstep_interval = crouch_interval
-		audio.pitch_scale = 0.85
+		audio.volume_db = -999 #silent
 	else:
-		print("walking")
+		#print("walking")
 		footstep_interval = walk_interval
 		audio.pitch_scale = 1
 		
@@ -90,16 +90,24 @@ func play_footstep():
 	if audio.playing:
 		return
 	
-	var terrain_id = terrain.data.get_texture_id(global_position)
-	var texture_id = int(terrain_id.x)
+	audio.volume_db = -16
+	audio.stream = footstep_sound
+	audio.bus = "Ambient"
+	audio.play()
+	footstep_timer = max(footstep_interval, audio.stream.get_length())
 	
-	if texture_sounds.has(texture_id):
-		audio.stream = texture_sounds[texture_id]
-		print("infooo", texture_id,terrain_id, audio.stream.resource_path)
-		audio.play()
-		footstep_timer = max(footstep_interval, audio.stream.get_length())
+	#var terrain_id = terrain.data.get_texture_id(global_position)
+	#var texture_id = int(terrain_id.x)
+	
+	#if texture_sounds.has(texture_id):
+		#audio.stream = texture_sounds[texture_id]
+		#print("infooo", texture_id,terrain_id, audio.stream.resource_path)
+		#audio.play()
+		#footstep_timer = max(footstep_interval, audio.stream.get_length())
+	
 
 func _process(delta):
+	RenderingServer.global_shader_parameter_set("player_position",global_transform.origin)
 	if movement_lock: return
 
 	# Gravity

@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Project Wizzler"
-run/main_scene="uid://bc6sf6th1yvi8"
+run/main_scene="uid://qy7va4i3kmqt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cljjbg68xb006"
 
 [autoload]
 
@@ -140,7 +144,7 @@ wind_direction={
 }
 wind_speed={
 "type": "float",
-"value": 0.1
+"value": 1.0
 }
 still_sway_speed={
 "type": "float",

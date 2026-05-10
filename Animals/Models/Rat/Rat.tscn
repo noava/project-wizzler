@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcreqnlbr0pa8" path="res://Animals/Models/Rat/rat.gd" id="1_d4wf5"]
 [ext_resource type="PackedScene" uid="uid://dpo4ivqudrmbw" path="res://Animals/Models/Rat/Rat.glb" id="2_d4wf5"]
+[ext_resource type="AudioStream" uid="uid://dwtvo3bpw1hp5" path="res://Sounds/Rat/sound_garage-rat-squeaks-4-fx-396298.mp3" id="3_nn2co"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d4wf5"]
 animation = &"Rat_Run"
@@ -111,5 +112,9 @@ lifetime = 0.7
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_nn2co")
 draw_pass_1 = SubResource("SphereMesh_pt3yw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2020424085]
+stream = ExtResource("3_nn2co")
+autoplay = true
 
 [editable path="RatModel"]

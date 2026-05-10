@@ -91,8 +91,6 @@ script = ExtResource("1_g8alt")
 [node name="Gecko_Animations" parent="." unique_id=1033715297 instance=ExtResource("1_pnl4h")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Gecko_Animations/Rig" parent_id_path=PackedInt32Array(1947088609, 1872912168) index="0" unique_id=2037403704]
-
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1402893947]
 root_node = NodePath("../Gecko_Animations")
 tree_root = SubResource("AnimationNodeBlendTree_whi7b")
