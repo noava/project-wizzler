@@ -101,6 +101,7 @@ transform = Transform3D(-4.371139e-08, 4.371139e-08, 1, 1, 1.9106855e-15, 4.3711
 shape = SubResource("CapsuleShape3D_whi7b")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=625986930]
+navigation_layers = 8
 
 [node name="DustParticles" type="GPUParticles3D" parent="." unique_id=1350765999]
 unique_name_in_owner = true

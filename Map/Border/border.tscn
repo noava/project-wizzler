@@ -17,7 +17,7 @@ disable_receive_shadows = true
 [node name="Border" type="CSGCombiner3D" unique_id=695594151]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -50.903, 26.441, -9.971)
 cast_shadow = 0
-visibility_range_begin = 118.0
+visibility_range_begin = 140.0
 operation = 1
 use_collision = true
 

@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bhe5ctq1pp74b"]
 
 [ext_resource type="Script" uid="uid://ggve2pq57p2c" path="res://Player/player_movement.gd" id="1_k53q1"]
-[ext_resource type="Texture2D" uid="uid://c0hbhyadvgy25" path="res://UI/Assets/crosshair.png" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://c0hbhyadvgy25" path="res://UI/Assets/Interact/crosshair.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://b331uwqq0y7x4" path="res://Player/camera_movement.gd" id="2_k53q1"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://ch10bvxhku6xo" path="res://Menu/in_game_menu.tscn" id="6_fhl08"]
+[ext_resource type="Texture2D" uid="uid://cd4a57agejmry" path="res://UI/Assets/Interact/CircularProgress.png" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://bmvmmtixnl86v" path="res://Player/player_interaction.gd" id="7_vtle1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
@@ -120,5 +121,26 @@ text = "E"
 horizontal_alignment = 1
 
 [node name="InGameMenu" parent="HUD" unique_id=726860128 instance=ExtResource("6_fhl08")]
+
+[node name="CircularProgress" type="TextureProgressBar" parent="HUD" unique_id=765350715]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+max_value = 20.0
+step = 0.05
+value = 8.0
+fill_mode = 4
+texture_progress = ExtResource("7_od3ui")
 
 [node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=933968511]

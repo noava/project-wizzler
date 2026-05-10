@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://6cnjo3t8jcvn"]
+
+[ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="1_dm3cx"]
+[ext_resource type="PackedScene" uid="uid://co8iwqathd7a1" path="res://Items/Stick/stick.tscn" id="2_1046v"]
+
+[node name="Pickupables" type="Node" unique_id=22498712]
+
+[node name="Ball" parent="." unique_id=1571310956 instance=ExtResource("1_dm3cx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.332702, 5.3747807, 55.069096)
+
+[node name="Stick" parent="." unique_id=273457765 instance=ExtResource("2_1046v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.578873, 11.683761, 55.968533)
+
+[node name="Stick5" parent="." unique_id=1194388159 instance=ExtResource("2_1046v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.12915, 3.1158376, 41.93307)
+
+[node name="Stick2" parent="." unique_id=1324120193 instance=ExtResource("2_1046v")]
+transform = Transform3D(0.5020995, 0, -0.8648099, 0, 1, 0, 0.8648099, 0, 0.5020995, -41.431442, 16.776224, 55.968533)
+
+[node name="Stick3" parent="." unique_id=1300854615 instance=ExtResource("2_1046v")]
+transform = Transform3D(0.5020995, 0, -0.8648099, 0, 1, 0, 0.8648099, 0, 0.5020995, -63.104843, 21.166971, 18.638538)
+
+[node name="Stick4" parent="." unique_id=1451520332 instance=ExtResource("2_1046v")]
+transform = Transform3D(0.957687, 0, -0.28781185, 0, 1, 0, 0.28781185, 0, 0.957687, -110.0923, 32.337574, 27.068748)

@@ -18,18 +18,18 @@ height = 0.001
 rings = 3
 cap_bottom = false
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_hevtu"]
-vertices = PackedVector3Array(-7.4999995, 0.49949992, 1.75, -6.4999995, 0.49949992, 4.25, -4.2499995, 0.49949992, 6.5, 1.7500005, 0.49949992, 7.5, 4.2500005, 0.49949992, 6.5, 6.5000005, 0.49949992, 4.25, 7.5000005, 0.49949992, -1.75, 6.5000005, 0.49949992, -4.25, 4.2500005, 0.49949992, -6.5, 1.7500005, 0.49949992, -7.5, -1.7499995, 0.49949992, -7.5, -4.2499995, 0.49949992, -6.5, -6.4999995, 0.49949992, -4.25, -7.4999995, 0.49949992, -1.75, -1.7499995, 0.49949992, 7.5, 7.5000005, 0.49949992, 1.75)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 0), PackedInt32Array(3, 14, 2), PackedInt32Array(6, 15, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 2), PackedInt32Array(6, 2, 0), PackedInt32Array(6, 0, 10)]
+[sub_resource type="NavigationMesh" id="NavigationMesh_5ipks"]
+vertices = PackedVector3Array(-9.49678, 0.4355551, 2.0044155, -8.49678, 0.4355551, 4.7544155, -6.2467804, 0.4355551, 7.5044155, -8.24678, 0.6855551, -5.2455845, -9.49678, 0.4355551, -1.9955845, 2.0032196, 0.6855551, 9.5044155, 4.7532196, 0.6855551, 8.5044155, 7.5032196, 0.9355551, 6.2544155, 9.50322, 1.1855551, -1.9955845, 8.50322, 1.1855551, -4.7455845, 6.2532196, 1.1855551, -7.4955845, 2.0032196, 1.1855551, -9.4955845, -1.9967804, 0.9355551, -9.4955845, -5.2467804, 0.6855551, -8.2455845, -1.9967804, 0.4355551, 9.5044155, 9.50322, 0.9355551, 2.0044155)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(5, 7, 6), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 3), PackedInt32Array(7, 5, 8), PackedInt32Array(8, 5, 2), PackedInt32Array(8, 2, 11), PackedInt32Array(11, 2, 3), PackedInt32Array(14, 2, 5), PackedInt32Array(15, 7, 8)]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ow7jd"]
-top_radius = 8.0
-bottom_radius = 8.0
+top_radius = 10.0
+bottom_radius = 10.0
 height = 0.001
 rings = 3
 cap_bottom = false
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_5ipks"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_tulo8"]
 vertices = PackedVector3Array(11.791132, -2.0204926, -10.674915, 9.791132, -2.2704926, -12.924915, 7.291132, -2.2704926, -14.674915, 2.291132, -2.2704926, -16.424915, -3.958868, -1.7704926, -16.174915, 14.041132, -1.5204926, -6.1749153, -7.958868, 2.4795074, 10.075085, -4.958868, 2.4795074, 11.575085, -1.708868, 2.4795074, 12.325085, -11.708868, 2.2295074, 6.5750847, -14.458868, 1.7295074, 0.3250847, -13.458868, 1.9795074, 3.5750847, -12.958868, -0.020492554, -9.174915, -14.458868, 0.72950745, -4.6749153, -9.458868, -0.77049255, -13.424915, 9.291132, 1.2295074, 9.325085, 13.041132, 0.22950745, 4.8250847, 14.541132, -0.52049255, 0.07508469, 4.541132, 1.9795074, 11.825085)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 5), PackedInt32Array(2, 5, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(11, 10, 9), PackedInt32Array(9, 10, 13), PackedInt32Array(9, 13, 12), PackedInt32Array(12, 14, 4), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 5), PackedInt32Array(15, 18, 8), PackedInt32Array(8, 9, 15), PackedInt32Array(15, 9, 12), PackedInt32Array(15, 12, 4), PackedInt32Array(15, 4, 5)]
 
@@ -40,7 +40,7 @@ height = 0.001
 rings = 3
 cap_bottom = false
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_upn3q"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_hevtu"]
 vertices = PackedVector3Array(15.0017185, -0.7740344, -9.997118, 13.5017185, -0.7740344, -12.247118, 12.0017185, -0.7740344, -13.497118, 0.7517185, -0.27403438, 19.502882, 3.2517185, -0.27403438, 19.002882, 5.5017185, -0.27403438, 18.252882, -13.2482815, -0.27403438, 16.252882, -9.4982815, -0.27403438, 18.252882, -4.7482815, -0.27403438, 19.502882, 11.5017185, -0.27403438, 14.002882, 12.0017185, -0.27403438, 14.002882, 15.0017185, -0.5240344, 10.002882, 12.0017185, -0.7740344, -13.997118, 8.0017185, -0.7740344, -16.997118, -18.248281, -0.27403438, 11.252882, -15.9982815, -0.27403438, 14.002882, -21.498281, -0.5240344, -2.997118, -21.248281, -0.27403438, 4.252882, -20.248281, -0.27403438, 7.502882, -13.2482815, -0.7740344, -16.247118, -16.248281, -0.7740344, -13.747118, -18.248281, -0.5240344, -11.247118, -20.248281, -0.5240344, -7.497118, 10.2517185, -0.27403438, 15.502882, 17.501719, -0.7740344, -2.747118, -6.2482815, -0.7740344, -19.247118, -9.4982815, -0.7740344, -18.247118, 5.5017185, -0.7740344, -18.247118, 0.7517185, -0.7740344, -19.497118, 16.251719, -0.5240344, 7.502882, 17.501719, -0.5240344, 2.752882, 17.001719, -0.7740344, -5.247118)
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 8), PackedInt32Array(5, 8, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 2), PackedInt32Array(15, 14, 6), PackedInt32Array(6, 14, 18), PackedInt32Array(6, 18, 17), PackedInt32Array(6, 17, 16), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 22), PackedInt32Array(22, 19, 16), PackedInt32Array(5, 9, 23), PackedInt32Array(16, 19, 6), PackedInt32Array(6, 19, 5), PackedInt32Array(5, 19, 13), PackedInt32Array(5, 13, 24), PackedInt32Array(26, 25, 19), PackedInt32Array(19, 25, 28), PackedInt32Array(19, 28, 27), PackedInt32Array(19, 27, 13), PackedInt32Array(29, 11, 30), PackedInt32Array(30, 11, 9), PackedInt32Array(30, 9, 24), PackedInt32Array(24, 9, 5), PackedInt32Array(31, 24, 0), PackedInt32Array(0, 24, 2), PackedInt32Array(2, 24, 13)]
 
@@ -51,15 +51,37 @@ height = 0.001
 rings = 3
 cap_bottom = false
 
-[node name="Animals" type="Node" unique_id=174906773]
+[sub_resource type="NavigationMesh" id="NavigationMesh_ow7jd"]
+vertices = PackedVector3Array(6.9656076, -3.729858, -14.428034, 5.9656076, -3.729858, -17.178034, 3.7156076, -3.229858, -19.928034, 6.9656076, -3.229858, -10.178034, -3.5343924, 0.27014208, -2.9280338, -0.28439236, -0.7298579, -2.9280338, 2.9656076, -1.7298579, -4.178034, -7.2843924, 1.0201421, -4.428034, -4.2843924, -1.2298579, -21.928034, -7.2843924, -0.22985792, -20.678034, -10.034392, 0.7701421, -17.928034, -11.284392, 1.5201421, -14.678034, -11.284392, 1.7701421, -10.678034, 5.7156076, -2.729858, -6.928034, 3.1962461, -2.479858, -10.420717, -9.784392, 1.5201421, -6.928034, -0.28439236, -2.229858, -21.928034)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(3, 13, 6), PackedInt32Array(8, 14, 12), PackedInt32Array(12, 14, 7), PackedInt32Array(7, 14, 6), PackedInt32Array(6, 14, 3), PackedInt32Array(3, 14, 2), PackedInt32Array(2, 14, 8), PackedInt32Array(7, 15, 12), PackedInt32Array(16, 2, 8)]
 
-[node name="Geckos" type="Node" parent="." unique_id=1248149068]
+[sub_resource type="CylinderMesh" id="CylinderMesh_upn3q"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 0.001
+rings = 3
+cap_bottom = false
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Geckos" unique_id=696396107]
+[sub_resource type="NavigationMesh" id="NavigationMesh_aawq4"]
+vertices = PackedVector3Array(-11.498522, -0.34054244, 2.0014343, -10.498522, -0.34054244, 4.7514343, -8.248522, -0.34054244, 7.5014343, 0.0014781952, -0.34054244, 9.501434, 2.7514782, -0.34054244, 8.501434, 5.501478, -0.59054244, 6.2514343, 7.501478, -0.59054244, -1.9985657, 6.501478, -0.59054244, -4.7485657, 4.251478, -0.59054244, -7.4985657, 0.0014781952, -0.59054244, -9.498566, -3.9985218, -0.59054244, -9.498566, -6.748522, -0.59054244, -8.498566, -9.498522, -0.59054244, -6.2485657, -11.498522, -0.59054244, -1.9985657, -3.9985218, -0.34054244, 9.501434, 7.501478, -0.59054244, 2.0014343)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(3, 5, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 0), PackedInt32Array(14, 2, 3), PackedInt32Array(15, 5, 6), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 2), PackedInt32Array(6, 2, 0), PackedInt32Array(6, 0, 10)]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6tfei"]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 0.001
+rings = 3
+cap_bottom = false
+
+[node name="Animals" type="Node" unique_id=395009873]
+
+[node name="Geckos" type="Node" parent="." unique_id=1240052146]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Geckos" unique_id=2073065307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.949715, 31.698662, 3.4877052)
 navigation_mesh = SubResource("NavigationMesh_y3ud2")
 
-[node name="AnimalPlane" type="MeshInstance3D" parent="Geckos/NavigationRegion3D" unique_id=834132479]
+[node name="AnimalPlane" type="MeshInstance3D" parent="Geckos/NavigationRegion3D" unique_id=1354962884]
 transform = Transform3D(0.99997616, 0.00691145, 0, -0.00691145, 0.99997616, 0, 0, 0, 1, 2.1596298, 0.34632874, 0)
 visible = false
 mesh = SubResource("CylinderMesh_tulo8")
@@ -70,46 +92,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.95045, 32.67844, 3.24468
 animal_name = "Blicky"
 color_modulation = Color(0.57593673, 0.7706608, 0.6507722, 1)
 
-[node name="Gecko2" parent="Geckos" unique_id=777257622 instance=ExtResource("1_aawq4")]
+[node name="Gecko2" parent="Geckos" unique_id=772947362 instance=ExtResource("1_aawq4")]
 transform = Transform3D(0.37272865, 0, 0.92794037, 0, 1, 0, -0.92794037, 0, 0.37272865, -127.576195, 32.67844, 5.559772)
 animal_name = "Blarg"
-color_modulation = Color(0.39215687, 1, 1, 1)
+color_modulation = Color(0.6746026, 0.65629375, 0.2852159, 1)
 
-[node name="Gecko3" parent="Geckos" unique_id=1823007009 instance=ExtResource("1_aawq4")]
+[node name="Gecko3" parent="Geckos" unique_id=1108996663 instance=ExtResource("1_aawq4")]
 transform = Transform3D(0.29577473, 0, -0.9552577, 0, 1, 0, 0.9552577, 0, 0.29577473, -117.86308, 32.67844, 3.2446861)
 animal_name = "Blimey"
 color_modulation = Color(0.68407667, 0.33827114, 0, 1)
 
-[node name="Sparrows" type="Node" parent="." unique_id=935797587]
+[node name="Sparrows" type="Node" parent="." unique_id=1198734621]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Sparrows" unique_id=656762509]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Sparrows" unique_id=2102006707]
 transform = Transform3D(0.9964886, 0.083730035, 1.7971971e-09, -0.08372476, 0.99642587, 0.011222223, 0.0009396354, -0.011182841, 0.9999371, -87.91408, 19.43175, 14.621474)
-navigation_mesh = SubResource("NavigationMesh_hevtu")
+navigation_mesh = SubResource("NavigationMesh_5ipks")
 navigation_layers = 2
 
-[node name="AnimalPlane" type="MeshInstance3D" parent="Sparrows/NavigationRegion3D" unique_id=2143977895]
+[node name="AnimalPlane" type="MeshInstance3D" parent="Sparrows/NavigationRegion3D" unique_id=1591508750]
+transform = Transform3D(0.99945366, -0.03303876, 0.0008813076, 0.033050515, 0.99909824, -0.026650904, 0, 0.026665471, 0.9996444, -0.0022160404, 0.36060932, 0.00087234384)
 visible = false
 mesh = SubResource("CylinderMesh_ow7jd")
 skeleton = NodePath("../../../../Grass/Plane")
 
 [node name="Sparrow" parent="Sparrows" unique_id=1430979171 instance=ExtResource("2_6tfei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.67671, 20.827454, 18.366405)
+transform = Transform3D(0.9840127, 0, 0.17809811, 0, 1, 0, -0.17809811, 0, 0.9840127, -91.67671, 20.827454, 18.366405)
 animal_name = "Palta"
 color_modulation = Color(0.21086276, 0.17889622, 0.12678167, 1)
 
-[node name="Sparrow2" parent="Sparrows" unique_id=1708453079 instance=ExtResource("2_6tfei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.95923, 20.827454, 18.366405)
+[node name="Sparrow2" parent="Sparrows" unique_id=1034786323 instance=ExtResource("2_6tfei")]
+transform = Transform3D(0.7540565, 0, -0.65680957, 0, 1, 0, 0.65680957, 0, 0.7540565, -89.95923, 20.827454, 18.366405)
 animal_name = "Pirrpirr"
 color_modulation = Color(0.73886144, 0.5225733, 0.5462043, 1)
 
-[node name="Muskrats" type="Node" parent="." unique_id=443763720]
+[node name="Muskrats" type="Node" parent="." unique_id=1769907138]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Muskrats" unique_id=655811879]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Muskrats" unique_id=2046215843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.570353, 5.024538, 52.72032)
-navigation_mesh = SubResource("NavigationMesh_5ipks")
+navigation_mesh = SubResource("NavigationMesh_tulo8")
 navigation_layers = 4
 
-[node name="AnimalPlane" type="MeshInstance3D" parent="Muskrats/NavigationRegion3D" unique_id=1674532235]
+[node name="AnimalPlane" type="MeshInstance3D" parent="Muskrats/NavigationRegion3D" unique_id=1014727703]
 transform = Transform3D(0.9972554, 0.07403888, 1.0409121e-09, -0.07320737, 0.9860557, 0.14944907, 0.01106504, -0.14903888, 0.9887696, 0, -0.2753191, -2.093296)
 visible = false
 mesh = SubResource("CylinderMesh_y3ud2")
@@ -117,22 +140,22 @@ skeleton = NodePath("../../../../Grass/Plane")
 
 [node name="Muskrat" parent="Muskrats" unique_id=2130271889 instance=ExtResource("3_aar0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9802475, 5.024538, 50.694626)
-animal_name = "Boingo"
+animal_name = "Sandy"
 color_modulation = Color(0.88868046, 0.8836787, 0.44736797, 1)
 
-[node name="Muskrat2" parent="Muskrats" unique_id=320686230 instance=ExtResource("3_aar0q")]
+[node name="Muskrat2" parent="Muskrats" unique_id=1001290539 instance=ExtResource("3_aar0q")]
 transform = Transform3D(0.5831868, 0, 0.81233805, 0, 1, 0, -0.81233805, 0, 0.5831868, 12.350846, 4.6718116, 49.112766)
 animal_name = "Boingo"
-color_modulation = Color(0.88868046, 0.8836787, 0.44736797, 1)
+color_modulation = Color(0.9172732, 0.7661732, 0.5449894, 1)
 
-[node name="Snake" type="Node" parent="." unique_id=658720096]
+[node name="Snake" type="Node" parent="." unique_id=19015475]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Snake" unique_id=1203869567]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Snake" unique_id=1115771314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.914345, 26.226099, -117.96356)
-navigation_mesh = SubResource("NavigationMesh_upn3q")
+navigation_mesh = SubResource("NavigationMesh_hevtu")
 navigation_layers = 8
 
-[node name="AnimalPlane" type="MeshInstance3D" parent="Snake/NavigationRegion3D" unique_id=1741015056]
+[node name="AnimalPlane" type="MeshInstance3D" parent="Snake/NavigationRegion3D" unique_id=585422261]
 transform = Transform3D(0.9999761, 0.0069114496, 0, -0.006910451, 0.9998316, 0.016998686, 0.00011748558, -0.016998282, 0.9998555, -1.9987564, -0.90654945, 0)
 visible = false
 mesh = SubResource("CylinderMesh_avfx5")
@@ -140,23 +163,63 @@ skeleton = NodePath("../../../../Grass/Plane")
 
 [node name="Snake" parent="Snake" unique_id=1444891096 instance=ExtResource("4_rbawx")]
 transform = Transform3D(0.985996, 0, -0.16676874, 0, 1, 0, 0.16676874, 0, 0.985996, -74.534386, 25.373674, -114.909134)
-animal_name = "Slither"
+animal_name = "Slinky"
+color_modulation = Color(0.611067, 0.31429595, 0.26982558, 1)
 
-[node name="Snake2" parent="Snake" unique_id=909698967 instance=ExtResource("4_rbawx")]
+[node name="Snake2" parent="Snake" unique_id=1881959539 instance=ExtResource("4_rbawx")]
 transform = Transform3D(0.73197234, 0, -0.6813343, 0, 1, 0, 0.6813343, 0, 0.73197234, -74.534386, 25.373674, -132.86151)
 animal_name = "Slither"
+color_modulation = Color(0.83033526, 0.83033514, 0.83033514, 1)
 
-[node name="Rats" type="Node" parent="." unique_id=2018123046]
+[node name="Snake3" parent="Snake" unique_id=1185571062 instance=ExtResource("4_rbawx")]
+transform = Transform3D(0.32538658, 0, 0.9455811, 0, 1, 0, -0.9455811, 0, 0.32538658, -93.07645, 25.373674, -115.391556)
+animal_name = "Cupcake"
+color_modulation = Color(0.8999778, 0.68655795, 0.7046296, 1)
 
-[node name="Rat" parent="Rats" unique_id=1314687257 instance=ExtResource("5_yk84q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91572624, 0, 2.192882)
+[node name="Rats" type="Node" parent="." unique_id=766930321]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Rats" unique_id=660546792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.295692, 13.989447, 68.256546)
+navigation_mesh = SubResource("NavigationMesh_ow7jd")
+navigation_layers = 16
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Rats/NavigationRegion3D" unique_id=649302033]
+transform = Transform3D(0.9633133, 0.2681659, 0.010714167, -0.26815754, 0.96012425, 0.079075076, 0.010918286, -0.07904711, 0.99681103, -2.1511242, -1.4337268, -12.459886)
+visible = false
+mesh = SubResource("CylinderMesh_upn3q")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Rat" parent="Rats" unique_id=1819745051 instance=ExtResource("5_yk84q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.324966, 12.564972, 63.160973)
 animal_name = "Stinker"
 color_modulation = Color(0.15871596, 0.10458795, 0.07805436, 1)
 
-[node name="Herrings" type="Node" parent="." unique_id=752123584]
+[node name="Rat2" parent="Rats" unique_id=1501203842 instance=ExtResource("5_yk84q")]
+transform = Transform3D(-0.9540366, 0, 0.29969022, 0, 1, 0, -0.29969022, 0, -0.9540366, -27.713852, 11.7486725, 59.15521)
+animal_name = "Remy"
+color_modulation = Color(0.20601648, 0.14498475, 0.13670343, 1)
 
-[node name="Herring" parent="Herrings" unique_id=1271002782 instance=ExtResource("6_2hrxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8520617, 0, 6.005378)
-animal_name = "fisk"
-color_modulation = Color(0.80213785, 0.00055850926, 0.81309056, 1)
+[node name="Herrings" type="Node" parent="." unique_id=1978426330]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Herrings" unique_id=1138459142]
+transform = Transform3D(0.99520385, 0.094850115, -0.023926333, -0.09487126, 0.9954895, 0.00025291927, 0.023842406, 0.0020182412, 0.9997136, 33.028934, 2.1023135, -34.07804)
+navigation_mesh = SubResource("NavigationMesh_aawq4")
+navigation_layers = 32
+
+[node name="AnimalPlane" type="MeshInstance3D" parent="Herrings/NavigationRegion3D" unique_id=970808875]
+transform = Transform3D(0.9999761, 0.0069114496, 0, -0.006910451, 0.9998316, 0.016998686, 0.00011748558, -0.016998282, 0.9998555, -1.9987564, -0.90654945, 0)
+visible = false
+mesh = SubResource("CylinderMesh_6tfei")
+skeleton = NodePath("../../../../Grass/Plane")
+
+[node name="Herring" parent="Herrings" unique_id=2019021260 instance=ExtResource("6_2hrxg")]
+transform = Transform3D(0.9978578, 0, 0.06542054, 0, 1, 0, -0.06542054, 0, 0.9978578, 29.204958, 2.0755816, -36.84848)
+animal_name = "Dory"
+color_modulation = Color(0.47431153, 0.6817258, 0.80119836, 1)
+speed = 2.0
+
+[node name="Herring2" parent="Herrings" unique_id=1669905167 instance=ExtResource("6_2hrxg")]
+transform = Transform3D(-0.64453745, 0, -0.7645728, 0, 1, 0, 0.7645728, 0, -0.64453745, 38.825592, 1.0853364, -36.20714)
+animal_name = "Nemo"
+color_modulation = Color(0.22698376, 0.5206288, 0.7569588, 1)
 speed = 2.0

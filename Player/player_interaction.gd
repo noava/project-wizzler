@@ -11,6 +11,7 @@ extends Node
 @onready var ray_cast: RayCast3D = $"../Head/Camera3D/RayCast3D"
 @onready var item_holder: Node3D = $"../Head/ItemHolder"
 @onready var pickup_label: Label = $"../HUD/PickupLabel"
+@onready var circular_progress: TextureProgressBar = %CircularProgress
 
 var holding_item = false
 var item_data = null
@@ -19,8 +20,12 @@ var throw_multiplier = 0.0
 func _process(_delta: float) -> void:
 	handle_interactions()
 	
-	if Input.is_action_pressed(KEY_DROP):
+	# Throw Item
+	circular_progress.value = throw_multiplier
+	if Input.is_action_pressed(KEY_DROP) and holding_item:
 		throw_multiplier += 0.05
+		circular_progress.visible = true
+		
 	if Input.is_action_just_released(KEY_DROP):
 		throw_carried_item()
 
@@ -148,6 +153,7 @@ func throw_carried_item():
 		carried_node.apply_central_impulse(throw_direction * throw_multiplier)
 	
 	throw_multiplier = 0.0
+	circular_progress.visible = false
 
 func remove_held_item():
 	holding_item = false

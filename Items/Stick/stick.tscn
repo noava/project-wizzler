@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://co8iwqathd7a1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bp52s"]
+height = 0.5
+radius = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg6cq"]
+albedo_color = Color(0.2563613, 0.14061576, 0.047055162, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ynwg2"]
+material = SubResource("StandardMaterial3D_rg6cq")
+top_radius = 0.06
+bottom_radius = 0.06
+height = 0.5
+
+[node name="Stick" type="RigidBody3D" unique_id=1571310956 groups=["pickupable"]]
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=211097312]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 0, 1, 1, 4.371139e-08, -4.3711385e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_bp52s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1001057604]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 0, 1, 1, 4.371139e-08, -4.3711385e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ynwg2")
