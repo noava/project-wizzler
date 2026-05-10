@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b4h4s2mvn6fqr"]
+
+[ext_resource type="PackedScene" uid="uid://ctmtrivnid248" path="res://Environment_Models/glTF/TwistedTree_1.gltf" id="1_n30ty"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3lvfo"]
+height = 5.4189453
+radius = 0.7729492
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_726b8"]
+height = 0.7573242
+radius = 1.0063477
+
+[node name="TwistedTree_12" unique_id=130949207 instance=ExtResource("1_n30ty")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TwistedTree_1" parent_id_path=PackedInt32Array(1293683970) index="0" unique_id=401848101]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TwistedTree_1/StaticBody3D" index="0" unique_id=1864661808]
+transform = Transform3D(0.82946676, 0.5585561, 0, -0.5585561, 0.82946676, 0, 0, 0, 1, 0.91670203, 2.291934, 0)
+shape = SubResource("CylinderShape3D_3lvfo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TwistedTree_1/StaticBody3D" index="1" unique_id=557417626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23560405, 0)
+shape = SubResource("CylinderShape3D_726b8")

@@ -1,7 +1,8 @@
 extends Control
 
-#var MAP_SCENE: PackedScene = preload("res://Environment/game_environment.scn") # Main Scene
-var MAP_SCENE: PackedScene = preload("res://Map/map.tscn") # Test Scene
+var MAP_SCENE: PackedScene = preload("res://Environment/game_environment.scn") # Main Scene
+#var MAP_SCENE: PackedScene = preload("res://Map/map.tscn") # Test Scene
+const GAME_ENVIRONMENT = preload("uid://qy7va4i3kmqt")
 
 func _ready() -> void:
 	show()

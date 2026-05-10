@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxsiajtevr5mh"]
+
+[ext_resource type="PackedScene" uid="uid://b3dahgslirea2" path="res://Environment_Models/glTF/DeadTree_5.gltf" id="1_ugjol"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eb0uv"]
+height = 8.415039
+radius = 0.72558594
+
+[node name="DeadTree_52" unique_id=1594249508 instance=ExtResource("1_ugjol")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeadTree_5" parent_id_path=PackedInt32Array(1736371691) index="0" unique_id=130148552]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadTree_5/StaticBody3D" index="0" unique_id=303769883]
+transform = Transform3D(1, 0, 0, 0, 0.99704605, 0.07680604, 0, -0.07680604, 0.99704605, 0, 4.0210304, -0.24818325)
+shape = SubResource("CylinderShape3D_eb0uv")

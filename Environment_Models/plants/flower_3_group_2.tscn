@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cwafcrfcea8tr"]
+
+[ext_resource type="PackedScene" uid="uid://cqmiis3ju2tp0" path="res://Environment_Models/glTF/Flower_3_Group.gltf" id="1_4dwuy"]
+
+[node name="Flower_3_Group2" unique_id=1997648828 instance=ExtResource("1_4dwuy")]
+
+[node name="Flower_3_Group" parent="." index="0" unique_id=623100753]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
