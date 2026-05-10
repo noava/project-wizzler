@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cyko7ihc5ydea"]
+
+[ext_resource type="PackedScene" uid="uid://cmcpix0sekf15" path="res://Environment_Models/Rope/rope_straight.glb" id="1_5xes3"]
+[ext_resource type="PackedScene" uid="uid://b73h248sev562" path="res://Environment_Models/Lightbulb/bulb.tscn" id="2_xhdsg"]
+[ext_resource type="PackedScene" uid="uid://bvmcotb7wngyu" path="res://Environment_Models/Torch/torch.glb" id="3_yerqs"]
+[ext_resource type="PackedScene" uid="uid://ddxbrmrw7s0ul" path="res://Environment_Models/Rope/rope_coil_small.glb" id="4_xhdsg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhdsg"]
+size = Vector3(0.47097778, 5.824768, 0.2670288)
+
+[node name="Torchfence" type="Node3D" unique_id=2068023961]
+
+[node name="rope_straight3" parent="." unique_id=1720090724 instance=ExtResource("1_5xes3")]
+transform = Transform3D(0.99983424, -0.018202774, 0, 0.018202776, 0.9998341, 0, 0, 0, 0.9999999, 0.005103344, 2.7635474, 0)
+
+[node name="bulb" parent="rope_straight3" unique_id=560700790 instance=ExtResource("2_xhdsg")]
+transform = Transform3D(0.9995064, -5.4822085e-05, -0.03141071, 0, 0.99999833, -0.0017453281, 0.031410757, 0.0017444668, 0.99950486, 0.03608033, -0.5626445, -0.011125058)
+
+[node name="bulb4" parent="rope_straight3" unique_id=1359587747 instance=ExtResource("2_xhdsg")]
+transform = Transform3D(0.9995064, -5.4822085e-05, -0.03141071, 0, 0.99999833, -0.0017453281, 0.031410757, 0.0017444668, 0.99950486, -1.0774087, -0.4494703, -0.045692302)
+
+[node name="bulb5" parent="rope_straight3" unique_id=1620131079 instance=ExtResource("2_xhdsg")]
+transform = Transform3D(0.9995064, -5.4822085e-05, -0.03141071, 0, 0.99999833, -0.0017453281, 0.031410757, 0.0017444668, 0.99950486, -2.0145748, -0.24150234, -0.04149547)
+
+[node name="bulb2" parent="rope_straight3" unique_id=765491456 instance=ExtResource("2_xhdsg")]
+transform = Transform3D(0.9995064, -5.4822085e-05, -0.03141071, 0, 0.99999833, -0.0017453281, 0.031410757, 0.0017444668, 0.99950486, 1.0967059, -0.5289793, -0.014268374)
+
+[node name="bulb3" parent="rope_straight3" unique_id=597775726 instance=ExtResource("2_xhdsg")]
+transform = Transform3D(0.9995064, -5.4822085e-05, -0.03141071, 0, 0.99999833, -0.0017453281, 0.031410757, 0.0017444668, 0.99950486, 2.094268, -0.40033913, 0.017025169)
+
+[node name="torch3" parent="." unique_id=1283040115 instance=ExtResource("3_yerqs")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.9124892, 0, 0)
+
+[node name="torch4" parent="." unique_id=746361824 instance=ExtResource("3_yerqs")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.9132931, 0, 0)
+
+[node name="rope_coil_small" parent="." unique_id=797502839 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9131835, 3.0621421, -0.014482975)
+
+[node name="rope_coil_small5" parent="." unique_id=669593602 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9131835, 2.9362917, -0.014482975)
+
+[node name="rope_coil_small3" parent="." unique_id=122434803 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(0.9983986, 0, -0.056570813, 0, 1, 0, 0.056570813, 0, 0.9983986, 2.9131835, 3.1571877, -0.014482975)
+
+[node name="rope_coil_small2" parent="." unique_id=319475309 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9174824, 3.1359935, -0.014482975)
+
+[node name="rope_coil_small6" parent="." unique_id=430573795 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9174824, 3.007162, -0.014482975)
+
+[node name="rope_coil_small4" parent="." unique_id=352631383 instance=ExtResource("4_xhdsg")]
+transform = Transform3D(0.38729033, 0, 0.9219578, 0, 1, 0, -0.9219578, 0, 0.38729033, -2.9174824, 3.2659273, -0.014482975)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=406568779]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1712229845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92446, 1.4004278, 0.01675415)
+shape = SubResource("BoxShape3D_xhdsg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1577916069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9200416, 1.4004278, 0.01675415)
+shape = SubResource("BoxShape3D_xhdsg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1912278477]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.018659651, 2.7864285, 0.01675415)
+shape = SubResource("BoxShape3D_xhdsg")
