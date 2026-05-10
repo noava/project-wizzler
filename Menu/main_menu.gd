@@ -23,6 +23,7 @@ func _on_start_btn_pressed() -> void:
 	get_viewport().set_input_as_handled() 
 	await FadeManager.fade(1.0, 1.5).finished
 	get_tree().change_scene_to_packed(INTRO_SCENE)
+	await FadeManager.fade(0.0, 1.5).finished
 	
 	# on video finsihed	 
 	#get_tree().change_scene_to_packed(MAP_SCENE) 
