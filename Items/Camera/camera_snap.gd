@@ -1,14 +1,14 @@
 extends Node3D
 
 @export_category("Animal Detection")
-@export var distance_from_camera: float = 5.0
+@export var distance_from_camera: float = 10.0
 
 @export_category("Aim Camera")
 @export var aim_speed: float = 10.0
 
 @export_category("Zoom")
 @export var min_fov: float = 10.0
-@export var max_fov: float = 90.0
+@export var max_fov: float = 80.0
 @export var zoom_step: float = 10.0
 
 @export_category("Audio")

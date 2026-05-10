@@ -228,7 +228,9 @@ size_flags_vertical = 4
 [node name="Game Title" type="Label" parent="CanvasLayer/Menu/Choices" unique_id=814891940]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Island Snap"
+theme_override_constants/line_spacing = -20
+text = "Isle of 
+Critters"
 horizontal_alignment = 1
 
 [node name="StartBtn" type="Button" parent="CanvasLayer/Menu/Choices" unique_id=1587948600]
@@ -237,6 +239,7 @@ size_flags_vertical = 4
 text = "Start Game"
 
 [node name="Settings" type="Button" parent="CanvasLayer/Menu/Choices" unique_id=1158017045]
+visible = false
 layout_mode = 2
 text = "Settings"
 
@@ -246,7 +249,7 @@ text = "How To Play"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Menu/Choices" unique_id=1663216191]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 60
 theme_override_styles/separator = SubResource("StyleBoxEmpty_845if")
 
 [node name="Quit" type="Button" parent="CanvasLayer/Menu/Choices" unique_id=1823598720]
@@ -283,7 +286,6 @@ layout_mode = 2
 text = "Toggle FPS"
 
 [node name="HowToPlay" type="Control" parent="CanvasLayer/Menu" unique_id=582431772]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -293,7 +295,7 @@ anchor_bottom = 0.5
 offset_left = -271.0
 offset_top = -107.5
 offset_right = 271.0
-offset_bottom = 107.5
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -321,18 +323,20 @@ theme_type_variation = &"HeaderSmall"
 text = "How To Play"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer" unique_id=1525150712]
-custom_minimum_size = Vector2(240, 136)
+custom_minimum_size = Vector2(250, 136)
 layout_mode = 2
-text = "Walk: 		WASD
-Run:		Shift
-Jump: 	Space
-E:			Interact / Pickup
-Q:			Drop / Throw
-C:			Zoom
-No. 1: 		Equip camera. If picked up
-L Click: 	Take picture
-R Click: 	Focus famera
-Scroll Wheel: Zoom camera"
+text = "WASD: 		Walk
+Shift:			Run
+Space: 		Jump
+Control: 		Crouch
+E:				Interact / Pickup
+Q:				Drop / Throw
+C:				Zoom
+No. 1: 			Equip camera
+L Click: 		Take picture
+R Click: 		Focus famera
+Scroll: 		Zoom camera
+Esc: 			Pause"
 fit_content = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer" unique_id=1151774579]
@@ -346,7 +350,7 @@ text = "What to do"
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer2" unique_id=676869950]
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
-text = "Pick up some animals and take photos!!"
+text = "Pick up some animals and take some photos!!"
 fit_content = true
 
 [connection signal="pressed" from="CanvasLayer/Menu/Back/Go back" to="CanvasLayer/Menu" method="_on_go_back_pressed"]
