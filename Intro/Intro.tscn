@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dxn3xpced06kd"]
+
+[ext_resource type="Script" uid="uid://qtwvoum148lc" path="res://Intro/intro.gd" id="1_x3b8t"]
+[ext_resource type="PackedScene" uid="uid://dqxxvohut2oin" path="res://Intro/fade.tscn" id="2_k2o5b"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_w2bln"]
+file = "res://Intro/intro_video.ogv"
+
+[node name="Intro" type="Node2D" unique_id=755512530]
+script = ExtResource("1_x3b8t")
+
+[node name="Fade" parent="." unique_id=684483220 instance=ExtResource("2_k2o5b")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=221943971]
+
+[node name="Control" type="Control" parent="." unique_id=832242497]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1632193520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_w2bln")
+autoplay = true
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

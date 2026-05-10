@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ciyb50fdv8eiu" path="res://Items/BulletinBoard/Paper/MadeBy.png" id="8_ywk15"]
 [ext_resource type="Texture2D" uid="uid://bgs0enmj1dqlj" path="res://UI/Theme/Back.svg" id="9_is5sc"]
 [ext_resource type="Texture2D" uid="uid://cv3s01hfd21mk" path="res://Environment_Models/Textures/sky_47_2k.png" id="10_lb8o0"]
+[ext_resource type="PackedScene" uid="uid://dqxxvohut2oin" path="res://Intro/fade.tscn" id="11_ws7s4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_snioh"]
 panorama = ExtResource("10_lb8o0")
@@ -170,7 +171,10 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.0
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2126772689]
 transform = Transform3D(-2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, -2.9802322e-08, 1.2090027, 1.310388, 0)
 
+[node name="Fade" parent="." unique_id=684483220 instance=ExtResource("11_ws7s4")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=186783680]
+layer = 0
 
 [node name="Menu" type="Control" parent="CanvasLayer" unique_id=2131625819]
 layout_mode = 3
