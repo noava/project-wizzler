@@ -74,9 +74,10 @@ scale_max = 0.39999998
 scale_curve = SubResource("CurveTexture_3acds")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvuf7"]
+transparency = 1
 shading_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.5019608, 0.54901963, 0.2509804, 1)
+albedo_color = Color(0.5019608, 0.54901963, 0.2509804, 0.54901963)
 
 [sub_resource type="SphereMesh" id="SphereMesh_1mfav"]
 material = SubResource("StandardMaterial3D_fvuf7")
