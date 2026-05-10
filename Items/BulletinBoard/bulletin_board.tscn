@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qcs8ouuadg57" path="res://Items/BulletinBoard/Button/Button.glb" id="5_acjgf"]
 [ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="6_1o714"]
 [ext_resource type="Texture2D" uid="uid://d2ng3tnxwefuh" path="res://Items/BulletinBoard/Paper/leave_no_trace.png" id="7_pdt33"]
+[ext_resource type="Texture2D" uid="uid://ciyb50fdv8eiu" path="res://Items/BulletinBoard/Paper/MadeBy.png" id="9_q4din"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qnxn1"]
 viewport_path = NodePath("Plane/SubViewport")
@@ -114,11 +115,21 @@ outline_size = 0
 [node name="Posters" type="Node3D" parent="." unique_id=1097305920]
 
 [node name="paper" parent="Posters" unique_id=94505661 instance=ExtResource("6_1o714")]
-transform = Transform3D(0.07327925, 0.03538789, -0.9966834, -0.0025948235, 0.9993736, 0.035292633, 0.9973082, -2.9239278e-11, 0.07332519, 0.2638227, 1.1992257, 0.9423456)
+transform = Transform3D(0.043176778, -0.035147864, 0.9984489, -0.0025948235, 0.9993736, 0.035292633, -0.99906415, -0.00411462, 0.043058507, 0.26421183, 1.1992257, -0.9387633)
 image_texture = ExtResource("7_pdt33")
 
 [node name="nail" parent="Posters" unique_id=1633250614 instance=ExtResource("4_s3ttp")]
-transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, 0.2638227, 1.3728387, 0.93565226)
+transform = Transform3D(-1.8853226e-09, 0.04313115, 0.9990694, -1, -4.371139e-08, 0, 4.367071e-08, -0.9990694, 0.04313115, 0.26343358, 1.3728387, -0.9025912)
+
+[node name="paper2" parent="Posters" unique_id=237044475 instance=ExtResource("6_1o714")]
+transform = Transform3D(-0.9999744, -0.0028282113, 0.006564766, -0.0069168643, 0.15114838, -0.9884866, 0.0018033972, -0.988507, -0.15116405, -0.10691196, 1.281057, 0.88071245)
+image_texture = ExtResource("9_q4din")
+
+[node name="nail2" parent="Posters" unique_id=1027350610 instance=ExtResource("4_s3ttp")]
+transform = Transform3D(4.371043e-08, -0.99997807, 0.0066147447, -1, -4.371139e-08, 0, 2.8914382e-10, -0.0066147447, -0.99997807, -0.07073558, 1.4134756, 0.81312317)
+
+[node name="nail3" parent="Posters" unique_id=1756539320 instance=ExtResource("4_s3ttp")]
+transform = Transform3D(4.371043e-08, -0.99997807, 0.0066147447, -1, -4.371139e-08, 0, 2.8914382e-10, -0.0066147447, -0.99997807, -0.07073558, 1.152903, 0.94059545)
 
 [connection signal="on_btn_clicked" from="Buttons/PrevBtn" to="." method="_on_prev_btn_on_btn_clicked"]
 [connection signal="on_btn_clicked" from="Buttons/NextBtn" to="." method="_on_next_btn_on_btn_clicked"]

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bjglgly12ju48"]
 
-[ext_resource type="Texture2D" path="res://Environment_Models/Shelf/shelf_brown_Wood_Diffuse(Oak).jpg" id="1_xtmnk"]
-[ext_resource type="Texture2D" path="res://Environment_Models/Shelf/shelf_brown_Wood_Roughness(Light Oak).png" id="2_avdqo"]
-[ext_resource type="Texture2D" path="res://Environment_Models/Shelf/shelf_brown_Wood_Normal(LIght Oak).jpg" id="3_1mcwm"]
+[ext_resource type="Texture2D" uid="uid://wegtgl5iyypi" path="res://Environment_Models/Shelf/shelf_brown_Wood_Diffuse(Oak).jpg" id="1_xtmnk"]
+[ext_resource type="Texture2D" uid="uid://bgt7et668cltv" path="res://Environment_Models/Shelf/shelf_brown_Wood_Roughness(Light Oak).png" id="2_avdqo"]
+[ext_resource type="Texture2D" uid="uid://dt48sd5act72x" path="res://Environment_Models/Shelf/shelf_brown_Wood_Normal(LIght Oak).jpg" id="3_1mcwm"]
 [ext_resource type="PackedScene" uid="uid://u3dx0nb567wh" path="res://Items/Jar/Jar.tscn" id="4_pfmfr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbfno"]
@@ -53,21 +53,21 @@ shadow_mesh = SubResource("ArrayMesh_81vfu")
 [node name="shelf_brown" type="Node3D" unique_id=1941760128]
 
 [node name="Cube_038" type="MeshInstance3D" parent="." unique_id=1649586437]
-transform = Transform3D(0, 5.83786e-10, 0.28244185, -0.098600455, 5.83786e-10, -1.003435e-15, -5.877045e-09, -0.009794304, 1.6834845e-08, 0, 1.1710589, 0)
+transform = Transform3D(4.6809386e-16, 1.6609538e-09, 0.62, -0.218, 1.6609538e-09, -2.2026825e-15, -1.6458541e-08, -0.022, 4.68087e-08, -1.4048904e-15, 1.8253425, 4.9397045e-08)
 mesh = SubResource("ArrayMesh_t8myh")
 skeleton = NodePath("")
 
 [node name="Jar" parent="." unique_id=1977943059 instance=ExtResource("4_pfmfr")]
-transform = Transform3D(0.0073999017, 0, 0.49994522, 0, 0.50000006, 0, -0.49994522, 0, 0.0073999017, 0.094833374, 1.6362593, -0.012378693)
+transform = Transform3D(0.25058275, 0, 0.9680952, 0, 1, 0, -0.9680952, 0, 0.25058275, 0.10349755, 1.7793586, -0.5977382)
 
 [node name="Jar2" parent="." unique_id=686522436 instance=ExtResource("4_pfmfr")]
-transform = Transform3D(-0.0680998, 0, 0.4953406, 0, 0.49999994, 0, -0.4953406, 0, -0.0680998, 0.15171814, 1.6362593, 0.36924362)
+transform = Transform3D(-0.21132466, 0, 0.9774159, 0, 1, 0, -0.9774159, 0, -0.21132466, 0.17081685, 1.776001, 0.50816286)
 
 [node name="Jar3" parent="." unique_id=1199239509 instance=ExtResource("4_pfmfr")]
-transform = Transform3D(0.07474679, 0, 0.39295417, 0, 0.39999998, 0, -0.39295417, 0, 0.07474679, 0.10696411, 1.1341362, -0.4651413)
+transform = Transform3D(0.18686691, 0, 0.9823852, 0, 1, 0, -0.9823852, 0, 0.18686691, 0.2613755, 0.6832353, -0.9458115)
 
 [node name="Jar5" parent="." unique_id=915155732 instance=ExtResource("4_pfmfr")]
-transform = Transform3D(-0.18525037, 0, 0.35451704, 0, 0.39999995, 0, -0.35451704, 0, -0.18525037, 0.14141846, 1.1395416, 0.4203949)
+transform = Transform3D(-0.4631259, 0, 0.8862925, 0, 1, 0, -0.8862925, 0, -0.4631259, 0.2611413, 0.6886407, 0.7844196)
 
 [node name="Jar4" parent="." unique_id=1758244750 instance=ExtResource("4_pfmfr")]
-transform = Transform3D(-0.012848824, 0, 0.27469963, 0, 0.275, 0, -0.27469963, 0, -0.012848824, 0.029571533, 1.142251, -0.1901741)
+transform = Transform3D(-0.046722963, 0, 0.99890786, 0, 1, 0, -0.99890786, 0, -0.046722963, 0.34312677, 0.6913501, -0.017084569)

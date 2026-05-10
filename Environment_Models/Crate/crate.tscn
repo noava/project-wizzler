@@ -5,9 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5m33"]
 size = Vector3(1.1228027, 1.2333984, 1.168457)
 
-[node name="Crate" type="RigidBody3D" unique_id=1896920961]
-can_sleep = false
-continuous_cd = true
+[node name="Crate" type="StaticBody3D" unique_id=978317012]
 
 [node name="mesh" parent="." unique_id=1732693936 instance=ExtResource("1_uep05")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

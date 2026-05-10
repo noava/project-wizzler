@@ -6,12 +6,17 @@
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_w2bln"]
 file = "res://Intro/intro_video.ogv"
 
-[node name="Intro" type="Node2D" unique_id=755512530]
+[node name="Intro" type="Node" unique_id=76337141]
 script = ExtResource("1_x3b8t")
 
 [node name="Fade" parent="." unique_id=684483220 instance=ExtResource("2_k2o5b")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=221943971]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
 
 [node name="Control" type="Control" parent="." unique_id=832242497]
 layout_mode = 3
@@ -30,5 +35,20 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = SubResource("VideoStreamTheora_w2bln")
 autoplay = true
+
+[node name="Label" type="Label" parent="Control" unique_id=590500482]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -39.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Press [Space] to skip"
 
 [connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
