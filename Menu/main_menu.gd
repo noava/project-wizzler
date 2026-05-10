@@ -3,6 +3,10 @@ extends Control
 var MAP_SCENE: PackedScene = preload("res://Environment/game_environment.scn") # Main Scene
 #var MAP_SCENE: PackedScene = preload("res://Map/map.tscn") # Test Scene
 const GAME_ENVIRONMENT = preload("uid://qy7va4i3kmqt")
+var INTRO_SCENE: PackedScene = preload("res://Intro/Intro.tscn") # Intro Scene
+
+#@onready var fade: CanvasLayer = $"../../Fade"
+var transitioning := false
 
 func _ready() -> void:
 	show()
@@ -11,9 +15,17 @@ func _ready() -> void:
 	$Settings.hide()
 	$HowToPlay.hide()
 
-
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_packed(MAP_SCENE)
+	if transitioning:
+		return
+	transitioning = true
+	set_process_unhandled_input(false)
+	get_viewport().set_input_as_handled() 
+	await FadeManager.fade(1.0, 1.5).finished
+	get_tree().change_scene_to_packed(INTRO_SCENE)
+	
+	# on video finsihed	 
+	#get_tree().change_scene_to_packed(MAP_SCENE) 
 	
 	hide()
 	$Choices.hide()
