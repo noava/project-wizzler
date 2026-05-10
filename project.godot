@@ -19,10 +19,7 @@ run/main_scene="uid://bc6sf6th1yvi8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://c1hqcmtdnq7cw"
 config/icon="uid://dd0sd5ekqgcnt"
-
-[audio]
-
-buses/default_bus_layout="uid://cljjbg68xb006"
+config/image="uid://c1hqcmtdnq7cw"
 
 [audio]
 

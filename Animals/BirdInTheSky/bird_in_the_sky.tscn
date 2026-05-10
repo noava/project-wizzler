@@ -7,9 +7,9 @@
 script = ExtResource("1_6enan")
 
 [node name="birds" parent="." unique_id=1383455242 instance=ExtResource("2_qeucg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.32717, 16.483753, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.129108, 22.638, 0)
 
-[node name="Skeleton3D" parent="birds/Birds/Armature_Birds" parent_id_path=PackedInt32Array(1383455242, 1434564111) index="0" unique_id=959538714]
+[node name="Skeleton3D" parent="birds/Birds/Armature_Birds" parent_id_path=PackedInt32Array(1383455242, 201529621) index="0" unique_id=584227101]
 bones/0/position = Vector3(-9.211241e-15, -0.111225374, -1.7651447e-10)
 bones/1/rotation = Quaternion(-0.07756451, 0.6878331, -0.70005643, -0.17547211)
 bones/2/rotation = Quaternion(0.15493676, -0.033383187, -0.27124143, 0.94937265)

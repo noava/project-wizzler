@@ -8,20 +8,32 @@
 
 [node name="BulletinBoard" parent="." unique_id=2022437313 instance=ExtResource("1_dmawj")]
 
-[node name="Posters" type="Node3D" parent="BulletinBoard" unique_id=1142828218]
+[node name="Map" type="Node3D" parent="." unique_id=1142828218]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.0254727, 1.1911286, 0)
 
-[node name="paper" parent="BulletinBoard/Posters" unique_id=94505661 instance=ExtResource("2_3avhv")]
+[node name="paper" parent="Map" unique_id=94505661 instance=ExtResource("2_3avhv")]
 transform = Transform3D(-4.371139e-08, 0, -5.031938, 0, 2.40225, 0, 1, 0, -2.19953e-07, -0.013327122, 0.13116074, 5.349517e-05)
 
-[node name="nail" parent="BulletinBoard/Posters" unique_id=1642325416 instance=ExtResource("4_sgwlv")]
+[node name="nail" parent="Map" unique_id=1642325416 instance=ExtResource("4_sgwlv")]
 transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, -0.72039247, 0.5587406, -3.1664968e-08)
 
-[node name="nail2" parent="BulletinBoard/Posters" unique_id=1456169890 instance=ExtResource("4_sgwlv")]
+[node name="nail2" parent="Map" unique_id=1456169890 instance=ExtResource("4_sgwlv")]
 transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6865417, 0.5587406, 2.9802322e-08)
 
-[node name="nail3" parent="BulletinBoard/Posters" unique_id=1455191915 instance=ExtResource("4_sgwlv")]
+[node name="nail3" parent="Map" unique_id=1455191915 instance=ExtResource("4_sgwlv")]
 transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, -0.72039247, -0.30259466, -3.1664968e-08)
 
-[node name="nail4" parent="BulletinBoard/Posters" unique_id=158660865 instance=ExtResource("4_sgwlv")]
+[node name="nail4" parent="Map" unique_id=158660865 instance=ExtResource("4_sgwlv")]
 transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6865417, -0.30259466, 2.9802322e-08)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2066467345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06463623, 1.2636719, 0)
+visible = false
+use_collision = true
+size = Vector3(0.14904785, 2.5292969, 1.9990234)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=301949247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13929749, 2.3229678, 0)
+visible = false
+use_collision = true
+size = Vector3(1.0328674, 0.45361328, 2.600586)

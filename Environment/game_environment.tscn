@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bfd5j05sh760m" path="res://Environment_Models/Tree_normal/common_tree_3.tscn" id="56_02sbi"]
 [ext_resource type="PackedScene" uid="uid://dlgvjddaatpou" path="res://Environment_Models/Tree_normal/pine_2.tscn" id="57_3owkh"]
 [ext_resource type="PackedScene" uid="uid://b6jpodm2v08ou" path="res://Environment_Models/Tree_palm/palmtree.tscn" id="58_au8w0"]
+[ext_resource type="PackedScene" uid="uid://cv0w2pvjf3s8c" path="res://Animals/BirdInTheSky/bird_in_the_sky.tscn" id="58_dr7rj"]
 [ext_resource type="PackedScene" uid="uid://sdx30kyvtsup" path="res://Environment_Models/Tree_normal/tree_2.tscn" id="59_tv5r4"]
 [ext_resource type="PackedScene" uid="uid://lqdr5vgvbwim" path="res://Environment_Models/Tree_normal/pine_1.tscn" id="60_lp2f3"]
 [ext_resource type="PackedScene" uid="uid://dwbhx7ysvusfe" path="res://Environment_Models/Tree_normal/common_tree_4.tscn" id="61_yl3ct"]
@@ -131,10 +132,9 @@ volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.6677858, 0.88385576, 0.9405628, 1)
 volumetric_fog_emission = Color(0.8455746, 0.6792467, 0.7335431, 1)
 volumetric_fog_emission_energy = 0.2
-volumetric_fog_length = 100.0
 volumetric_fog_sky_affect = 0.3
 adjustment_enabled = true
-adjustment_brightness = 1.2
+adjustment_brightness = 1.1
 adjustment_saturation = 1.15
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y3ud2"]
@@ -163,6 +163,21 @@ shader_parameter/_DepthFactor = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_xxbnl"]
 subdivide_width = 200
 subdivide_depth = 200
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cbny"]
+albedo_color = Color(0.17254902, 0.5921569, 0.1764706, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dr7rj"]
+material = SubResource("StandardMaterial3D_5cbny")
+top_radius = 50.0
+bottom_radius = 50.0
+height = 0.001
+rings = 3
+cap_bottom = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oldyv"]
+height = 0.12
+radius = 50.0
 
 [node name="GameEnvironment" type="Node3D" unique_id=814689413]
 script = ExtResource("1_xtowx")
@@ -199,6 +214,18 @@ transform = Transform3D(1950, 0, 0, 0, -8.523717e-05, 1950, 0, -1950, -8.523717e
 material_override = SubResource("ShaderMaterial_5ipks")
 mesh = SubResource("QuadMesh_xxbnl")
 skeleton = NodePath("")
+
+[node name="Shallow" type="MeshInstance3D" parent="." unique_id=257255069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.852083, -0.5872078, 0)
+visible = false
+mesh = SubResource("CylinderMesh_dr7rj")
+skeleton = NodePath("../Ocean")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Shallow" unique_id=54563877]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shallow/StaticBody3D" unique_id=1244146522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_oldyv")
 
 [node name="Player" parent="." unique_id=1937279400 instance=ExtResource("4_suqj4")]
 transform = Transform3D(-0.9843497, 0, -0.17622592, 0, 1, 0, 0.17622592, 0, -0.9843497, 39.448242, 3.0817022, 21.991325)
@@ -922,3 +949,5 @@ transform = Transform3D(-0.7095707, 0, 0.70463413, 0, 1, 0, -0.70463413, 0, -0.7
 
 [node name="shelf_with_jars_2" parent="." unique_id=1681632573 instance=ExtResource("82_y0fwp")]
 transform = Transform3D(-0.9931705, 0, -0.116670735, 0, 1, 0, 0.116670735, 0, -0.9931705, -114.462, 31.939308, 16.136)
+
+[node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("58_dr7rj")]
