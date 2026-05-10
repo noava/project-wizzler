@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dqxxvohut2oin" path="res://Intro/fade.tscn" id="2_k2o5b"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_w2bln"]
-file = "res://Intro/boat.ogv"
+file = "res://Intro/intro_video.ogv"
 
 [node name="Intro" type="Node2D" unique_id=755512530]
 script = ExtResource("1_x3b8t")
