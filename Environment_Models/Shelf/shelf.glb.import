@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bx2n55ivivy86"
-path="res://.godot/imported/Rock2.glb-b5f2a330716b263c2680dfb3fe85cf89.scn"
+uid="uid://ddrvnedqicpra"
+path="res://.godot/imported/shelf.glb-a1739077f85b1fc6159539c5c9fc9954.scn"
 
 [deps]
 
-source_file="res://Environment_Models/GLB rocks/Rock2.glb"
-dest_files=["res://.godot/imported/Rock2.glb-b5f2a330716b263c2680dfb3fe85cf89.scn"]
+source_file="res://Environment_Models/Shelf/shelf.glb"
+dest_files=["res://.godot/imported/shelf.glb-a1739077f85b1fc6159539c5c9fc9954.scn"]
 
 [params]
 
@@ -37,12 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:SM_Rocks_04": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
