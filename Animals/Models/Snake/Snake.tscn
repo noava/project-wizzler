@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d315c5x0wul26" path="res://Animals/Models/Snake/snake.gd" id="1_uqlre"]
 [ext_resource type="PackedScene" uid="uid://qbajk5qt20r7" path="res://Animals/Models/Snake/Taipan_Animations.glb" id="2_uqlre"]
+[ext_resource type="AudioStream" uid="uid://c81n2dnu4lgh7" path="res://Sounds/Snake/tanweraman-snake-rattle-sound-hq-240150.mp3" id="3_okyh3"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2oko"]
 animation = &"Run"
@@ -114,5 +115,9 @@ lifetime = 0.7
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_6lgnu")
 draw_pass_1 = SubResource("SphereMesh_mluk1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1191664919]
+stream = ExtResource("3_okyh3")
+volume_db = -2.0
 
 [editable path="Taipan_Animations"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcvpr2upjmk7k" path="res://Animals/Models/Herring/herring.gd" id="1_dca01"]
 [ext_resource type="PackedScene" uid="uid://qmxveraq7ihl" path="res://Animals/Models/Herring/Herring_Animations.glb" id="2_dca01"]
+[ext_resource type="AudioStream" uid="uid://dd3ntxb7h2av7" path="res://Sounds/Herring/freesound_community-water-splash-46402.mp3" id="3_5jyab"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2oko"]
 animation = &"Splash"
@@ -113,5 +114,10 @@ lifetime = 0.7
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_ekr02")
 draw_pass_1 = SubResource("SphereMesh_oalm5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=22418131]
+stream = ExtResource("3_5jyab")
+volume_db = -10.0
+autoplay = true
 
 [editable path="HerringModel"]
