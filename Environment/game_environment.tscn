@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="7_bd8fr"]
 [ext_resource type="PackedScene" uid="uid://v6e35u65li8o" path="res://Items/Camera/camera_snap.tscn" id="8_b4fcj"]
 [ext_resource type="PackedScene" uid="uid://dvaltghr0eek5" path="res://Environment/terrain_3d.res" id="9_4fxgp"]
+[ext_resource type="PackedScene" uid="uid://dj2ejog8mi78g" path="res://Items/Ball/ball.tscn" id="9_oldyv"]
 [ext_resource type="PackedScene" uid="uid://bmqp7vrp6rdc7" path="res://Environment_Models/Crate/crate.tscn" id="10_dr7rj"]
 [ext_resource type="PackedScene" uid="uid://cj831q8pw0rru" path="res://Environment_Models/glTF/Pebble_Round_1.gltf" id="18_8o7vw"]
 [ext_resource type="PackedScene" uid="uid://b5wcln0pnrovr" path="res://Environment_Models/glTF/Pebble_Round_2.gltf" id="21_u80e0"]
@@ -244,6 +245,9 @@ transform = Transform3D(-0.9310049, 0, -0.3650067, 0, 1, 0, 0.3650067, 0, -0.931
 transform = Transform3D(0.95327145, 0.06368742, 0.295326, -0.048727017, 0.99714124, -0.057750642, -0.29815972, 0.04066166, 0.9536496, 42.72054, 3.547536, 38.11437)
 model_scene = ExtResource("7_bd8fr")
 item_scene = ExtResource("8_b4fcj")
+
+[node name="Ball" parent="Pickup" unique_id=1571310956 instance=ExtResource("9_oldyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.56094, 34.574654, 70.93247)
 
 [node name="Terrain3D" parent="." unique_id=1996521135 instance=ExtResource("9_4fxgp")]
 
@@ -863,6 +867,7 @@ transform = Transform3D(0.23543291, -0.18593372, 0, 0.18593372, 0.23543291, 0, 0
 
 [node name="MapBoard" parent="." unique_id=280315506 instance=ExtResource("73_d317v")]
 transform = Transform3D(0.99801254, 0, 0.06301697, 0, 1, 0, -0.06301697, 0, 0.99801254, 27.741497, 2.3976078, 40.86972)
+visible = false
 
 [node name="rope" parent="." unique_id=150494866 instance=ExtResource("74_xssdm")]
 transform = Transform3D(-0.9991607, -0.040916603, 0.0019849623, -0.040916413, 0.9991626, 0.00013754885, -0.001988928, 5.6215864e-05, -0.9999981, 44.505726, 2.8563163, 41.91488)

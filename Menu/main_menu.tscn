@@ -137,6 +137,7 @@ multimesh = SubResource("MultiMesh_w5eka")
 
 [node name="Paper1" type="Node3D" parent="BulletinBoard/Posters" unique_id=1894490395]
 transform = Transform3D(0.9748702, 0.22277373, 0, -0.22277373, 0.9748702, 0, 0, 0, 1, 0.36472654, 1.3424021, 0.8788141)
+visible = false
 
 [node name="paper" parent="BulletinBoard/Posters/Paper1" unique_id=94505661 instance=ExtResource("5_o4wy8")]
 transform = Transform3D(0.9787889, -0.19700131, -0.05624737, 0.19860561, 0.97977406, 0.024465594, 0.050289966, -0.035117663, 0.9981169, -0.0067326725, -0.0011980534, 0)
