@@ -16,7 +16,6 @@ var skipping := false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		print("PRESS")
 		_skip_video()
 
 func _skip_video() -> void:
