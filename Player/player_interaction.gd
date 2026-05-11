@@ -12,6 +12,7 @@ extends Node
 @onready var item_holder: Node3D = $"../Head/ItemHolder"
 @onready var pickup_label: Label = $"../HUD/PickupLabel"
 @onready var circular_progress: TextureProgressBar = %CircularProgress
+@onready var camera_snap: Node3D = $"../Head/CameraSnap"
 
 var holding_item = false
 var item_data = null
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 	
 	# Throw Item
 	circular_progress.value = throw_multiplier
-	if Input.is_action_pressed(KEY_DROP) and holding_item:
+	if Input.is_action_pressed(KEY_DROP) and holding_item and not camera_snap.camera_equipped:
 		throw_multiplier += 0.05
 		circular_progress.visible = true
 		
