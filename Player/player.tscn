@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cd4a57agejmry" path="res://UI/Assets/Interact/CircularProgress.png" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://bmvmmtixnl86v" path="res://Player/player_interaction.gd" id="7_vtle1"]
 [ext_resource type="Script" uid="uid://cp3v43hq0rgc7" path="res://Player/UIScripts/inv_help.gd" id="8_od3ui"]
+[ext_resource type="Script" uid="uid://c84paeigqm55u" path="res://Player/UIScripts/objectives.gd" id="9_00tjw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 radius = 0.59277344
@@ -190,5 +191,31 @@ text = "[u]                      Hand[/u]
 [Q] Drop Item
 Hold [Q] Throw Item"
 horizontal_alignment = 2
+
+[node name="Objectives" type="Control" parent="HUD" unique_id=2117920787]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_00tjw")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Objectives" unique_id=1406283941]
+layout_mode = 1
+offset_right = 190.0
+offset_bottom = 140.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Objectives/MarginContainer" unique_id=924863863]
+modulate = Color(0.9882353, 0.9098039, 0.84313726, 1)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[u]Objectives                   [/u]
+
+Animals found: x
+Different animals: x"
 
 [node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=933968511]

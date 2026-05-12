@@ -106,6 +106,7 @@ func get_animals_in_frame() -> Array:
 			# TODO: Change to animal.data to get more info from the animal. Use a resource
 			
 			animals_in_frame.append(animal)
+			Global.animals_found.append(animal)
 	
 	return animals_in_frame
 

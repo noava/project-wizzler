@@ -9,6 +9,7 @@ class_name Animal extends CharacterBody3D
 
 @export_category("Animal Info")
 @export var animal_name: String = ""
+@export var animal_type: String = ""
 @export var color_modulation: Color = Color(1,1,1)
 
 @export_category("Movement")
