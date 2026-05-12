@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhtqkmfxy4plu"]
+
+[ext_resource type="PackedScene" uid="uid://c6vqwff1svlkf" path="res://Environment_Models/Tree_more/tree_bent.glb" id="1_ih11b"]
+
+[node name="tree_bent" unique_id=1403562462 instance=ExtResource("1_ih11b")]
+
+[node name="Leaf_024" parent="." index="0" unique_id=460631074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09811401, -0.003018923, -0.0023131967)
+
+[node name="Leaf_001" parent="." index="1" unique_id=1045199299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09811401, -0.003018923, -0.0023131967)
