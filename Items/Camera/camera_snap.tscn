@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://coi2ed2mj0k5s" path="res://Environment_Models/Camera/camera.glb" id="2_e6pwn"]
 [ext_resource type="Shader" uid="uid://dqrrdx7rr338m" path="res://UI/Effects/blur.gdshader" id="2_o78u6"]
 [ext_resource type="PackedScene" uid="uid://cq1hhps1y3mn6" path="res://Items/BulletinBoard/board_image.tscn" id="4_0flkf"]
+[ext_resource type="Texture2D" uid="uid://dxbar8ngjug0u" path="res://UI/Assets/CamUI/ZoomSlider.svg" id="5_whm5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0flkf"]
 shader = ExtResource("2_o78u6")
@@ -58,14 +59,30 @@ grow_vertical = 2
 size = Vector2i(640, 640)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=502685459]
+fov = 40.0
 
 [node name="camera" parent="." unique_id=1174431318 instance=ExtResource("2_e6pwn")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.007, -0.072, 0.18141398)
 
 [node name="Screen" type="MeshInstance3D" parent="." unique_id=455368817]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.19213268, 0.055693094, 0.50132525)
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.20529772, 0.055693094, 0.50132525)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_0flkf")
+
+[node name="ZoomSlider" type="Sprite3D" parent="." unique_id=1013593509]
+transform = Transform3D(0.416, 0, 0, 0, 0.416, 0, 0, 0, 0.416, -0.148, 0.075, 0.5)
+offset = Vector2(0, -240)
+pixel_size = 0.0002
+texture = ExtResource("5_whm5x")
+
+[node name="ZoomLabel" type="Label3D" parent="." unique_id=762599454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148, 0.061, 0.5)
+pixel_size = 0.0002
+offset = Vector2(0, -3)
+modulate = Color(0.6117647, 0.6117647, 0.6117647, 1)
+text = "◂2.0 x"
+outline_size = 0
+horizontal_alignment = 0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1843184834]
 max_db = -0.684
