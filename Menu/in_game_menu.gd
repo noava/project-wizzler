@@ -4,6 +4,7 @@ var is_menu: bool = false
 
 @onready var player: CharacterBody3D = $"../.."
 @onready var fps_label: Label = $"../FPSLabel"
+@onready var inv_keybinds: Control = player.get_node("HUD/InvKeybinds")
 
 func _ready() -> void:
 	fps_label.visible = false
@@ -21,7 +22,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if fps_label.visible:
-		fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+		fps_label.text = "FPS: " + str(int(Engine.get_frames_per_second()))
 
 func open_menu():
 	show()
@@ -55,14 +56,15 @@ func _on_leave_pressed() -> void:
 
 
 # Option menu
-func _on_fullscreen_pressed() -> void:
-	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	else:
+func _on_fullscreen_pressed(toggled_on: bool) -> void:
+	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
-func _on_fps_button_pressed() -> void:
-	fps_label.visible = !fps_label.visible
+
+func _on_fps_button_pressed(toggled_on: bool) -> void:
+	fps_label.visible = toggled_on
 
 func _on_go_back_pressed() -> void:
 	$Choices.show()
@@ -76,3 +78,7 @@ func _on_no_button_pressed() -> void:
 
 func _on_yes_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
+
+
+func _on_inv_keybinds_pressed(toggled_on: bool) -> void:
+	inv_keybinds.visible = toggled_on

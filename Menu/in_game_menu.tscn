@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvhkt5onf4dpi" path="res://Menu/in_game_menu.gd" id="1_2w11b"]
 [ext_resource type="Texture2D" uid="uid://c1vnrnc7c8lwx" path="res://UI/Assets/Panel/Panel.png" id="2_xe67i"]
 [ext_resource type="Script" uid="uid://imxoxlnmdv27" path="res://UI/Effects/volume_slider.gd" id="3_igoho"]
+[ext_resource type="Script" uid="uid://8dvgc45rwqbs" path="res://UI/Theme/checkbox.gd" id="3_tik3w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igoho"]
 
@@ -118,6 +119,7 @@ layout_mode = 2
 theme_override_constants/separation = 28
 
 [node name="Settings" type="VBoxContainer" parent="Settings/MarginContainer/HBoxContainer" unique_id=241212194]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -126,15 +128,47 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Settings"
 
-[node name="Fullscreen" type="Button" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=2060906513]
+[node name="CheckBoxContainer" type="HBoxContainer" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1893489196]
 layout_mode = 2
-text = "Toggle Fullscreen"
+script = ExtResource("3_tik3w")
+
+[node name="Fullscreen" type="Button" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer" unique_id=2060906513]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
 alignment = 0
 
-[node name="FPSButton" type="Button" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1038678729]
+[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer" unique_id=87376619]
 layout_mode = 2
-text = "Toggle FPS"
+button_pressed = true
+
+[node name="CheckBoxContainer2" type="HBoxContainer" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1056381682]
+layout_mode = 2
+script = ExtResource("3_tik3w")
+
+[node name="FPSButton" type="Button" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2" unique_id=1038678729]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FPS"
 alignment = 0
+
+[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2" unique_id=1868854370]
+layout_mode = 2
+button_pressed = true
+
+[node name="CheckBoxContainer3" type="HBoxContainer" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1895603109]
+layout_mode = 2
+script = ExtResource("3_tik3w")
+
+[node name="InvKeybinds" type="Button" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer3" unique_id=331259083]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Keybinds"
+alignment = 0
+
+[node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer3" unique_id=987486482]
+layout_mode = 2
+button_pressed = true
 
 [node name="Control" type="Control" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1340314445]
 layout_mode = 2
@@ -285,8 +319,12 @@ text = "Leave!!"
 [connection signal="pressed" from="Choices/MarginContainer/Choices/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Choices/MarginContainer/Choices/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Choices/MarginContainer/Choices/Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/FPSButton" to="." method="_on_fps_button_pressed"]
+[connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer/Fullscreen" to="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer" method="_on_text_button_pressed"]
+[connection signal="toggled" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer/CheckBox" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2/FPSButton" to="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2" method="_on_text_button_pressed"]
+[connection signal="toggled" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2/CheckBox" to="." method="_on_fps_button_pressed"]
+[connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer3/InvKeybinds" to="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer3" method="_on_text_button_pressed"]
+[connection signal="toggled" from="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer3/CheckBox" to="." method="_on_inv_keybinds_pressed"]
 [connection signal="pressed" from="Settings/MarginContainer/HBoxContainer/Settings/Go back" to="." method="_on_go_back_pressed"]
 [connection signal="pressed" from="AreYouSure/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
 [connection signal="pressed" from="AreYouSure/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
