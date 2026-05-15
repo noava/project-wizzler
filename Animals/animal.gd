@@ -21,6 +21,11 @@ class_name Animal extends CharacterBody3D
 @export var distance_from_player: int = 25
 
 var picked_up: bool = false
+var is_thrown: bool = false
+
+func apply_throw_impulse(impulse: Vector3) -> void:
+	velocity = impulse
+	is_thrown = true
 
 func _physics_process(delta: float) -> void:
 	if picked_up:
@@ -29,6 +34,13 @@ func _physics_process(delta: float) -> void:
 			dust_particles.emitting = false
 		return
 	
+	if is_thrown:
+		if not is_on_floor():
+			velocity.y -= 9.8 * delta
+			move_and_slide()
+			return
+		is_thrown = false
+
 	if player:
 		var distance = global_position.distance_to(player.global_position)
 		
@@ -63,10 +75,7 @@ func _physics_process(delta: float) -> void:
 	if move_dir.length_squared() > 0.0001:
 		look_at(global_position - move_dir)
 	
-	# Apply gravity
-	if not is_on_floor():
-		velocity.y -= 9.8 * delta
-	
+	# Animal animations based on speed
 	var ground_speed := Vector2(velocity.x, velocity.z).length()
 	if ground_speed > 0.5:
 		run()
@@ -75,8 +84,8 @@ func _physics_process(delta: float) -> void:
 
 	if dust_particles:
 		dust_particles.emitting = is_on_floor() && ground_speed > 0.5
-	# Sounds
 	
+	# Sounds
 	if player:
 		relative_to_player_sound()
 	
