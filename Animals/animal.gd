@@ -13,7 +13,9 @@ class_name Animal extends CharacterBody3D
 
 @export_category("Movement")
 @export var min_distance: float = 1
-@export var activation_distance: float = 5
+@export var crouching_activation_distance: float = 2
+@export var walking_activation_distance: float = 5
+@export var sprinting_activation_distance: float = 8
 @export var speed: float = 5
 
 @export var distance_from_player: int = 25
@@ -29,7 +31,17 @@ func _physics_process(delta: float) -> void:
 	
 	if player:
 		var distance = global_position.distance_to(player.global_position)
-		if distance < activation_distance:
+		
+		var actual_activation_distance 
+			
+		if player.is_crouching:
+			actual_activation_distance = crouching_activation_distance
+		elif player.is_sprinting:
+			actual_activation_distance = sprinting_activation_distance
+		else:
+			actual_activation_distance = walking_activation_distance
+		
+		if distance < actual_activation_distance:
 			var away_direction = global_position - player.global_position
 			away_direction.y = 0.0
 			if away_direction.length_squared() < 0.0001:
