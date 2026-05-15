@@ -14,12 +14,19 @@ class_name Animal extends CharacterBody3D
 
 @export_category("Movement")
 @export var min_distance: float = 1
-@export var activation_distance: float = 5
+@export var crouching_activation_distance: float = 2
+@export var walking_activation_distance: float = 5
+@export var sprinting_activation_distance: float = 8
 @export var speed: float = 5
 
 @export var distance_from_player: int = 25
 
 var picked_up: bool = false
+var is_thrown: bool = false
+
+func apply_throw_impulse(impulse: Vector3) -> void:
+	velocity = impulse
+	is_thrown = true
 
 func _physics_process(delta: float) -> void:
 	if picked_up:
@@ -28,9 +35,26 @@ func _physics_process(delta: float) -> void:
 			dust_particles.emitting = false
 		return
 	
+	if is_thrown:
+		if not is_on_floor():
+			velocity.y -= 9.8 * delta
+			move_and_slide()
+			return
+		is_thrown = false
+
 	if player:
 		var distance = global_position.distance_to(player.global_position)
-		if distance < activation_distance:
+		
+		var actual_activation_distance 
+			
+		if player.is_crouching:
+			actual_activation_distance = crouching_activation_distance
+		elif player.is_sprinting:
+			actual_activation_distance = sprinting_activation_distance
+		else:
+			actual_activation_distance = walking_activation_distance
+		
+		if distance < actual_activation_distance:
 			var away_direction = global_position - player.global_position
 			away_direction.y = 0.0
 			if away_direction.length_squared() < 0.0001:
@@ -52,10 +76,7 @@ func _physics_process(delta: float) -> void:
 	if move_dir.length_squared() > 0.0001:
 		look_at(global_position - move_dir)
 	
-	# Apply gravity
-	if not is_on_floor():
-		velocity.y -= 9.8 * delta
-	
+	# Animal animations based on speed
 	var ground_speed := Vector2(velocity.x, velocity.z).length()
 	if ground_speed > 0.5:
 		run()
@@ -64,8 +85,8 @@ func _physics_process(delta: float) -> void:
 
 	if dust_particles:
 		dust_particles.emitting = is_on_floor() && ground_speed > 0.5
-	# Sounds
 	
+	# Sounds
 	if player:
 		relative_to_player_sound()
 	

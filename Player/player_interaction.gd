@@ -149,9 +149,14 @@ func throw_carried_item():
 	var carried_node = item_holder.get_child(0)
 	place_carried_item()
 	
+	var throw_direction = -head.global_transform.basis.z.normalized()
+
 	if carried_node and carried_node is RigidBody3D and throw_multiplier > 2.0:
-		var throw_direction = -head.global_transform.basis.z.normalized()
 		carried_node.apply_central_impulse(throw_direction * throw_multiplier)
+	
+	if carried_node and carried_node is Animal and throw_multiplier > 2.0:
+		var throw_impulse = throw_direction * (throw_multiplier)
+		carried_node.apply_throw_impulse(throw_impulse)
 	
 	throw_multiplier = 0.0
 	circular_progress.visible = false
