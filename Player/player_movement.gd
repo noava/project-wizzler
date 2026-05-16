@@ -14,7 +14,7 @@ var sprint_interval := 0.25
 var crouch_interval := 0.85
 
 var footstep_sound = preload("res://Sounds/Material/walking.mp3")
-var inwater_sound = preload("res://Sounds/MuskRat/muskrat.mp3")
+var inwater_sound = preload("res://Sounds/Material/wading.mp3")
 
 var footstep_timer := 0.0
 var footstep_interval := walk_interval
@@ -51,7 +51,6 @@ func _physics_process(delta: float) -> void:
 		
 func in_water() -> bool:
 	var player_pos = global_transform.origin
-	
 	for water in get_tree().get_nodes_in_group("Water"):
 		var water_pos = water.global_transform.origin
 		
@@ -107,9 +106,15 @@ func _process(delta):
 
 	if in_water():
 		WALK_SPEED = 2
-		SPRINT_SPEED = 4
 		CROUCH_SPEED = 1.0
+		SPRINT_SPEED = 4
 		JUMP_VELOCITY = 2.0
+	else:
+		WALK_SPEED = 5.0
+		CROUCH_SPEED = 3.0
+		SPRINT_SPEED = 8.0
+		JUMP_VELOCITY = 4.0
+	
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta

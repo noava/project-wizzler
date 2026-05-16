@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cs18rjusvxwp0" path="res://Sounds/globalsounds.tscn" id="58_oldyv"]
 [ext_resource type="PackedScene" uid="uid://sdx30kyvtsup" path="res://Environment_Models/Tree_normal/tree_2.tscn" id="59_tv5r4"]
 [ext_resource type="PackedScene" uid="uid://lqdr5vgvbwim" path="res://Environment_Models/Tree_normal/pine_1.tscn" id="60_lp2f3"]
+[ext_resource type="PackedScene" uid="uid://dy8nkg3kulqmc" path="res://Environment/Wind/wind.tscn" id="60_u2ieb"]
 [ext_resource type="PackedScene" uid="uid://dwbhx7ysvusfe" path="res://Environment_Models/Tree_normal/common_tree_4.tscn" id="61_yl3ct"]
 [ext_resource type="PackedScene" uid="uid://bxsiajtevr5mh" path="res://Environment_Models/Tree_normal/dead_tree_5.tscn" id="62_llype"]
 [ext_resource type="PackedScene" uid="uid://dnqi07fjtow8a" path="res://Environment_Models/Tree_normal/pine_3.tscn" id="63_dtgt7"]
@@ -957,3 +958,5 @@ transform = Transform3D(-0.9931705, 0, -0.116670735, 0, 1, 0, 0.116670735, 0, -0
 [node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("58_dr7rj")]
 
 [node name="Sounds" parent="." unique_id=1031832489 instance=ExtResource("58_oldyv")]
+
+[node name="Wind" parent="." unique_id=995126760 instance=ExtResource("60_u2ieb")]

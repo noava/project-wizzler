@@ -63,7 +63,7 @@ func _snap_picture():
 	audio_player.pitch_scale = shutter_pitch
 	audio_player.stream = CAMERA_SHUTTER
 	audio_player.play()
-	get_tree().current_scene.add_child(particles)
+	add_child(particles)
 	particles.position = get_viewport().get_visible_rect().size * 0.5
 	particles.play_starparticles()
 	
