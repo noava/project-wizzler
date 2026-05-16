@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ba8vx2qlhtqv5"]
+
+[ext_resource type="PackedScene" uid="uid://cfcmxiudm0fev" path="res://Environment_Models/Seashell/sea_shell_game_asset.glb" id="1_cg5tc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24nxc"]
+size = Vector3(0.62, 0.22, 0.53)
+
+[node name="Seashell" unique_id=1390343268 groups=["pickupable"] instance=ExtResource("1_cg5tc")]
+
+[node name="Sketchfab_model" parent="." index="0" unique_id=1128543756]
+transform = Transform3D(0.67, 0, 0, 0, -2.928663e-08, 0.67, 0, -0.67, -2.928663e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1701618576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.088471375, -0.24679565)
+shape = SubResource("BoxShape3D_24nxc")

@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bmqp7vrp6rdc7" path="res://Environment_Models/Crate/crate.tscn" id="10_dr7rj"]
 [ext_resource type="PackedScene" uid="uid://cj831q8pw0rru" path="res://Environment_Models/glTF/Pebble_Round_1.gltf" id="18_8o7vw"]
 [ext_resource type="PackedScene" uid="uid://b5wcln0pnrovr" path="res://Environment_Models/glTF/Pebble_Round_2.gltf" id="21_u80e0"]
-[ext_resource type="PackedScene" uid="uid://cfcmxiudm0fev" path="res://Environment_Models/Seashell/sea_shell_game_asset.glb" id="26_bjke1"]
 [ext_resource type="PackedScene" uid="uid://dyb473nr6migp" path="res://Environment_Models/glTF/Plants/large_plant.glb" id="29_xm1tm"]
 [ext_resource type="PackedScene" uid="uid://ctudv67eer8ap" path="res://Environment_Models/Dock/dock.glb" id="40_3v3ww"]
 [ext_resource type="PackedScene" uid="uid://doclqx7b3xjjl" path="res://Environment_Models/glTF/Rock_Medium_3.gltf" id="41_q66ok"]
 [ext_resource type="PackedScene" uid="uid://c4dccj60vwi4e" path="res://Environment_Models/GLB rocks/Rock7.glb" id="42_kuqh6"]
 [ext_resource type="PackedScene" uid="uid://xu5wiwsk3taq" path="res://Environment_Models/GLB rocks/Rock5.glb" id="43_643xb"]
+[ext_resource type="PackedScene" uid="uid://ba8vx2qlhtqv5" path="res://Environment_Models/Seashell/seashell.tscn" id="43_u2ieb"]
 [ext_resource type="PackedScene" uid="uid://c7w3pnvu40b2e" path="res://Environment_Models/GLB rocks/Rock4.glb" id="44_w1tdu"]
 [ext_resource type="PackedScene" uid="uid://0ukcw7153rme" path="res://Environment_Models/GLB rocks/stone_base.glb" id="46_m0h0q"]
 [ext_resource type="PackedScene" uid="uid://bx2n55ivivy86" path="res://Environment_Models/GLB rocks/Rock2.glb" id="47_e0o60"]
@@ -830,26 +830,26 @@ transform = Transform3D(0.99966687, 0.025810553, 0, -0.025767572, 0.9980022, 0.0
 
 [node name="SHELLS" type="Node3D" parent="." unique_id=2012040990]
 
-[node name="shell" parent="SHELLS" unique_id=109900761 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.44508845, 0.065615, 0.8930794, 0, 0.9973119, -0.07327301, -0.8954866, 0.032612972, 0.443892, 31.18287, 2.2555835, 45.48409)
+[node name="Seashell" parent="SHELLS" unique_id=1390343268 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.37822857, 0, 0.9257122, 0, 1, 0, -0.9257122, 0, 0.37822857, 31.18287, 2.2602167, 45.48409)
 
-[node name="shell3" parent="SHELLS" unique_id=893857014 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.42434338, 0.3634833, 0.82934475, -0.13429995, 0.9310298, -0.33933353, -0.8954867, 0.03261298, 0.44389206, 0.9284191, 4.508816, 45.48409)
+[node name="Seashell2" parent="SHELLS" unique_id=753671672 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.46781242, 0.20922603, 0.85870606, -0.10009388, 0.9778673, -0.1837301, -0.8781417, 0, 0.4784007, 0.9284191, 4.5291667, 45.48409)
 
-[node name="shell5" parent="SHELLS" unique_id=1475399147 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.16125047, 0.027121346, 0.34302, -0.05103398, 0.37651312, -0.005778933, -0.3402849, -0.04361531, 0.16341324, 41.53721, 2.5801663, 36.018433)
+[node name="Seashell3" parent="SHELLS" unique_id=1114435076 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.42434335, 0.07137197, 0.9026842, -0.13429995, 0.99082404, -0.015207728, -0.8954866, -0.11477713, 0.43003485, 41.53721, 2.5218022, 36.018433)
 
-[node name="shell7" parent="SHELLS" unique_id=1058520060 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.378921, 0.024144819, -0.015358832, -0.025880475, 0.37617606, -0.04713577, 0.012209309, 0.048047964, 0.37675238, 45.94335, 2.230341, 35.738407)
+[node name="Seashell4" parent="SHELLS" unique_id=1857271206 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.9971605, 0.06353902, -0.040417966, -0.06810651, 0.989937, -0.12404148, 0.03212976, 0.126442, 0.9914535, 45.94335, 2.1971848, 35.738407)
 
-[node name="shell6" parent="SHELLS" unique_id=2013765740 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.24479613, -0.19304025, -0.95016336, 0.28196627, 0.9517985, -0.120727845, 0.9276692, -0.2383604, 0.2874272, 35.256927, 2.086027, 32.709427)
+[node name="Seashell5" parent="SHELLS" unique_id=2073275141 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.24479605, -0.19304018, -0.95016336, 0.2819662, 0.9517982, -0.12072774, 0.927669, -0.23836027, 0.2874273, 35.256927, 2.040044, 32.709427)
 
-[node name="shell4" parent="SHELLS" unique_id=139380187 instance=ExtResource("26_bjke1")]
-transform = Transform3D(0.9433065, 0.17167038, 0.2840816, -0.19441904, 0.9794477, 0.053697765, -0.2690248, -0.1058843, 0.9572951, 5.624333, 1.9291735, 37.2374)
+[node name="Seashell6" parent="SHELLS" unique_id=508079485 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(0.9433063, 0.17167038, 0.2840816, -0.19441898, 0.97944766, 0.053697743, -0.26902473, -0.10588429, 0.95729524, 5.624333, 2.037004, 37.2374)
 
-[node name="shell2" parent="SHELLS" unique_id=647518508 instance=ExtResource("26_bjke1")]
-transform = Transform3D(-0.50459754, -0.035549212, -0.48385695, -0.03976182, 0.6988, -0.0098749725, 0.483529, 0.020365922, -0.5057518, 35.345768, 1.0915959, 50.64413)
+[node name="Seashell7" parent="SHELLS" unique_id=1095935911 instance=ExtResource("43_u2ieb")]
+transform = Transform3D(-0.72085357, -0.050784588, -0.6912242, -0.056802593, 0.9982858, -0.014107105, 0.69075567, 0.02909417, -0.7225026, 35.345768, 1.0915959, 50.64413)
 
 [node name="large_plant" parent="." unique_id=1732704299 instance=ExtResource("29_xm1tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.720173, 50.063114, -57.849842)
