@@ -210,13 +210,13 @@ environment = SubResource("Environment_y3ud2")
 transform = Transform3D(-0.92677677, -0.28661168, -0.24277294, -0.12682639, -0.36959955, 0.9204952, -0.3535534, 0.88388366, 0.30618635, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Ocean" type="MeshInstance3D" parent="." unique_id=632545933]
+[node name="Ocean" type="MeshInstance3D" parent="." unique_id=632545933 groups=["Water"]]
 transform = Transform3D(1950, 0, 0, 0, -8.523717e-05, 1950, 0, -1950, -8.523717e-05, 30.335205, 0.7578807, -61.55726)
 material_override = SubResource("ShaderMaterial_5ipks")
 mesh = SubResource("QuadMesh_xxbnl")
 skeleton = NodePath("")
 
-[node name="Shallow" type="MeshInstance3D" parent="." unique_id=257255069]
+[node name="Shallow" type="MeshInstance3D" parent="." unique_id=257255069 groups=["Water"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.852083, -0.5872078, 0)
 visible = false
 mesh = SubResource("CylinderMesh_dr7rj")
