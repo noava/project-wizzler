@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	# Throw Item
 	circular_progress.value = throw_multiplier
 	if Input.is_action_pressed(KEY_DROP) and holding_item and not camera_snap.camera_equipped:
-		throw_multiplier += 0.05
+		throw_multiplier += 0.1
 		circular_progress.visible = true
 		
 	if Input.is_action_just_released(KEY_DROP):

@@ -154,7 +154,6 @@ alignment = 0
 
 [node name="CheckBox" type="CheckBox" parent="Settings/MarginContainer/HBoxContainer/Settings/CheckBoxContainer2" unique_id=1868854370]
 layout_mode = 2
-button_pressed = true
 
 [node name="CheckBoxContainer3" type="HBoxContainer" parent="Settings/MarginContainer/HBoxContainer/Settings" unique_id=1895603109]
 layout_mode = 2

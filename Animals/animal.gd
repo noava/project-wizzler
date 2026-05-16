@@ -76,6 +76,10 @@ func _physics_process(delta: float) -> void:
 	if move_dir.length_squared() > 0.0001:
 		look_at(global_position - move_dir)
 	
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y -= 9.8 * delta
+	
 	# Animal animations based on speed
 	var ground_speed := Vector2(velocity.x, velocity.z).length()
 	if ground_speed > 0.5:
