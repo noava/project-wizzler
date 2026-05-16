@@ -859,7 +859,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.720173, 50.063114, -57.84
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -75.83418, 31.015491, -72.27248)
 
 [node name="Border" parent="." unique_id=972947861 instance=ExtResource("70_jn7m0")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -60.849186, -23.621439, -0.93900585)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -60.849186, 56.598473, -3.4163618)
 
 [node name="Animals" parent="." unique_id=174906773 instance=ExtResource("71_iti8t")]
 
