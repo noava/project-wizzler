@@ -30,6 +30,7 @@ var image_tween_duration: float = 0.8
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 const CAMERA_SHUTTER = preload("uid://b88rs4vm3pd3o")
 const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
+const CAMERA_PARTICLE = preload("uid://yc5hsa00hhn2")
 
 @onready var blur: ColorRect = $CamUI/Blur
 
@@ -64,10 +65,14 @@ func _process(delta: float) -> void:
 func _snap_picture():
 	if not (Input.is_action_just_pressed("item_interact") and Input.is_action_pressed("item_secondary_interact")):
 		return
+	var particles = CAMERA_PARTICLE.instantiate()
 
 	audio_player.pitch_scale = shutter_pitch
 	audio_player.stream = CAMERA_SHUTTER
 	audio_player.play()
+	add_child(particles)
+	particles.position = get_viewport().get_visible_rect().size * 0.5
+	particles.play_starparticles()
 	
 	var viewport = $SubViewport
 	var texture = viewport.get_texture()
