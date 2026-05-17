@@ -1,20 +1,23 @@
-[gd_scene format=4 uid="uid://bjglgly12ju48"]
+[gd_scene format=4 uid="uid://b4ifv0g16i05v"]
 
-[ext_resource type="Texture2D" uid="uid://wegtgl5iyypi" path="res://Environment_Models/Shelf/shelf_brown_Wood_Diffuse(Oak).jpg" id="1_xtmnk"]
-[ext_resource type="Texture2D" uid="uid://bgt7et668cltv" path="res://Environment_Models/Shelf/shelf_brown_Wood_Roughness(Light Oak).png" id="2_avdqo"]
-[ext_resource type="Texture2D" uid="uid://dt48sd5act72x" path="res://Environment_Models/Shelf/shelf_brown_Wood_Normal(LIght Oak).jpg" id="3_1mcwm"]
-[ext_resource type="PackedScene" uid="uid://u3dx0nb567wh" path="res://Items/Jar/Jar.tscn" id="4_pfmfr"]
+[ext_resource type="Texture2D" uid="uid://wegtgl5iyypi" path="res://Environment_Models/Shelf/shelf_brown_Wood_Diffuse(Oak).jpg" id="1_eirph"]
+[ext_resource type="Texture2D" uid="uid://bgt7et668cltv" path="res://Environment_Models/Shelf/shelf_brown_Wood_Roughness(Light Oak).png" id="2_478do"]
+[ext_resource type="Texture2D" uid="uid://dt48sd5act72x" path="res://Environment_Models/Shelf/shelf_brown_Wood_Normal(LIght Oak).jpg" id="3_4yxkr"]
+[ext_resource type="PackedScene" uid="uid://u3dx0nb567wh" path="res://Items/Jar/Jar.tscn" id="4_0e8hm"]
+[ext_resource type="PackedScene" uid="uid://cq1hhps1y3mn6" path="res://Items/BulletinBoard/board_image.tscn" id="5_48bcc"]
+[ext_resource type="Script" uid="uid://djm0u45j41kln" path="res://Items/Shelf/critter_images.gd" id="5_478do"]
+[ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="6_4yxkr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbfno"]
 resource_name = "Oak Wood2.001"
 cull_mode = 2
-albedo_texture = ExtResource("1_xtmnk")
-metallic_texture = ExtResource("2_avdqo")
+albedo_texture = ExtResource("1_eirph")
+metallic_texture = ExtResource("2_478do")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2_avdqo")
+roughness_texture = ExtResource("2_478do")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("3_1mcwm")
+normal_texture = ExtResource("3_4yxkr")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_81vfu"]
 _surfaces = [{
@@ -50,6 +53,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_81vfu")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_4yxkr"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0e8hm"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_48bcc"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_khufl"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5thg7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i4bmq"]
+viewport_path = NodePath("SubViewport")
+
 [node name="shelf_brown" type="Node3D" unique_id=1941760128]
 
 [node name="Cube_038" type="MeshInstance3D" parent="." unique_id=1649586437]
@@ -57,17 +78,93 @@ transform = Transform3D(4.6809386e-16, 1.6609538e-09, 0.62, -0.218, 1.6609538e-0
 mesh = SubResource("ArrayMesh_t8myh")
 skeleton = NodePath("")
 
-[node name="Jar" parent="." unique_id=1977943059 instance=ExtResource("4_pfmfr")]
+[node name="Jar" parent="." unique_id=1977943059 instance=ExtResource("4_0e8hm")]
 transform = Transform3D(0.25058275, 0, 0.9680952, 0, 1, 0, -0.9680952, 0, 0.25058275, 0.10349755, 1.7793586, -0.5977382)
 
-[node name="Jar2" parent="." unique_id=686522436 instance=ExtResource("4_pfmfr")]
+[node name="Jar2" parent="." unique_id=686522436 instance=ExtResource("4_0e8hm")]
 transform = Transform3D(-0.21132466, 0, 0.9774159, 0, 1, 0, -0.9774159, 0, -0.21132466, 0.17081685, 1.776001, 0.50816286)
 
-[node name="Jar3" parent="." unique_id=1199239509 instance=ExtResource("4_pfmfr")]
+[node name="Jar3" parent="." unique_id=1199239509 instance=ExtResource("4_0e8hm")]
 transform = Transform3D(0.18686691, 0, 0.9823852, 0, 1, 0, -0.9823852, 0, 0.18686691, 0.2613755, 0.6832353, -0.9458115)
 
-[node name="Jar5" parent="." unique_id=915155732 instance=ExtResource("4_pfmfr")]
+[node name="Jar5" parent="." unique_id=915155732 instance=ExtResource("4_0e8hm")]
 transform = Transform3D(-0.4631259, 0, 0.8862925, 0, 1, 0, -0.8862925, 0, -0.4631259, 0.2611413, 0.6886407, 0.7844196)
 
-[node name="Jar4" parent="." unique_id=1758244750 instance=ExtResource("4_pfmfr")]
+[node name="Jar4" parent="." unique_id=1758244750 instance=ExtResource("4_0e8hm")]
 transform = Transform3D(-0.046722963, 0, 0.99890786, 0, 1, 0, -0.99890786, 0, -0.046722963, 0.34312677, 0.6913501, -0.017084569)
+
+[node name="CritterImages" type="Node3D" parent="." unique_id=398707939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9858706, 2.0109754, 1.4512198)
+script = ExtResource("5_478do")
+
+[node name="CritterImage1" parent="CritterImages" unique_id=94505661 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.99770325, 0.06773668, 0, -0.06773668, 0.99770325, 0, 0, 0)
+image_texture = SubResource("ViewportTexture_4yxkr")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage1" unique_id=444350757]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage1/SubViewport" unique_id=525107509 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)
+
+[node name="CritterImage2" parent="CritterImages" unique_id=752780171 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.9989443, -0.045938347, 0, 0.045938347, 0.9989443, 0, -0.4737116, 0)
+image_texture = SubResource("ViewportTexture_0e8hm")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage2" unique_id=1524479473]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage2/SubViewport" unique_id=1791076520 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)
+
+[node name="CritterImage3" parent="CritterImages" unique_id=172959270 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.9957777, -0.091797076, 0, 0.091797076, 0.9957777, 0, -1.0106268, 0)
+image_texture = SubResource("ViewportTexture_48bcc")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage3" unique_id=393764811]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage3/SubViewport" unique_id=1305921125 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)
+
+[node name="CritterImage4" parent="CritterImages" unique_id=461513379 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.99922836, 0.039277256, 0, -0.039277256, 0.99922836, 0, 0, -3.053543)
+image_texture = SubResource("ViewportTexture_khufl")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage4" unique_id=1597508137]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage4/SubViewport" unique_id=261867935 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)
+
+[node name="CritterImage5" parent="CritterImages" unique_id=1165471735 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.9980973, -0.061658256, 0, 0.061658256, 0.9980973, 0, -0.5253532, -3.053543)
+image_texture = SubResource("ViewportTexture_5thg7")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage5" unique_id=641396810]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage5/SubViewport" unique_id=1072319954 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)
+
+[node name="CritterImage6" parent="CritterImages" unique_id=953441920 instance=ExtResource("6_4yxkr")]
+transform = Transform3D(1, 0, 0, 0, 0.9934568, 0.114208944, 0, -0.114208944, 0.9934568, 0, -0.99433637, -3.053543)
+image_texture = SubResource("ViewportTexture_i4bmq")
+
+[node name="SubViewport" type="SubViewport" parent="CritterImages/CritterImage6" unique_id=1883912771]
+transparent_bg = true
+size = Vector2i(420, 500)
+
+[node name="BoardImage" parent="CritterImages/CritterImage6/SubViewport" unique_id=785186010 instance=ExtResource("5_48bcc")]
+modulate = Color(1, 0.9490196, 0.8, 1)
+scale = Vector2(2, 2)

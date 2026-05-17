@@ -11,6 +11,7 @@ func _process(_delta: float) -> void:
 		var animal_type_name: String = str(animal.animal_type)
 		animals_set[animals_name] = true
 		species_set[animal_type_name] = true
+		Global.species_set = species_set
 
 	var animal_count: int = animals_set.size()
 	var different_animals: int = species_set.size()
