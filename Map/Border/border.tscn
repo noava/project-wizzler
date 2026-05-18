@@ -17,14 +17,14 @@ disable_receive_shadows = true
 [node name="Border" type="CSGCombiner3D" unique_id=695594151]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -50.903, 26.441, -9.971)
 cast_shadow = 0
-visibility_range_begin = 140.0
+visibility_range_begin = 160.0
 operation = 1
 use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1585062901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679424, 0)
 cast_shadow = 0
-radius = 111.13281
+radius = 130.0
 height = 100.0
 sides = 32
 material = SubResource("StandardMaterial3D_upn3q")
@@ -33,7 +33,7 @@ material = SubResource("StandardMaterial3D_upn3q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7679424, 0)
 cast_shadow = 0
 operation = 2
-radius = 101.42285
+radius = 120.0
 height = 100.0
 sides = 32
 material = SubResource("StandardMaterial3D_avfx5")
