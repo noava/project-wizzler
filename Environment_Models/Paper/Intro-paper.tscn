@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://w841nt0lwyov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfxrb"]
+cull_mode = 2
+albedo_color = Color(1, 0.95, 0.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac1km"]
+resource_name = "Paper"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r5dfq"]
+_surfaces = [{
+"aabb": AABB(-0.9997309, -0.01081137, -0.99819595, 2.0005183, 0.022056315, 1.9975578),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("FAACAAAAFAABAAIAFQAUAAAAFQAAAAUAFgABABQAFgADAAEABAAUABUABAAWABQAFwAVAAUAFwAFAAwACwAEABUACwAVABcAGAADABYAGAAGAAMABwAGABgABwAIAAYACQAHABgAGQAYABYACQAYABkAGQAWAAQACgAJABkAGgAZAAQACgAZABoAGgAEAAsADQAKABoADQAaABsAGwAaAAsAEwANABsAEwAbABIAGwALABwAEgAbABwAHAALABcAEgAcABEAHAAXAB0AEQAcAB0AHQAXAAwAEQAdAA8AHQAMAA4ADwAdAA4ADwAOABAA"),
+"lods": [0.007839628, PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAUABAAGAAMABwAIAAYACQAHAAYACQAGAAQACgAJAAQACwAEAAUACgAEAAsACwAFAAwADQAKAAsADQALAAwADQAMAA4ADwAOABAAEQAOAA8AEQANAA4AEgANABEAEwANABIA")],
+"name": "Paper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("//+Mir0yAAArwGueAAAAAO7/vOs4AAAAUYDXYiIAAABQgGwrhmQAAO7/VjVWZQAANkDcsVoBAAAQAP//IzQAAAEArv4gAgAAAACX58BlAABGAHrlAZkAAOx/wJ5wmAAA5f8eV/eYAADOAk2EKssAANj/noXCzAAAWL/OTbz/AADC/9Nt//8AAOV/Rygl/wAAnUIYGPT9AACBBGslbP0AAFXAfi5QMgAAKsAAAMpkAACKgF8XHzIAAOm/lGmhmAAAXkBUjCQzAAAzQIaK4WQAAAVAGtegmAAAhkGzi4HLAACyf7qLQMwAAJO/cYqDzAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rdmws"]
+resource_name = "paper_Plane_002"
+_surfaces = [{
+"aabb": AABB(-0.9997309, -0.01081137, -0.99819595, 2.0005183, 0.022056315, 1.9975578),
+"attribute_data": PackedByteArray("//8yM/+/AAD//wAA/38AAP9/ZWb//2Vm/z8AAAAAMjMAAAAAAABlZgAAmZn/f5mZ//+ZmQAAzMz//8zM/7//////////f////z///wAA////vzIz/79lZv9/MzP/v5mZ/z8zM/8/ZWb/P5mZ/z/MzP9/zMz/v8zM"),
+"format": 34896613399,
+"index_count": 120,
+"index_data": PackedByteArray("FAACAAAAFAABAAIAFQAUAAAAFQAAAAUAFgABABQAFgADAAEABAAUABUABAAWABQAFwAVAAUAFwAFAAwACwAEABUACwAVABcAGAADABYAGAAGAAMABwAGABgABwAIAAYACQAHABgAGQAYABYACQAYABkAGQAWAAQACgAJABkAGgAZAAQACgAZABoAGgAEAAsADQAKABoADQAaABsAGwAaAAsAEwANABsAEwAbABIAGwALABwAEgAbABwAHAALABcAEgAcABEAHAAXAB0AEQAcAB0AHQAXAAwAEQAdAA8AHQAMAA4ADwAdAA4ADwAOABAA"),
+"lods": [0.007839628, PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAUABAAGAAMABwAIAAYACQAHAAYACQAGAAQACgAJAAQACwAEAAUACgAEAAsACwAFAAwADQAKAAsADQALAAwADQAMAA4ADwAOABAAEQAOAA8AEQANAA4AEgANABEAEwANABIA")],
+"material": SubResource("StandardMaterial3D_ac1km"),
+"name": "Paper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("//+Mir0yPb8rwGueAAAcv+7/vOs4ABC/UYDXYiIAUr9QgGwrhmRvwO7/VjVWZQLANkDcsVoBqb8QAP//IzTavwEArv4gAtW/AACX58BlGsBGAHrlAZnJv+x/wJ5wmFvA5f8eV/eYecDOAk2EKsslv9j/noXCzPy/WL/OTbz/db/C/9Nt//+gv+V/Rygl/yu/nUIYGPT9DL+BBGslbP0Ov1XAfi5QMmC/KsAAAMpkNcCKgF8XHzKlv+m/lGmhmH3AXkBUjCQz0r8zQIaK4WRGwAVAGtegmP2/hkGzi4HLO7+yf7qLQMx+v5O/cYqDzNS/rP68gSv/ZIG6/uGBE//FfrL+UH8D//2A4f3mfdH9/33n/TF+Qf44fin/934G/6d/Y/9UgLr/GICA/0KAKP+XgHv/aIBe/vaAdv7OgCD/Z4Av/wqBPv92gA7/Kn9m/xqAzv3ofSf+c34e/1t/GP9fgNr+foBf/0qA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_r5dfq")
+
+[node name="IntroPaper" type="Node3D" unique_id=1521142297]
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=854950034]
+transform = Transform3D(-6.491141e-09, 1, -9.1793915e-09, 0, -4.371139e-08, -0.21, -0.1485, -4.371139e-08, 4.0124393e-16, 0, 0.002514422, 0)
+material_override = SubResource("StandardMaterial3D_mfxrb")
+mesh = SubResource("ArrayMesh_rdmws")
+skeleton = NodePath("")

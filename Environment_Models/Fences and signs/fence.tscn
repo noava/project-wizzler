@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bmlhtd73h87oi"]
+
+[ext_resource type="PackedScene" uid="uid://dp0rhont45xsj" path="res://Environment_Models/Fences and signs/fence.glb" id="1_sk2c8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_go7us"]
+size = Vector3(0.28125, 2.2807312, 0.29986572)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnh1f"]
+size = Vector3(0.15478516, 0.3260517, 4.3220215)
+
+[node name="fence" unique_id=757365334 instance=ExtResource("1_sk2c8")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4" unique_id=930034640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=443146990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0048828125, 1.1368561, 0.004119873)
+shape = SubResource("BoxShape3D_go7us")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=493129333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0048828125, 1.1368561, -3.644474)
+shape = SubResource("BoxShape3D_go7us")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=116846670]
+transform = Transform3D(1, 0, 0, 0, 0.99993384, -0.011501467, 0, 0.011501467, 0.99993384, -0.18188477, 1.380592, -1.8163371)
+shape = SubResource("BoxShape3D_gnh1f")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="3" unique_id=1470095954]
+transform = Transform3D(1, 0, 0, 0, 0.99993384, -0.011501467, 0, 0.011501467, 0.99993384, -0.18188477, 1.8928272, -1.816234)
+shape = SubResource("BoxShape3D_gnh1f")
