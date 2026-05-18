@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvo1ljw22plor" path="res://Environment/main.gd" id="1_xtowx"]
 [ext_resource type="Texture2D" uid="uid://cv3s01hfd21mk" path="res://Environment_Models/Textures/sky_47_2k.png" id="2_kk70s"]
 [ext_resource type="Shader" uid="uid://c383aoi6glt2j" path="res://Environment_Models/Shaders/ocean_shader.gdshader" id="3_o43pm"]
+[ext_resource type="Script" uid="uid://dnuw71p14o451" path="res://Menu/skybox_rotate.gd" id="3_u2ieb"]
 [ext_resource type="PackedScene" uid="uid://bhe5ctq1pp74b" path="res://Player/player.tscn" id="4_suqj4"]
 [ext_resource type="PackedScene" uid="uid://brs1sd855j0oc" path="res://Items/BulletinBoard/bulletin_board.tscn" id="5_tf6a3"]
 [ext_resource type="PackedScene" uid="uid://cubgjl6laibc6" path="res://Items/Collectable/collectable.tscn" id="6_v70gu"]
@@ -218,7 +219,6 @@ subdivide_depth = 200
 script = ExtResource("1_xtowx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=380121000]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1915148852]
 anchors_preset = 15
@@ -235,10 +235,12 @@ libraries/ = SubResource("AnimationLibrary_tulo8")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=273012013]
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1483332745]
+visible = false
 occluder = SubResource("QuadOccluder3D_5ipks")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1132971695]
 environment = SubResource("Environment_y3ud2")
+script = ExtResource("3_u2ieb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1318157686]
 transform = Transform3D(-0.92677677, -0.28661168, -0.24277294, -0.12682639, -0.36959955, 0.9204952, -0.3535534, 0.88388366, 0.30618635, 0, 0, 0)
@@ -264,6 +266,7 @@ shape = SubResource("CylinderShape3D_oldyv")
 
 [node name="Player" parent="." unique_id=1937279400 instance=ExtResource("4_suqj4")]
 transform = Transform3D(-0.9843497, 0, -0.17622592, 0, 1, 0, 0.17622592, 0, -0.9843497, 39.448242, 3.0817022, 21.991325)
+visible = false
 
 [node name="BulletinBoards" type="Node" parent="." unique_id=1537488047]
 
