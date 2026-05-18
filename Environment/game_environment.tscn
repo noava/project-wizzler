@@ -35,8 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://b6jpodm2v08ou" path="res://Environment_Models/Tree_palm/palmtree.tscn" id="58_au8w0"]
 [ext_resource type="PackedScene" uid="uid://cv0w2pvjf3s8c" path="res://Animals/BirdInTheSky/bird_in_the_sky.tscn" id="58_dr7rj"]
 [ext_resource type="PackedScene" uid="uid://cs18rjusvxwp0" path="res://Sounds/globalsounds.tscn" id="58_oldyv"]
+[ext_resource type="PackedScene" uid="uid://w841nt0lwyov" path="res://Environment_Models/Paper/Intro-paper.tscn" id="59_oldyv"]
 [ext_resource type="PackedScene" uid="uid://sdx30kyvtsup" path="res://Environment_Models/Tree_normal/tree_2.tscn" id="59_tv5r4"]
 [ext_resource type="PackedScene" uid="uid://lqdr5vgvbwim" path="res://Environment_Models/Tree_normal/pine_1.tscn" id="60_lp2f3"]
+[ext_resource type="Script" uid="uid://djmgkauffd2oi" path="res://Items/BulletinBoard/Paper/paper.gd" id="60_u2ieb"]
+[ext_resource type="Texture2D" uid="uid://dxvht8vtnq24b" path="res://Environment_Models/Paper/IMG_1709.PNG" id="61_uunvr"]
 [ext_resource type="PackedScene" uid="uid://dwbhx7ysvusfe" path="res://Environment_Models/Tree_normal/common_tree_4.tscn" id="61_yl3ct"]
 [ext_resource type="PackedScene" uid="uid://bxsiajtevr5mh" path="res://Environment_Models/Tree_normal/dead_tree_5.tscn" id="62_llype"]
 [ext_resource type="PackedScene" uid="uid://dnqi07fjtow8a" path="res://Environment_Models/Tree_normal/pine_3.tscn" id="63_dtgt7"]
@@ -56,7 +59,6 @@
 [ext_resource type="PackedScene" uid="uid://dgoqmit0e4pyg" path="res://Environment_Models/Rope/rope_coil_bigger.glb" id="77_6n0i1"]
 [ext_resource type="PackedScene" uid="uid://cmcpix0sekf15" path="res://Environment_Models/Rope/rope_straight.glb" id="78_f8wrr"]
 [ext_resource type="PackedScene" uid="uid://b73h248sev562" path="res://Environment_Models/Lightbulb/bulb.tscn" id="79_t3cjn"]
-[ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="80_o2313"]
 [ext_resource type="PackedScene" uid="uid://cyko7ihc5ydea" path="res://Environment_Models/Torch/torchfence.tscn" id="81_ai0fe"]
 [ext_resource type="PackedScene" uid="uid://bjglgly12ju48" path="res://Environment_Models/shelf_with_jars.tscn" id="82_y0fwp"]
 
@@ -257,7 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.56094, 34.574654, 70.932
 transform = Transform3D(0.09465164, 0.04569337, -0.7728862, -0.031256992, 0.7782311, 0.042181473, 0.7736045, 0.025853273, 0.096268065, 42.616, 2.427, 38.086)
 
 [node name="Crate2" parent="." unique_id=1134565163 instance=ExtResource("10_dr7rj")]
-transform = Transform3D(0.40082434, 0.05257204, -0.443369, -0.06317239, 0.59650964, 0.013620029, 0.44198313, 0.037582397, 0.40402782, 43.38825, 2.3922417, 37.43005)
+transform = Transform3D(0.40424433, 0.011011213, -0.44324416, 0.003577467, 0.59971434, 0.018160999, 0.4433664, -0.014878615, 0.4039863, 43.412663, 2.3740962, 37.54661)
 
 [node name="dock" parent="." unique_id=1149029304 instance=ExtResource("40_3v3ww")]
 transform = Transform3D(-0.9892468, 0, -0.1462558, 0, 1, 0, 0.1462558, 0, -0.9892468, 39.492767, 1.1640029, 25.916698)
@@ -931,9 +933,6 @@ transform = Transform3D(0.99880785, -0.037585527, -0.031144515, 0.037567265, 0.9
 [node name="bulb3" parent="Lights/rope_straight2" unique_id=1246429539 instance=ExtResource("79_t3cjn")]
 transform = Transform3D(0.99880785, -0.037585527, -0.031144515, 0.037567265, 0.9992933, -0.001171411, 0.031166553, 9.3132246e-10, 0.9995141, 2.0488644, -0.40033913, 0.015598297)
 
-[node name="paper" parent="." unique_id=94505661 instance=ExtResource("80_o2313")]
-transform = Transform3D(0.096548855, -0.38709474, -0.9169711, 0.99505264, 0.059216272, 0.0797723, 0.023420168, -0.9201364, 0.39089695, 43.43416, 3.092515, 37.434002)
-
 [node name="Torch" type="Node" parent="." unique_id=1591319871]
 
 [node name="Torchfence" parent="Torch" unique_id=2068023961 instance=ExtResource("81_ai0fe")]
@@ -949,7 +948,7 @@ transform = Transform3D(-0.13305223, 0, -0.9911091, 0, 1, 0, 0.9911091, 0, -0.13
 transform = Transform3D(-0.9365928, 0, -0.35041976, 0, 1, 0, 0.35041976, 0, -0.9365928, -127.414894, 32.803913, 62.680508)
 
 [node name="shelf_with_jars_1" parent="." unique_id=1941760128 instance=ExtResource("82_y0fwp")]
-transform = Transform3D(-0.7095707, 0, 0.70463413, 0, 1, 0, -0.70463413, 0, -0.7095707, 41.53573, 2.2346287, 40.588455)
+transform = Transform3D(-0.49669954, 0, 0.49324393, 0, 0.7, 0, -0.49324393, 0, -0.49669954, 41.53573, 2.4439988, 40.588455)
 
 [node name="shelf_with_jars_2" parent="." unique_id=1681632573 instance=ExtResource("82_y0fwp")]
 transform = Transform3D(-0.9931705, 0, -0.116670735, 0, 1, 0, 0.116670735, 0, -0.9931705, -114.462, 31.939308, 16.136)
@@ -957,3 +956,8 @@ transform = Transform3D(-0.9931705, 0, -0.116670735, 0, 1, 0, 0.116670735, 0, -0
 [node name="BirdInTheSky" parent="." unique_id=1518596519 instance=ExtResource("58_dr7rj")]
 
 [node name="Sounds" parent="." unique_id=1031832489 instance=ExtResource("58_oldyv")]
+
+[node name="IntroPaper" parent="." unique_id=1521142297 instance=ExtResource("59_oldyv")]
+transform = Transform3D(0.022104057, 0.9042961, -0.7101126, -1.148469, 0.051370762, 0.029669324, 0.055051196, 0.7085968, 0.90407956, 43.439728, 3.0758235, 37.490982)
+script = ExtResource("60_u2ieb")
+image_texture = ExtResource("61_uunvr")
