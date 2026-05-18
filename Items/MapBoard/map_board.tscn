@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b6p5737m4ey8p" path="res://Items/BulletinBoard/BulletinBoard.glb" id="1_dmawj"]
 [ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="2_3avhv"]
+[ext_resource type="Texture2D" uid="uid://bf5pibfuuhmpx" path="res://Items/MapBoard/map2.png" id="3_dmawj"]
 [ext_resource type="PackedScene" uid="uid://c1lxh12hyclot" path="res://Items/BulletinBoard/Nail/nail.glb" id="4_sgwlv"]
 
 [node name="MapBoard" type="Node3D" unique_id=280315506]
@@ -13,18 +14,20 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.02
 
 [node name="paper" parent="Map" unique_id=94505661 instance=ExtResource("2_3avhv")]
 transform = Transform3D(-4.371139e-08, 0, -5.031938, 0, 2.40225, 0, 1, 0, -2.19953e-07, -0.013327122, 0.13116074, 5.349517e-05)
+image_texture = ExtResource("3_dmawj")
+paper_color = Color(1, 0.9490196, 0.8, 0)
 
 [node name="nail" parent="Map" unique_id=1642325416 instance=ExtResource("4_sgwlv")]
-transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, -0.72039247, 0.5587406, -3.1664968e-08)
+transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, -0.72039247, 0.5952418, -3.0073746e-08)
 
 [node name="nail2" parent="Map" unique_id=1456169890 instance=ExtResource("4_sgwlv")]
-transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6865417, 0.5587406, 2.9802322e-08)
+transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6937504, 0.5892222, -0.0037355598)
 
 [node name="nail3" parent="Map" unique_id=1455191915 instance=ExtResource("4_sgwlv")]
-transform = Transform3D(-3.205145e-09, 0.07332517, -0.9973081, -1, -4.371139e-08, 0, -4.359372e-08, 0.9973081, 0.07332517, -0.72039247, -0.30259466, -3.1664968e-08)
+transform = Transform3D(0.009213172, -0.10968684, -0.9939235, -0.9831976, 0.18022564, -0.029002983, 0.18231173, 0.97749037, -0.106183395, -0.6853526, -0.3135602, -0.0017707801)
 
 [node name="nail4" parent="Map" unique_id=158660865 instance=ExtResource("4_sgwlv")]
-transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6865417, -0.30259466, 2.9802322e-08)
+transform = Transform3D(-7.772712e-09, 0.07332517, -0.9973081, -0.99452555, 0.10421242, 0.007662027, 0.10449371, 0.99184835, 0.07292376, 0.6865417, -0.3389207, 0.0038167662)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2066467345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06463623, 1.2636719, 0)
