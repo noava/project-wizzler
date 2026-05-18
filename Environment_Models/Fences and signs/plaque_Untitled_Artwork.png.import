@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brpgxlpyd4pkw"
-path.s3tc="res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.s3tc.ctex"
+uid="uid://w02lj7ku0g3t"
+path.s3tc="res://.godot/imported/plaque_Untitled_Artwork.png-d85fa8d1857b35d8d44f489063e5ce3d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2c0a782770ec1cdd421f8e156fe28cca"
+"md5": "729177db22d7c7509a754de77a2bab55"
 }
 
 [deps]
 
-source_file="res://Environment_Models/Tree_palm/palmtree_mIdrTreePalmLeaf_Rgh.png"
-dest_files=["res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.s3tc.ctex"]
+source_file="res://Environment_Models/Fences and signs/plaque_Untitled_Artwork.png"
+dest_files=["res://.godot/imported/plaque_Untitled_Artwork.png-d85fa8d1857b35d8d44f489063e5ce3d.s3tc.ctex"]
 
 [params]
 
