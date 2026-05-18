@@ -40,6 +40,7 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
+
 [gui]
 
 theme/custom="uid://calu8os4ei520"
