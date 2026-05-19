@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://yc5hsa00hhn2"]
+
+[ext_resource type="Script" uid="uid://dhld3sos6fgj5" path="res://Particles/particle scenes/starparticles.gd" id="1_mgk31"]
+[ext_resource type="Texture2D" uid="uid://bkp7tch80qflp" path="res://Particles/Curve Textures/Right.tres" id="2_agvwo"]
+[ext_resource type="Texture2D" uid="uid://rynuvy7gkgim" path="res://Particles/images/star_01_a.png" id="2_mgk31"]
+[ext_resource type="Texture2D" uid="uid://dpg53bbc48nr" path="res://Particles/Curve Textures/Left.tres" id="3_uw0tl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wjs0"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 192.80002
+angle_max = 192.80002
+directional_velocity_min = 0.9999839
+directional_velocity_max = 199.99998
+directional_velocity_curve = ExtResource("2_agvwo")
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8mr2g"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-100, -100, 0)
+angle_min = -191.99998
+angle_max = 192.00002
+directional_velocity_min = -200.00002
+directional_velocity_max = 0.9999839
+directional_velocity_curve = ExtResource("3_uw0tl")
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.5
+
+[node name="StarParticles" type="Node2D" unique_id=2137076010]
+show_behind_parent = true
+script = ExtResource("1_mgk31")
+
+[node name="StarRight" type="GPUParticles2D" parent="." unique_id=260180016]
+modulate = Color(0.79111886, 0.6999314, 0.27273524, 1)
+emitting = false
+amount = 1
+texture = ExtResource("2_mgk31")
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0wjs0")
+
+[node name="StarLeft" type="GPUParticles2D" parent="." unique_id=1903171114]
+modulate = Color(0.7921569, 0.69803923, 0.27450982, 1)
+emitting = false
+amount = 1
+texture = ExtResource("2_mgk31")
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_8mr2g")

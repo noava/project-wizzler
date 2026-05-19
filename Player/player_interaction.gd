@@ -12,6 +12,7 @@ extends Node
 @onready var item_holder: Node3D = $"../Head/ItemHolder"
 @onready var pickup_label: Label = $"../HUD/PickupLabel"
 @onready var circular_progress: TextureProgressBar = %CircularProgress
+@onready var camera_snap: Node3D = $"../Head/CameraSnap"
 
 var holding_item = false
 var item_data = null
@@ -22,8 +23,8 @@ func _process(_delta: float) -> void:
 	
 	# Throw Item
 	circular_progress.value = throw_multiplier
-	if Input.is_action_pressed(KEY_DROP) and holding_item:
-		throw_multiplier += 0.05
+	if Input.is_action_pressed(KEY_DROP) and holding_item and not camera_snap.camera_equipped:
+		throw_multiplier += 0.1
 		circular_progress.visible = true
 		
 	if Input.is_action_just_released(KEY_DROP):
@@ -148,9 +149,14 @@ func throw_carried_item():
 	var carried_node = item_holder.get_child(0)
 	place_carried_item()
 	
+	var throw_direction = -head.global_transform.basis.z.normalized()
+
 	if carried_node and carried_node is RigidBody3D and throw_multiplier > 2.0:
-		var throw_direction = -head.global_transform.basis.z.normalized()
 		carried_node.apply_central_impulse(throw_direction * throw_multiplier)
+	
+	if carried_node and carried_node is Animal and throw_multiplier > 2.0:
+		var throw_impulse = throw_direction * (throw_multiplier)
+		carried_node.apply_throw_impulse(throw_impulse)
 	
 	throw_multiplier = 0.0
 	circular_progress.visible = false

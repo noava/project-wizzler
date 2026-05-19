@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/sea_shell_game_asset.glb-d9d4b949c2e9a22ad30f
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="RigidBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true

@@ -333,19 +333,22 @@ theme_type_variation = &"HeaderSmall"
 text = "How To Play"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Menu/HowToPlay/HBoxContainer/VBoxContainer" unique_id=1525150712]
+modulate = Color(0.9882353, 0.9098039, 0.84313726, 1)
 custom_minimum_size = Vector2(200, 136)
 layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
 text = "WASD: 		Walk
 Shift:			Run
 Space: 		Jump
 Control: 		Crouch
-E:				Interact / Pickup
-Q:				Drop / Throw
-C:				Zoom
-No. 1: 			Equip camera
-L Click: 		Take picture
-R Click: 		Focus famera
-Scroll: 		Zoom camera
+[E]:			Interact / Pickup
+[Q]:			Drop / Throw
+[C]:			Zoom
+[1]: 			Equip Camera
+[img width=16 height=16]res://UI/Controls/KBnMouse/mouse_left_outline.svg[/img] 			Take Photo
+[img width=16 height=16]res://UI/Controls/KBnMouse/mouse_right_outline.svg[/img] 			Aim Camera
+[img width=16 height=16]res://UI/Controls/KBnMouse/mouse_scroll_vertical_outline.svg[/img] 			Zoom Camera
 Esc: 			Pause"
 fit_content = true
 

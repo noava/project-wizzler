@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b1aarl70y5e4l"]
+
+[ext_resource type="PackedScene" uid="uid://k80kqhaf4ed0" path="res://Environment_Models/Tree_more/pine_broken.glb" id="1_8rfa5"]
+
+[node name="pine_broken" unique_id=1490626664 instance=ExtResource("1_8rfa5")]
+
+[node name="DeadPine2" parent="." index="0" unique_id=392037724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

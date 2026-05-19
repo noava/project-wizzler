@@ -1,6 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://calu8os4ei520"]
 
 [ext_resource type="FontFile" uid="uid://jqiypb5ad4" path="res://UI/Theme/PROPAGAN.ttf" id="1_0ys1n"]
+[ext_resource type="Texture2D" uid="uid://dsqiljpfy2lbj" path="res://UI/Theme/CheckBox_Checked.svg" id="1_ybov5"]
+[ext_resource type="Texture2D" uid="uid://cuhxfrvgn2j6s" path="res://UI/Theme/CheckBox_Unchecked.svg" id="2_44bou"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybov5"]
 
@@ -30,6 +32,9 @@ Button/styles/focus = SubResource("StyleBoxEmpty_ybov5")
 Button/styles/hover = SubResource("StyleBoxEmpty_0ys1n")
 Button/styles/normal = SubResource("StyleBoxEmpty_86c21")
 Button/styles/pressed = SubResource("StyleBoxEmpty_17iv7")
+CheckBox/constants/icon_max_width = 24
+CheckBox/icons/checked = ExtResource("1_ybov5")
+CheckBox/icons/unchecked = ExtResource("2_44bou")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_0ys1n")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_17iv7")
 HSlider/styles/slider = SubResource("StyleBoxLine_17iv7")
@@ -39,6 +44,11 @@ HeaderLarge/fonts/font = ExtResource("1_0ys1n")
 HeaderSmall/colors/font_color = Color(0.91764706, 0.63529414, 0.35686275, 1)
 HeaderSmall/font_sizes/font_size = 15
 HeaderSmall/fonts/font = ExtResource("1_0ys1n")
+Label/colors/font_color = Color(0.9882353, 0.9098039, 0.84313726, 1)
+Label/colors/font_outline_color = Color(0.34117648, 0.23137255, 0.18039216, 1)
+Label/constants/outline_size = 3
 Label/font_sizes/font_size = 20
 RichTextLabel/colors/default_color = Color(0.9882353, 0.9098039, 0.84313726, 1)
+RichTextLabel/colors/font_outline_color = Color(0.34117648, 0.23137255, 0.18039216, 1)
+RichTextLabel/constants/outline_size = 3
 RichTextLabel/font_sizes/normal_font_size = 18

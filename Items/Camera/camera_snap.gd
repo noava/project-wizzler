@@ -11,6 +11,11 @@ extends Node3D
 @export var max_fov: float = 80.0
 @export var zoom_step: float = 10.0
 
+@export_category("Zoom Label")
+@export var zoom_label_step: float = 0.01
+@export var zoom_label_min_position: Vector3 = Vector3(0, 0.021, 0)
+@export var zoom_label_max_position: Vector3 = Vector3(0, 0.091, 0)
+
 @export_category("Audio")
 @export var shutter_pitch: float = 0.7
 @export var zoom_in_pitch: float = 1.3
@@ -25,6 +30,7 @@ var image_tween_duration: float = 0.8
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 const CAMERA_SHUTTER = preload("uid://b88rs4vm3pd3o")
 const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
+const CAMERA_PARTICLE = preload("uid://yc5hsa00hhn2")
 
 @onready var blur: ColorRect = $CamUI/Blur
 
@@ -32,6 +38,8 @@ const CAMERA_ZOOM = preload("uid://chohbotm6sxv")
 @onready var camera_image: Control = %BoardImage.get_node("TextureRect")
 @onready var image_taken: Node3D = $ImageTaken
 
+# Zoom UI
+@onready var zoom_label: Label3D = $ZoomLabel
 
 var camera_equipped = false
 var original_position: Vector3
@@ -55,12 +63,16 @@ func _process(delta: float) -> void:
 
 
 func _snap_picture():
-	if not Input.is_action_just_pressed("item_interact"):
+	if not (Input.is_action_just_pressed("item_interact") and Input.is_action_pressed("item_secondary_interact")):
 		return
+	var particles = CAMERA_PARTICLE.instantiate()
 
 	audio_player.pitch_scale = shutter_pitch
 	audio_player.stream = CAMERA_SHUTTER
 	audio_player.play()
+	add_child(particles)
+	particles.position = get_viewport().get_visible_rect().size * 0.5
+	particles.play_starparticles()
 	
 	var viewport = $SubViewport
 	var texture = viewport.get_texture()
@@ -106,6 +118,7 @@ func get_animals_in_frame() -> Array:
 			# TODO: Change to animal.data to get more info from the animal. Use a resource
 			
 			animals_in_frame.append(animal)
+			Global.animals_found.append(animal)
 	
 	return animals_in_frame
 
@@ -133,6 +146,7 @@ func _zoom_camera():
 	if Input.is_action_just_pressed("camera_zoom_in"):
 		zoom_change = -zoom_step
 		pitch = zoom_in_pitch
+
 	elif Input.is_action_just_pressed("camera_zoom_out"):
 		zoom_change = zoom_step
 		pitch = zoom_out_pitch
@@ -143,3 +157,9 @@ func _zoom_camera():
 			audio_player.pitch_scale = pitch
 			audio_player.stream = CAMERA_ZOOM
 			audio_player.play()
+			
+			var next_y = zoom_label.position.y + (zoom_label_step if zoom_change < 0 else -zoom_label_step)
+			zoom_label.position.y = clamp(next_y, zoom_label_min_position.y, zoom_label_max_position.y)
+		
+		var zoom_level : float = max_fov / camera.fov
+		zoom_label.text = "◂" + str(snappedf(zoom_level, 0.1)) + "x"

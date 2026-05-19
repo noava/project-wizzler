@@ -13,6 +13,11 @@ func _ready() -> void:
 	$HowToPlay.hide()
 
 func _on_start_btn_pressed() -> void:
+	# Reset Globals
+	Global.imagesTaken = []
+	Global.animals_found = []
+	Global.camera_in_inv = false
+
 	# Show video
 	if transitioning:
 		return

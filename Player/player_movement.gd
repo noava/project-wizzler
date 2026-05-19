@@ -1,28 +1,21 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 5.0
-const CROUCH_SPEED = 3.0
-const SPRINT_SPEED = 8.0
-const JUMP_VELOCITY = 4.0
+var WALK_SPEED = 5.0
+var CROUCH_SPEED = 3.0
+var SPRINT_SPEED = 8.0
+var JUMP_VELOCITY = 4.0
 const SENSITIVITY = 0.004
 
-@onready var terrain = $"../Terrain3D"
 @onready var audio = $FootstepAudio
-
-#audio intervals
-#have to differentiate sounds between crouch, walk and sprinting/running
 
 var walk_interval := 0.5
 var sprint_interval := 0.25
 var crouch_interval := 0.85
 
-#var texture_sounds = {
-#	0: preload("res://Sounds/Material/grass.wav"),
-#	1: preload("res://Sounds/Material/sand.wav"),
-#	2: preload("res://Sounds/Material/rock.wav")
-#}
 var footstep_sound = preload("res://Sounds/Material/walking.mp3")
+var inwater_sound = preload("res://Sounds/Material/wading.mp3")
+
 var footstep_timer := 0.0
 var footstep_interval := walk_interval
 
@@ -50,15 +43,28 @@ func _physics_process(delta: float) -> void:
 		is_crouching = crouching
 		update_footstep_sounds()
 		
-	var moving = velocity.length() > 0.1 and is_on_floor()
+	var moving = velocity.length() > 0.05 and is_on_floor()
 	
 	if not moving:
-		if audio.playing:
-			audio.stop()
-			print(audio.stop)
 		return
 	footsteps_handle(delta)
 		
+func in_water() -> bool:
+	var player_pos = global_transform.origin
+	for water in get_tree().get_nodes_in_group("Water"):
+		var water_pos = water.global_transform.origin
+		
+		var dx = player_pos.x - water_pos.x
+		var dz = player_pos.z - water_pos.z
+		var distance = Vector2(dx,dz).length()
+		
+		var radius = max(water.scale.x, water.scale.z) * 0.5
+		
+		if distance <= radius:
+			if player_pos.y <= water_pos.y:
+				return true
+	return false
+			
 func footsteps_handle(delta):
 	footstep_timer -= delta
 	
@@ -69,47 +75,46 @@ func footsteps_handle(delta):
 func update_footstep_sounds():
 
 	if Input.is_action_pressed("sprint"):
-		#print("Sprint")
 		footstep_interval = sprint_interval
 		audio.pitch_scale = 1.5
 	elif Input.is_action_pressed("crouch"):
-		#print("Crouching")
 		footstep_interval = crouch_interval
 		audio.volume_db = -999 #silent
 	else:
-		#print("walking")
 		footstep_interval = walk_interval
 		audio.pitch_scale = 1
 		
 	footstep_timer = 0
 	
+
 func play_footstep():
-	if terrain == null:
-		return
-	
 	if audio.playing:
 		return
-	
+	if in_water():
+		audio.stream = inwater_sound
+	else:
+		audio.stream = footstep_sound
+
 	audio.volume_db = -16
-	audio.stream = footstep_sound
 	audio.bus = "Ambient"
 	audio.play()
 	footstep_timer = max(footstep_interval, audio.stream.get_length())
-	
-	#var terrain_id = terrain.data.get_texture_id(global_position)
-	#var texture_id = int(terrain_id.x)
-	
-	#if texture_sounds.has(texture_id):
-		#audio.stream = texture_sounds[texture_id]
-		#print("infooo", texture_id,terrain_id, audio.stream.resource_path)
-		#audio.play()
-		#footstep_timer = max(footstep_interval, audio.stream.get_length())
-	
 
 func _process(delta):
 	RenderingServer.global_shader_parameter_set("player_position",global_transform.origin)
 	if movement_lock: return
 
+	if in_water():
+		WALK_SPEED = 2
+		CROUCH_SPEED = 1.0
+		SPRINT_SPEED = 4
+		JUMP_VELOCITY = 2.0
+	else:
+		WALK_SPEED = 5.0
+		CROUCH_SPEED = 3.0
+		SPRINT_SPEED = 8.0
+		JUMP_VELOCITY = 4.0
+	
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
