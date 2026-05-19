@@ -7,7 +7,7 @@ size = Vector3(0.62, 0.22, 0.53)
 
 [node name="Seashell" unique_id=1390343268 groups=["pickupable"] instance=ExtResource("1_cg5tc")]
 
-[node name="Sketchfab_model" parent="." index="0" unique_id=1128543756]
+[node name="Sketchfab_model" parent="." index="0" unique_id=1422899272]
 transform = Transform3D(0.67, 0, 0, 0, -2.928663e-08, 0.67, 0, -0.67, -2.928663e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1701618576]

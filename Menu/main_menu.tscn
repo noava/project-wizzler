@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bc6sf6th1yvi8"]
 
 [ext_resource type="Shader" uid="uid://c383aoi6glt2j" path="res://Environment_Models/Shaders/ocean_shader.gdshader" id="1_ywk15"]
+[ext_resource type="Script" uid="uid://dnuw71p14o451" path="res://Menu/skybox_rotate.gd" id="2_fduiw"]
 [ext_resource type="ArrayMesh" uid="uid://dgfdj241foab1" path="res://Map/Grass/grass.res" id="3_fduiw"]
 [ext_resource type="PackedScene" uid="uid://b6p5737m4ey8p" path="res://Items/BulletinBoard/BulletinBoard.glb" id="4_cgse8"]
 [ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="5_o4wy8"]
@@ -102,13 +103,14 @@ buffer = PackedFloat32Array(5.966425e-08, 0, -1.001, -5.7298737, 0, 1.001, 0, 0.
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451998389]
 environment = SubResource("Environment_2pfp8")
+script = ExtResource("2_fduiw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1863461914]
 transform = Transform3D(-0.92677677, -0.2866117, -0.2427729, -0.12682639, -0.36959952, 0.92049515, -0.3535534, 0.8838835, 0.3061863, 0, -0.92731285, 0)
 shadow_enabled = true
 
 [node name="Ocean" type="MeshInstance3D" parent="." unique_id=1939547157]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.722046e-06, -0.0031454563, -9.536743e-07)
 material_override = SubResource("ShaderMaterial_2pfp8")
 mesh = SubResource("QuadMesh_0ttit")
 skeleton = NodePath("")

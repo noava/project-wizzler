@@ -3,9 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brpgxlpyd4pkw"
-path="res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.ctex"
+path.s3tc="res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "2c0a782770ec1cdd421f8e156fe28cca"
@@ -14,11 +15,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Environment_Models/Tree_palm/palmtree_mIdrTreePalmLeaf_Rgh.png"
-dest_files=["res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.ctex"]
+dest_files=["res://.godot/imported/palmtree_mIdrTreePalmLeaf_Rgh.png-d4dda332fe21c986dcb642ed0fe23896.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
