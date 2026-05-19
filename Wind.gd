@@ -28,13 +28,18 @@ func _process(delta):
 
 func wind_audio():
 	var norm = clamp(current_wind_speed / max_wind_speed, 0.0, 1.0)
-
-	audio.volume_db = lerp(-25, -5, norm)
-	audio.pitch_scale = lerp(0.8, 1.2, norm)
+	
+	print(norm)
+	#audio.volume_db = lerp(5, 0, norm)
+	#audio.pitch_scale = lerp(0.8, 1.2, norm)
+	
+	#if norm > 0.27 and !audio.playing:
+		#print("WIND")
+		#audio.play()
 
 func wind_particles():
 	var norm = clamp(current_wind_speed / max_wind_speed, 0.0, 1.0)
 
 	particles.amount_ratio = norm
 	particles.speed_scale = lerp(0.5, 2.0, norm)
-	particles.emitting = norm > 0.05
+	particles.emitting = norm > 0.17
