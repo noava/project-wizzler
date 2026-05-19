@@ -29,7 +29,6 @@ func _process(delta):
 func wind_audio():
 	var norm = clamp(current_wind_speed / max_wind_speed, 0.0, 1.0)
 	
-	print(norm)
 	#audio.volume_db = lerp(5, 0, norm)
 	#audio.pitch_scale = lerp(0.8, 1.2, norm)
 	
