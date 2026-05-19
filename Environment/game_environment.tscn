@@ -59,7 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://b73h248sev562" path="res://Environment_Models/Lightbulb/bulb.tscn" id="79_t3cjn"]
 [ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="80_o2313"]
 [ext_resource type="PackedScene" uid="uid://cyko7ihc5ydea" path="res://Environment_Models/Torch/torchfence.tscn" id="81_ai0fe"]
-[ext_resource type="PackedScene" uid="uid://bjglgly12ju48" path="res://Items/Shelf/shelf_with_jars.tscn" id="82_y0fwp"]
+[ext_resource type="PackedScene" path="res://Environment_Models/shelf_with_jars.tscn" id="82_y0fwp"]
 
 [sub_resource type="Animation" id="Animation_5ipks"]
 length = 0.001

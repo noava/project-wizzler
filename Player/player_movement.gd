@@ -73,7 +73,6 @@ func footsteps_handle(delta):
 		play_footstep()
 
 func update_footstep_sounds():
-
 	if Input.is_action_pressed("sprint"):
 		footstep_interval = sprint_interval
 		audio.pitch_scale = 1.5
@@ -86,7 +85,6 @@ func update_footstep_sounds():
 		
 	footstep_timer = 0
 	
-
 func play_footstep():
 	if audio.playing:
 		return
@@ -94,12 +92,10 @@ func play_footstep():
 		audio.stream = inwater_sound
 	else:
 		audio.stream = footstep_sound
-
 	audio.volume_db = -16
 	audio.bus = "Ambient"
 	audio.play()
 	footstep_timer = max(footstep_interval, audio.stream.get_length())
-
 func _process(delta):
 	RenderingServer.global_shader_parameter_set("player_position",global_transform.origin)
 	if movement_lock: return
