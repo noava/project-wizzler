@@ -117,7 +117,7 @@ draw_pass_1 = SubResource("SphereMesh_oalm5")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=22418131]
 stream = ExtResource("3_5jyab")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [editable path="HerringModel"]
