@@ -17,6 +17,7 @@ func _on_start_btn_pressed() -> void:
 	Global.imagesTaken = []
 	Global.animals_found = []
 	Global.camera_in_inv = false
+	Global.species_set = {}
 
 	# Show video
 	if transitioning:
