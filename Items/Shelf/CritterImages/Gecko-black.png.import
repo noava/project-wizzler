@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dabemk1csvybe"
-path="res://.godot/imported/Gecko-black.png-b54fe6118dc307d85f15ac5759dc49a9.ctex"
+path="res://.godot/imported/gecko-black.png-82b3d3bdba2f192880156d5b219da8a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Shelf/CritterImages/Gecko-black.png"
-dest_files=["res://.godot/imported/Gecko-black.png-b54fe6118dc307d85f15ac5759dc49a9.ctex"]
+source_file="res://Items/Shelf/CritterImages/gecko-black.png"
+dest_files=["res://.godot/imported/gecko-black.png-82b3d3bdba2f192880156d5b219da8a8.ctex"]
 
 [params]
 
