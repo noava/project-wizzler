@@ -546,6 +546,9 @@ transform = Transform3D(2.27507, 0, 1.5976411, 0, 2.78, 0, -1.5976411, 0, 2.2750
 [node name="Rock52" parent="Nature/ROCKS_TERRAIN" unique_id=1581211145 instance=ExtResource("31_0tu88")]
 transform = Transform3D(12.197344, 6.608935, -2.7361255, -3.1663659, 9.838733, 9.649512, 6.413932, -7.71109, 9.966955, -138.1318, 23.95639, -111.38272)
 
+[node name="rock_6" parent="Nature/ROCKS_TERRAIN" unique_id=1015356687 instance=ExtResource("28_w5q4k")]
+transform = Transform3D(-1.2260766, 0, 1.0434731, 0, 1.61, 0, -1.0434731, 0, -1.2260766, -70.47121, 31.049606, -73.9627)
+
 [node name="ROCKS_SMALL" type="Node3D" parent="Nature" unique_id=397290257]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8146973e-06, 0, -3.8146973e-06)
 
