@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bw5mt7jwcp2ep"]
 
 [ext_resource type="Script" uid="uid://cvo1ljw22plor" path="res://Environment/main.gd" id="1_xtowx"]
+[ext_resource type="ArrayOccluder3D" uid="uid://d2j01cy0lymtx" path="res://Environment/environment_occlusion_bake.occ" id="2_g0tg6"]
 [ext_resource type="Texture2D" uid="uid://cv3s01hfd21mk" path="res://Environment_Models/Textures/sky_47_2k.png" id="2_kk70s"]
 [ext_resource type="Shader" uid="uid://c383aoi6glt2j" path="res://Environment_Models/Shaders/ocean_shader.gdshader" id="3_o43pm"]
 [ext_resource type="Script" uid="uid://dnuw71p14o451" path="res://Menu/skybox_rotate.gd" id="3_u2ieb"]
@@ -69,8 +70,6 @@
 [ext_resource type="PackedScene" uid="uid://nt771jb35x5k" path="res://Items/BulletinBoard/Paper/paper.tscn" id="80_o2313"]
 [ext_resource type="PackedScene" uid="uid://cyko7ihc5ydea" path="res://Environment_Models/Torch/torchfence.tscn" id="81_ai0fe"]
 [ext_resource type="PackedScene" uid="uid://b4ifv0g16i05v" path="res://Items/Shelf/shelf_with_jars.tscn" id="82_y0fwp"]
-
-[sub_resource type="QuadOccluder3D" id="QuadOccluder3D_5ipks"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5ipks"]
 panorama = ExtResource("2_kk70s")
@@ -159,8 +158,7 @@ script = ExtResource("1_xtowx")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=273012013]
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1483332745]
-visible = false
-occluder = SubResource("QuadOccluder3D_5ipks")
+occluder = ExtResource("2_g0tg6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1132971695]
 environment = SubResource("Environment_y3ud2")
