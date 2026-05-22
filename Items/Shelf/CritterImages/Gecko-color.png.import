@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btuyj5e61a16p"
-path="res://.godot/imported/Gecko-color.png-27b3a403b0a9d5a9d5360377f212ed59.ctex"
+path="res://.godot/imported/gecko-color.png-08c0a9bdabc4baa16b25cac36cd353ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Shelf/CritterImages/Gecko-color.png"
-dest_files=["res://.godot/imported/Gecko-color.png-27b3a403b0a9d5a9d5360377f212ed59.ctex"]
+source_file="res://Items/Shelf/CritterImages/gecko-color.png"
+dest_files=["res://.godot/imported/gecko-color.png-08c0a9bdabc4baa16b25cac36cd353ee.ctex"]
 
 [params]
 
