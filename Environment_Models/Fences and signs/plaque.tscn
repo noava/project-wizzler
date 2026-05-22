@@ -47,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_36oun")
 size = Vector3(0.23339844, 2.6000977, 0.2489624)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbmug"]
-size = Vector3(0.115478516, 1.2872438, 2.5423126)
+size = Vector3(0.115478516, 1.2872438, 2.2087402)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3btqr"]
 size = Vector3(0.111572266, 0.2713623, 2.1397705)
@@ -67,19 +67,19 @@ transform = Transform3D(0.5170102, -0.14693978, 0.15072602, 0, 0.90856075, 0.363
 mesh = SubResource("ArrayMesh_mk18u")
 skeleton = NodePath("")
 
-[node name="postLp" parent="." index="2" unique_id=16872389]
+[node name="postLp" parent="." index="2" unique_id=1836412273]
 transform = Transform3D(0.7316067, 0, 0, 0, 1.121652, 0, 0, 0, 0.7316067, 0.014958862, 1.1444337, 9.284297e-05)
 
-[node name="Cube_001" parent="." index="3" unique_id=1061102455]
+[node name="Cube_001" parent="." index="3" unique_id=1303507670]
 transform = Transform3D(0.04214241, 0.25924185, 0, -0.018929273, 0.57715255, 0, 0, 0, 1.1000677, -0.14093053, 2.25676, 0)
 
-[node name="postLp_002" parent="." index="4" unique_id=885959948]
+[node name="postLp_002" parent="." index="4" unique_id=900453110]
 transform = Transform3D(0.41146526, 6.910084e-08, -0.40538725, -0.19988753, 1.1060545e-07, -0.8344831, -6.8165065e-09, 0.9277396, 1.2968182e-07, 0.044670083, 2.413285, 9.28315e-05)
 
-[node name="postLp_003" parent="." index="5" unique_id=2109378345]
+[node name="postLp_003" parent="." index="5" unique_id=1637798683]
 transform = Transform3D(0.41146526, 6.910084e-08, -0.40538725, -0.19988753, 1.1060545e-07, -0.8344831, -6.8165065e-09, 0.9277396, 1.2968182e-07, -0.23410569, 1.7960986, -0.015248495)
 
-[node name="postLp_004" parent="." index="6" unique_id=1776226074]
+[node name="postLp_004" parent="." index="6" unique_id=959176080]
 transform = Transform3D(0, -0.15152064, 0, 0.49825096, 0, 0, 0, 0, -0.49825096, -0.19177228, 1.7733568, 9.284297e-05)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="7" unique_id=7391705]
@@ -89,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0073242188, 1.161377, -0.00
 shape = SubResource("BoxShape3D_fia4m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=942531534]
-transform = Transform3D(0.9090544, 0.41667747, 0, -0.41667747, 0.9090544, 0, 0, 0, 0.8663897, -0.1421786, 2.249366, -0.00085281953)
+transform = Transform3D(0.9090544, 0.41667747, 0, -0.41667747, 0.9090544, 0, 0, 0, 1, -0.1421786, 2.249366, -0.00085281953)
 shape = SubResource("BoxShape3D_wbmug")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=1490522074]
@@ -106,17 +106,21 @@ shape = SubResource("BoxShape3D_kjxq6")
 
 [node name="Label3D" type="Label3D" parent="." index="8" unique_id=420262397]
 transform = Transform3D(-4.0087787e-08, 0.398653, -0.9171017, 1.7425673e-08, 0.9171018, 0.398653, 0.9999999, -2.3150999e-17, -4.3711378e-08, -0.016639825, 2.6648808, 6.910812e-11)
-modulate = Color(0.5211406, 0.52114064, 0.52114046, 1)
+pixel_size = 0.001
+modulate = Color(0.23031491, 0.23031494, 0.23031494, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "MYSTERIOUS SHRINE"
 font = ExtResource("2_fia4m")
+font_size = 140
 
 [node name="Label3D2" type="Label3D" parent="." index="9" unique_id=1780406268]
 transform = Transform3D(-4.0087787e-08, 0.4100185, -0.91207707, 1.7425673e-08, 0.9120772, 0.4100185, 0.9999999, 5.4317617e-10, -4.3708003e-08, -0.22019827, 2.1966608, 6.795079e-11)
-modulate = Color(0.47397572, 0.47397572, 0.47397572, 1)
+pixel_size = 0.001
+modulate = Color(0.23137255, 0.23137255, 0.23137255, 1)
 outline_modulate = Color(0.34509805, 0.34509805, 0.34509805, 0)
 text = "Archeologists have no idea what
 this was used for.
 But maybe it was used in some
 sort of sacrifice."
 font = ExtResource("2_fia4m")
+font_size = 150
